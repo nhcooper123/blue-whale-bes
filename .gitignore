@@ -2,3 +2,70 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Raw data and idiocy prevention#
+*.xlsx
+*.xls
+*.doc
+*.docx
+*.pptx
+*.ppt
+*.rtf
+
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+*.log
+*.sql
+*.sqlite
+
+# LaTeX #
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fff
+*.lof
+*.lot
+*.out
+*.toc
+*.ttt
+*.fdb_latexmk
+*.pdf
+*.fls
+
+# beamer
+*.nav
+*.snm
+
+# OS generated files #
+*.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# R #
+*.Rhistory
+*.Rapp.history
+
+# *.\#*
+# \#*\#
+
+ignore/
+*.Rcheck/
