@@ -300,7 +300,7 @@ best_rep_plot <- ggplot(best_rep_lo, aes(days, lo)) +
   theme_classic(base_size = 14)
 print(best_rep_plot)
 
-fn <- paste0("figures/migratory-model-rep-", do.this.rep,"d13C.png")
+fn <- paste0("figures/migratory-model-rep-", do.this.rep,"-d13C.png")
 
 ggsave(fn, best_rep_plot, device = png(width = 600, height = 400))
 
