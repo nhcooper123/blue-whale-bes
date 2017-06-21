@@ -63,15 +63,19 @@ KC7$rev_days <- rev_days
 KC7$date <- sample_date
 KC7$year <- year(sample_date)
 
-# calculate a rolling mean to identify the changes between years
 
-idx_new_year <- c(0, diff(KC7$year))
+new_years <- with(KC7, seq(min(year), max(year), by = 1))
 
-KC7$day_new_year <- days * idx_new_year - 
-  (idx_new_year * 0.5 * samp_resolution * 365.25 / growth_rate)
+new_years_chr <- paste(new_years, "01", "01", sep = "-")
 
-KC7$samp_new_year <- KC7$Samp.No * idx_new_year - 
-  (idx_new_year * 0.5)
+new_years_date <- as.Date(new_years_chr)
+
+new_years_day <- tail(KC7$days,1) - 
+  (as.numeric(last_sample - new_years_date ))
+
+new_years_samp <- round(new_years_day[2:length(new_years_day)] * growth_rate / 
+                          (samp_resolution * 365.25))
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -104,8 +108,7 @@ isop <- isop +
     sec.axis = sec_axis(~.+v_shift, 
                         name = expression(paste(delta^{15}, "N (\u2030)"))))
 
-isop <- isop + geom_vline(xintercept = 
-                            with(KC7,samp_new_year[samp_new_year > 0]),
+isop <- isop + geom_vline(xintercept = new_years_samp,
                           color = "grey", lty = 2)
 
 print(isop)
@@ -231,8 +234,8 @@ tmp <- resTrack %>% group_by(Rep) %>%
 
 # data required to add a vertical line indicating the start of migration
 migrate <- as.Date("1889-06-01")
-strand_to_migrate <- tail(KC7$date,1) - migrate
-migrate_day <- tail(KC7$days,1) - strand_to_migrate
+first_sim_day <- as.Date("1885-01-01")
+migrate_day <- as.numeric(migrate - first_sim_day)
 
 # plot the daily tracks
 track_plot <- ggplot(tmp, aes(days, lo, group = Rep)) 
@@ -240,8 +243,17 @@ track_plot <- ggplot(tmp, aes(days, lo, group = Rep))
 # add the vertical line where migration starts in the simulations
 track_plot <- track_plot + geom_vline(xintercept = as.numeric(migrate_day),
                                       lty = 2,
-                                      color = "grey",
+                                      color = "black",
                                       size = 1)
+
+# add the vertical lines for new years
+# overkill code!.. the sim is in days of course, so 
+# new years every 365 days. doh. Except im going
+# to be a pedant and stick with it because of leap years.
+new_years_sim_day <- as.numeric(new_years_date - first_sim_day)
+
+track_plot <- track_plot + geom_vline(xintercept = new_years_sim_day,
+                                      color = "grey", lty = 2)
 
 # add the simulated d13C data
 track_plot <- track_plot  + geom_line(col = viridis(3)[2], alpha = 0.25) + 
