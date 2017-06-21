@@ -62,8 +62,8 @@ nor_plot <- ggplot(resNor, aes(Day.No, lo, group = Rep)) +
 
 print(nor_plot)
 
-ggsave("figures/Figure-S4a-norway-resident-model-d13C.png", nor_plot, 
-       device = png(width = 600, height = 400))
+# ggsave("figures/Figure-S4a-norway-resident-model-d13C.png", nor_plot, 
+#        device = png(width = 600, height = 400))
 
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -83,8 +83,8 @@ ire_plot <- ggplot(resIre, aes(Day.No, lo, group = Rep)) +
 
 print(ire_plot)
 
-ggsave("figures/Figure-S4b-ireland-resident-model-d13C.png", ire_plot, 
-       device = png(width = 600, height = 400))
+# ggsave("figures/Figure-S4b-ireland-resident-model-d13C.png", ire_plot,
+#        device = png(width = 600, height = 400))
 
 
 
@@ -109,8 +109,8 @@ can_plot <- ggplot(resCan, aes(Day.No, lo, group = Rep)) +
 
 print(can_plot)
 
-ggsave("figures/Figure-S4c-canada-resident-model-d13C.png", can_plot, 
-       device = png(width = 600, height = 400))
+# ggsave("figures/Figure-S4c-canada-resident-model-d13C.png", can_plot, 
+#        device = png(width = 600, height = 400))
 
 
 
@@ -131,8 +131,8 @@ MidAtl_plot <- ggplot(resMidAtl, aes(Day.No, lo, group = Rep)) +
 
 print(MidAtl_plot)
 
-ggsave("figures/Figure-S4d-mid-atlantic-resident-model-d13C.png", MidAtl_plot, 
-       device = png(width = 600, height = 400))
+# ggsave("figures/Figure-S4d-mid-atlantic-resident-model-d13C.png", MidAtl_plot, 
+#        device = png(width = 600, height = 400))
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -230,6 +230,6 @@ sim_facet <- sim_facet + facet_wrap(~Region, ncol = 2)
 
 print(sim_facet)
 
-ggsave("figures/Figure-S4-facet-wrap-d13C.png", sim_facet, 
+ggsave("manuscript/figures/Figure-S4-facet-wrap-d13C.png", sim_facet, 
        device = png(width = 600, height = 400))
 

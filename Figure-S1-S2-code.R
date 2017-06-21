@@ -77,7 +77,8 @@ KC7$samp_new_year <- KC7$Samp.No * idx_new_year -
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-png(filename = "figures/Figure-S1-periodograms.png", width = 1000, height = 600)
+png(filename = "manuscript/figures/Figure-S1-periodograms.png", 
+    width = 1000, height = 600)
 
 par(mfrow = c(2,2))
 
@@ -102,7 +103,8 @@ TSA::acf(cbind(KC7$d13C[1:60], KC7$d15N[1:60]), main = "Oldest 60cm")
 TSA::acf(cbind(KC7$d13C[61:n], KC7$d15N[61:n]), main = "Youngest 20cm")
 
 # save to file
-png(filename = "figures/Figure-S2-cross-cor.png", width = 1000, height = 600)
+png(filename = "manuscript/figures/Figure-S2-cross-cor.png", 
+    width = 1000, height = 600)
 
 par(mfrow = c(1,2))
 TSA::acf(cbind(KC7$d13C[1:60], KC7$d15N[1:60]), main = "Oldest 60cm")

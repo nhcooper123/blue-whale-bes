@@ -113,7 +113,7 @@ isop <- isop + geom_vline(xintercept = new_years_samp,
 
 print(isop)
 
-ggsave("figures/Figure-1a-raw-dC-dN-data.png", isop, 
+ggsave("manuscript/figures/Figure-1a-raw-dC-dN-data.png", isop, 
        device = png(width = 600, height = 400))
 
 # with(KC7, day_new_year[day_new_year > 0]))
@@ -194,7 +194,7 @@ mp2 <- mp2 + theme(axis.line  = element_blank(),
 
 print(mp2)
 
-ggsave("figures/Figure-1b-migratory-model-full-map.png", mp2, 
+ggsave("manuscript/figures/Figure-1b-migratory-model-full-map.png", mp2, 
        device = png(width = 600, height = 600, units = "px"))
 
 
@@ -291,7 +291,7 @@ track_plot <- track_plot + geom_point(data = KC7,
 
 print(track_plot)
 
-ggsave("figures/Figure-1c-migratory-model-d13C.png", track_plot, 
+ggsave("manuscript/figures/Figure-1c-migratory-model-d13C.png", track_plot, 
        device = png(width = 600, height = 400))
 
 
