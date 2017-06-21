@@ -82,7 +82,7 @@ point_size <- 4
 
 isop <- ggplot(KC7, aes(x = Samp.No)) + 
   theme_classic(base_size = 16) + 
-  xlab("Sample (first sample most recent)") + 
+  xlab("Baleen sample (cm from youngest sample)") + 
   scale_x_continuous(breaks = seq(0,80,20), 
                      labels = seq(80,0,-20))
 
@@ -202,6 +202,12 @@ ggsave("figures/Figure-1b-migratory-model-full-map.png", mp2,
 # ----
 # Panel C
 
+
+
+
+# create a vector of dates corresponding to each day
+resTrack$rev_days <- resTrack$Day.No - max(resTrack$Day.No)
+resTrack$date     <- as.Date(resTrack$rev_days, origin = last_sample)
 
 # set the constant to add as a correction to the d13C data
 cnst <- 6
