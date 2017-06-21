@@ -9,95 +9,195 @@
 \pagenumbering{arabic}    
 \linespread{1.66}
 
-%Contact: h.gee#nature.com*
-
 % Title page information
 \title{Reconstructing the last known movements of one of Nature's giants}
 % 90 characters max
 
 \author{
-  Natalie Cooper$^{1}$ Jackson2, Trueman3 and Katharyn Sarah Chadwick3, Coombs1,4, Sabin1 in some order
+  Natalie Cooper$^{1*}$ Andrew L. Jackson$^{2}$, Katharyn S. Chadwick$^{3}$,\\ Ellen J. Coombs$^{1,4}$,
+  Richard C. Sabin$^{1}$ and Clive N. Trueman$^{3}$ 
 }
 \date{}
 \affiliation{\noindent{\footnotesize
-  $^1$ Department of Life Sciences, Natural History Museum London, Cromwell Road, London, SW7 5BD, UK. natalie.cooper@nhm.ac.uk. Fax: +44 1 677 8094; Tel: +44 1 896 5083.\\ 
-  $^2$ National Oceanographic Centre, University of Southampton, Southampton, UK.\\
-  $^3$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland. a.jackson@tcd.ie. \\
-  $^4$ UCL\\
+  $^1$ Department of Life Sciences, Natural History Museum London, Cromwell Road, London, SW7 5BD, UK.\\ 
+  $^2$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\
+  $^3$ National Oceanographic Centre, University of Southampton, Southampton, UK.\\
+  $^4$ University College London, Gower Street, London, WC1E 6BT, UK.\\
 }}
 
 \vfill
 
 %\runninghead{}
-%\keywords{}\\
+%\keywords{}
+%}
 
 % End of preamble
 
 \begin{document}
 \modulolinenumbers[1]   % Line numbering on every line
 
-%\mstitlepage
+\mstitlepage
 
 \parindent = 1.5em
 \addtolength{\parskip}{.3em}
 % Abstract 200 -300 words max
-\section{Abstract}
+% \section{Abstract}
 % general topic intro - 1 sentence
 % intro to field - 2 sentences
 % what we find/show - 1 sentence
 % implications - 2-3 sentences. Results in context, how has the paper moved the field forward
 
-Over 50 years since the International Whaling Commission banned the hunting of blue whales (\textit{Balaenoptera musculus}), North Atlantic stocks are still at only X\% of pre-whaling levels.
-Conservation efforts are hampered by the scarcity of detailed data on blue whale distribution, behaviour and ecology, for both historical and present-day populations.
-Here we use $\delta^{13}C$ stable isotopes from the baleen of the Natural History Museum's iconic blue whale, along with new movement models, to extract high resolution movement behaviour data for an animal that died over 125 years ago. 
-We reconstructed the movements of the blue whale over the final years of its life, and show that it migrated rather than remaining resident in the northern Atlantic year round. 
-This is the first quantitative evidence of historical migrations in blue whales.
-Our new model provides a way to investigate migration across marine vertbrates and highlights the unique opportunities provided by museum collections for inferring past animal movements.
-% About 50 words more
+\paragraph{Understanding animal movements is crucial for effective conservation, especially as species ranges shift due to climate change [1,2]. 
+Current methods for monitoring movement behaviours are often expensive, and do not provide information on historical or long-term range movements.
+Animal tissues housed in museum collections present an alternative, providing biochemical records of behaviour that can be used to reconstruct historical individual-level movements relatively inexpensively [3]. 
+Here we combine stable isotope analyses of baleen with novel agent-based simulation models, to reconstruct the last years of an iconic blue whale (Balaenoptera musculus) that stranded off Ireland in 1891 and is now on display at the Natural History Museum, London (NHM). 
+We recover individual-level movement information at high temporal resolution over six years and show distinct periods of foraging and short distance north-south migrations in sub-Arctic waters and calving in subtropical waters. 
+We also detect isotopic signatures consistent with pregnancy and lactation in the year before the whale's death. 
+These results supply the first quantitative evidence of historical migrations in blue whales, and suggest that blue whale residency and movement patterns in the North Atlantic have remained similar for hundreds of years, despite changing human pressures in the region. 
+Historic tissue collections can provide unique insight into individual-level movement behaviours associated with changing climatic, ecological conditions and human-induced pressures, and reveal aspects of life history. 
+Combining biochemical tracers with simulation modeling unlocks the information recorded in these irreplaceable archives.}
 
-
-\section{Main text}
+%\section{Main text}
 % 1500 words max (excludes refs title, authors, abstract, acknowledgements)
+\newpage
 
-In 1891, a 25m long female blue whale beached off the coast of Wexford in Ireland. 
-In 2017, her skeleton will go on display in the Natural History Museum's (NHM) rennovated Hintze Hall, making her the most famous whale in the UK, if not the world. 
-Ironically, we know very little about this animal, or the species as a whole. 
+Migratory species pose a particular challenge for conservation practitioners, because their effective conservation relies on protection at many, often very distant, sites [1]. 
+Such species are also likely to be particularly vulnerable to climate change, as changes may impact various parts of their life cycle [2]. 
+Dealing with these issues is difficult due to the relative scarcity of information on species movements over multiple years, for both historical and present-day populations, particularly for wide-ranging marine species [Ryan et al 2013; Hall-Aspland 2005; Bailey et al 2009]. 
+ 
+The blue whale (Balaenoptera musculus), the largest animal to have ever lived on Earth, is one such migratory marine species. 
+Despite blue whale hunting being banned for over 50 years, blue whales are still listed as Endangered by the IUCN Red List (Reilly et al 2008).
+Conservation efforts are hampered by the scarcity of detailed data on blue whale distribution, behaviour and ecology, for both historical and present-day populations. 
+Current methods for tracking large whales include satellite tracking, radio tagging, aerial photography, passive acoustic monitoring, and sightings records (Borger 2015; others if space refs MCdonald et al 2006 already used ?silva paper). 
+These methods are adding vital behavioural data to our understanding of whale movements, however, they are expensive, often limited to short-term studies on few individuals (Bailey et al 2009; Best et al 2015; Mate et al 2007), and may influence whale behaviour (walker et al 2012). 
+An alternative technique is to investigate oscillations in stable isotopes values of whale tissues housed in museum collections (Ryan et al 2013).
+This is a non-invasive method that provides individual-level movement information at high temporal resolution over multiple years. 
+Here we apply this method to baleen from the Natural History Museum's blue whale.
+ 
+Baleen is formed of plates of keratin and is used by mysticete whales to filter feed. 
+It is ideal for stable isotope studies because keratin grows continuously through an individual's life, and once laid down it is metabolically inert (Best and Schell 1996). 
+We sampled keratin from the blue whale’s baleen plate at 1cm intervals and used continuous-flow isotope ratio mass spectrometry to extract $delta^13C$ and $delta^15N$ isotope concentrations. 
+Given the date of stranding (25th March 1891), and estimated baleen growth rates of $13.5 cm y^-1$ (see Supplemental Methods), we reconstructed a timeline for $delta^13C$ and $delta^15N$ fluctuations in the baleen over the last six years of whale’s life (autumn 1885 - spring 1891). The $delta^13C$ and $delta^15N$ profiles show two distinct phases in the whale's behaviour. 
+In behavioural phase one (month 1885 to May 1889), we find strong cyclical fluctuations in both $delta^13C$ and $delta^15N$ values of an approximately yearly periodicity (Fig. 1). $delta^13C$ and $delta^15N$ exhibit strong negative covariance. 
+In behavioural phase two (June 1889 to March 1891) we see a sharp uptick in $delta^13C$, followed by high and relatively constant $delta^13C$ values. 
+This is associated with an overall reduction in $delta^15N$ values and a weakening of the periodic $delta^15N$ fluctuations seen in behavioural phase one. There is also no covariance between $delta^13C$ and $delta^15N$ (Fig. 1). 
 
-Using stable isotpes (more detail) and a novel model of whale movement that incorporates X, Y and Z (see SI) we were able to trace the most likely movement history of the NHM blue whale. The models do this. We compared these to the carbon traces found for the blue whale (Fig 1C)
+%  \begin{figure}[!htbp]
+%    \centering
+%      \includegraphics[width=12cm]{XXX.pdf}
+%      \caption{}
+%      \label{}
+%  \end{figure}
+ 
+To interpret these isotopic signatures, we simulated time series of $delta^13C$ and $delta^15N$ values expected under differing movement behaviours, by coupling a novel agent-based model of whale movements (see Supplementary Methods) to models of global phytoplankton $delta^13C$ and $delta^15N$ values (Schmittner and Somes; Magozzi et al 2017). 
+We simulated the movement of the whale with the likelihood, direction, and extent of movement influenced by behavioural state, sea surface temperature, water depth and phytoplankton concentration (as a proxy for zooplankton food availability). 
+At each time point and location in the simulations, we extracted phytoplankton $delta^13C$ and $delta^15N$ values from the models (Schmittner and Somes, Magozzi et al 2017) resulting in a range of simulated isotopic profiles for different migration patterns and foraging areas. 
+We then determined which of these simulated profiles were biogeochemically consistent with the isotopic profile of the blue whale’s baleen (Fig. 1) and use this to interpret the results.
+ 
+During behavioural phase one, the whale is foraging at high northern latitudes, likely off the coast of Norway. 
+The pronounced cyclical variations in $delta^13C$ values are characteristic of the isotopic expression of the spring phytoplankton bloom in northern waters (Magozzi et al 2017). 
+This interpretation is also consistent with the relatively negative median $delta^13C$ values (Fig. 1). 
+The periodicity of $delta^13C$ and $delta^15N$ values is explained by short distance seasonal migrations, with the whale overwintering off the coast of Ireland. 
+The relatively positive and invariant $delta^13C$ values seen during behavioural phase two are found in subtropical areas, particularly off the coast of the Azores, suggesting the whale migrated rapidly to southerly latitudes in early 1889, but continued feeding (other mysticete whales fast during migrations, but blue whales are too large to stop feeding for long periods; Busquets-Vass 2017 ?silva paper). 
+The whale remained in these warm waters for over a year and was returning to her northern feeding grounds when she became stranded. 
+ 
+Movement to warm waters alone, however, cannot explain the dramatic increase in $delta^13C$ values at the start of behavioural phase two. 
+We believe that this reflects the physiological demands of pregnancy, as similar increases in $delta^13C$ values have been seen in pregnant South American sea lions (Cardona et al 2017). 
+The gradual increase in $delta^15N$ values to the autumn of 1890 is consistent with the isotopic expression associated with lactation (Cardona et al 2017). Blue whales have a 10-12 month gestation period, and calves are weaned after 6-7 months (Wilson  Mittermeier 2014). 
+The proposed timescale of pregnancy around early spring 1889, birth in spring 1890, lactation through summer 1890 and return to northern feeding grounds in early 1891 is therefore fully consistent with the known reproductive ecology of blue whales. 
+This is the first quantitative evidence of historical movement patterns in blue whales, and reveals a fascinating snapshot into the life of an iconic specimen, where we previously only knew the date and location of its death. 
+ 
+Conventional wisdom suggests that baleen whales migrate each year from feeding grounds near the poles in summer, to overwintering and breeding grounds nearer the equator [Corkeron  Connor 1999; Lockyer and Brown 1981]. 
+However, a growing body of evidence suggests that not all whales migrate to subtropical waters each year, with some remaining at high latitudes year round (McDonald et al 2006). Our results support this conclusion. 
+Interestingly, there is still a resident population of blue whales in the region our models place the blue whale within, and females still breed in the subtropical waters near the Azores (Reilly et al 2008). 
+This suggests that whale movements have remained similar over hundreds of years, despite changes in anthropogenic pressures. Whaling was an intense pressure for blue whales during the period we are analysing. 
+Before whaling in the North Atlantic began in 1868 (Reilly et al 2008), there were 10,000-15,000 blue whales in the region (Sigurrjonson 1995). 
+By 1900 fisheries had moved outside the area because stocks were so depleted [Reilly et al 2008]; during this period over 12,000 blue whales were landed (Sigurrjonson 1995). 
+The NHM blue whale thus represents an individual from a species at the brink of extinction. 
+Blue whales were the first species that humans legislated to save, and represent a big conservation success story, although North Atlantic stocks have not recovered to the same extent as other whales in the region (Pike 2009, Sigurrjonson 1995). 
+There is also evidence that blue whales are shifting their ranges due to warming waters off Iceland (Vikingsson et al 2015). 
+Thus understanding historical movements of North Atlantic blue whales has never been more vital if we wish to preserve them for future generations.
+ 
+In conclusion, the model we present here allows us to recreate individual-level movement behaviours and life history using tissues from museum collections and other sources. 
+This has applications beyond this individual whale, and beyond cetaceans, as our model can be applied to any marine species with constantly growing tissues, for example seal whiskers, shark skin, and fish scales. 
+These techniques can also allow us study extinct species' behaviours and understand how populations were affected by past pressures such as hunting, and present-day pressures such as global change. 
+Finally, our results highlight that museums represent a vast, mostly untapped, treasure trove of information ready for us to explore.
 
-This basic lack of understanding is even scarier
-
-Whaling was an intense pressure for whales during this period. The first blue whale fisheries began in XXX, but by 1900 fisheries had moved outside the area because stocks were so depleted. Before whaling, blue whale densities in the North Atlantic are estinated at X-X (depending on the methods used), but by 1900 it is likely that only a few hundred whales were left. The NHM blue whale thus represents an individual from a species at the brink of extinction. Blue whales were the first species that humans legislated to save, and represent a big conservation success story, with numbers of some populations appearing to recover to pre whaling levels.
-
-Even today, high resolution behavioural information for large baleen whales (Balaenopteridae), and cetaceans in general, is rare, particularly for populations in the North Atlantic (by contrast, Pacific populations are more extensively studied, and patches of the North Atlantic are well studied, for example off Iceland)
-
-Our findings have implications beyond this individual whale, and beyond cetaceans. Our models allow us  to ID migrating vs resident pops. Can be used for otehr stuff from whales to seals to sharks. immensely valuable.
 
 \section{Methods (condensed)}
 %<3000 words
 % no figures no tables
 
+\subsection{Stable isotope extractions from baleen}
+Baleen was collected from the Natural History Museum, London (specimen BMNH.1892.3.1.1). 
+The baleen plate was cleaned with ethanol to remove surface contaminants. 
+$~$1mg samples of keratin powder were then collected from the plate using a hand-held drill and grinding bit. 
+78 samples were taken at 1cm intervals, 0.5cm from the outer edge of the plate, starting at the proximal section which contains the most recent tissue. 
+Baleen grows at a constant rate, so the samples are equally spaced through time (Best and Schell 1996). Carbon and nitrogen isotope analysis was performed simultaneously via continuous-flow isotope ratio mass spectrometry at the National Oceanographic Centre (Southampton, UK), using a Vario Isotope select elemental analyser, coupled with Isoprime 100 isotope mass spectrometer. 
+Replicates using internal laboratory standards (L-glutamic acid (C), Glutamic acid (CT standard), acetanilide and protein standard OAS) were used for quality control and calibration. 
+C:N ratios for samples ranged from 3.28$‰$ to 3.72$ppm$, well within the acceptable theoretical range for pure keratin ($3.4\pm0.5$) allowing for comparison among samples (Hobson  Koch 1998). 
+ 
+\subsection{Time calibrating stable isotope profiles}
+Seasonal migrations across isotopic gradients induce cyclical variations in the isotopic composition of baleen, the distance between cycles reflecting growth rates  (Hobson and Schell, 1987, Busquets-Vass et al 2017). 
+Clear periodicity was evident in $delta^15N$ values across the entire baleen plate, and in $delta^13C$ values in the most distal (oldest) 65cm of the plate. 
+We calculated isotopic periodicity within the baleen sample using Fourier Transform analysis (Cardona et al 2017), revealing a consistent growth rate of 13.5cm $y^-1$ which is remarkably similar to the mean isotope-derived baleen growth rates of $15.5 \pm 2.2cm y^-1$ estimated for six blue whales from the Californian Pacific (Busquets-Vass et al 2017).  
+Therefore we dated the youngest baleen sample as 1st March 1891, 24 days prior to the stranding date, 25th March 1891. Cross-correlation analysis (ref?) demonstrated a strong negative covariance between $delta^13C$ and $delta^15N$ values within behavioural phase one (oldest 60cm of the baleen plate), but no relationship between $delta^13C$ and $delta^15N$ values during behavioural phase two.
+ 
+\subsection{Baseline isotope comparisons}
+Isotope-enabled biogeochemical ocean models (Schmittner and Somes, Magozzi et al 2017) were used to characterize the isotopic composition of phytoplankton expected in different potential foraging grounds. Annual average $delta^15N$ POM (particulate organic matter) values were provided by Somes (pers.comm) based on a 5$^{circ}$ resolution biogeochemical model. $delta^13C$ POM values were simulated at 1$^{circ}$ and monthly resolution using an isotopic extension to the NEMO-MEDUSA ocean biogeochemical model (Magozzi et al 2017, Yool et al 2013). 
+Simulated  $delta^15N$ POM values are relatively positive in the northeast Atlantic north of c. 60$^{circ}$N, and relatively negative in the central and southern North Atlantic. Annual average $delta^13C$ POM values largely vary with latitude, with more negative values in more northerly regions. In the central North Atlantic, $delta^13C$ POM values are relatively positive in the west, reflecting warm gulf stream waters (Fig S3). 
+The isotopic composition of carbon in phytoplankton also varies through seasons as isotopic fractionation of carbon during photosynthesis is strongly influenced by sea surface temperature (Laws, Magozzi et al 2017). 
+Thus temporal variations in $delta^13C$ POM values were superimposed on latitudinal gradients. 
+The scale and nature of temporal variation in $delta^13C$ POM values also varies with latitude, with higher latitude seas showing greater intra-annual variation in $delta^13C$ POM values linked to strongly seasonal phytoplankton growth dynamics. 
+We therefore used monthly simulated $delta^13C$ POM values to simulate the isotopic expression of phytoplankton expected to be encountered by whales exhibiting differing movement behaviours.
+ 
+\subsection{Agent-based whale movement model}
+Movement was coded as set of probabilistic rules. 
+The parameters for these were taken from the literature on blue whale behaviour (e.g. Wilson  Mittermeier 2014). 
+All terms were expressed as probability distributions allowing us to introduce individual variability. 
+ 
+In the models, the likelihood of movement, direction (north, south, east, west, northeast, northwest, southeast, or southwest) and extent (1$^{circ}$ or 2$^{circ}$) of movement are all influenced by the following. 
+(i) Behavioural state (migrating north, migrating south, foraging, or nursing). 
+Northerly migrations were possible only in spring, and southerly migrations in autumn. Foraging was possible at anytime of year, and was triggered when whales encountered high concentrations of plankton. Nursing occurred at temperatures between 18 and 25$^{circ}$C only. 
+(ii) Sea surface temperature ($^{circ}$C, Yool et al 2013). 
+When migrating north, whales were more likely to move towards lower temperatures provided they were above the minimum temperature threshold (3$^{circ}$C); whereas whales migrating south sought warmer waters. 
+(iii) Water depth (m; what reference is this collected from?). 
+Whales were less likely to move into waters less than 400m deep, and increasingly unlikely to move into even shallower waters. 
+(iv) Phytoplankton concentration (mmol N m-3, for combined diatom and non-diatom communities, Yool et al 2013). 
+This was included as a proxy for zooplankton food availability. 
+Whales are more likely to move towards (or remain within) areas of high phytoplankton density, particularly during the foraging behavioural state. 
+ 
+We simulated the isotopic expression expected for (a) residency in each known hotspot for blue whale sightings or historic hunting grounds in the North Atlantic (Norwegian/Barents Sea, West Ireland, South Greenland, Nova Scotia/Newfoundland and Canaries/Azores; Fig SX; McDonald et al 2006; Reilly et al 2008; sigurjonsson 1995); (b) seasonal migration between high sub-arctic latitudes and temperate latitudes around the British Isles and (c) seasonal migration between high latitudes and subtropical latitudes. 
+Various movement rules were implemented to avoid simulations ending up on land, or becoming “stuck” in the relatively shallow waters of the Bay of Biscay or the Strait of Dover. 
+For a full description of the model and its parameters see Supplementary Methods. We simulated whale movements XX times for each scenario and residency hotspot. 
+For each movement simulation we extracted phytoplankton $delta^13C$ and $delta^15N$ values at each time point and location from the models described above (Magozzi, Somes). 
+We then compared the simulated stable isotope profiles (Fig. S4) to the profile of the blue whale (Fig. 1).
+ 
 \subsection{Data Availability}
+Data are available on the Natural History Museum, London's data portal (https://data.nhm.ac.uk). 
+R code is available from XXX.
 
 \section{References}
 
-%\bibliographystyle{nature}
-%\bibliography{whale}
+\bibliographystyle{nature}
+\bibliography{blue-whale}
 
 Supplementary Information is linked to the online version of the paper at www.nature.com/nature.
 
 \section{Supplementary Information}
+Supplementary Information is linked to the online version of the paper at www.nature.com/nature.
 
 \section{Acknowledgements}
 % adjectives not allowed!
 This work was funded by the British Ecological Society (grant: 5771/6815). 
 We thank XXX for comments on drafts.
+We thank CJ Somes for providing  δ13C POM data.
 
 \section{Author contributions}
 % rough draft at present feel free to edit
-CT, NC, AJ, RS, and K collected baleen from the NHM collections. 
-K and CT extracted and analysed samples.
-CT created the model.
+CT, NC, AJ, RS, and KC collected baleen from the NHM collections. 
+KC and CT extracted and analysed samples.
+CT created the movement model.
 EC and NC helped parameterise the model.
 AJ created the figures. 
 NC wrote the paper.
@@ -109,13 +209,13 @@ The authors declare no competing financial interests.
 Correspondence and requests for materials should be addressed to natalie.cooper@nhm.ac.uk.
 % One person only allowed
 
-\section{Tables}
+%\section{Tables}
 
-\section{Figure legends}
+%\section{Figure legends}
 
 
-\newpage
-\section{Figures}
+%\newpage
+%\section{Figures}
 
 %  \begin{figure}[!htbp]
 %    \centering
