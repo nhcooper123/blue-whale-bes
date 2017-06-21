@@ -136,6 +136,9 @@ ggsave("figures/Figure-S4d-mid-atlantic-resident-model-d13C.png", MidAtl_plot,
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+# I started doing this with a custom function multiplot, but 
+# swapped to ggplot2::facet_wrap below
+
 # create a multiplot using code from 
 # http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 
@@ -149,57 +152,58 @@ ggsave("figures/Figure-S4d-mid-atlantic-resident-model-d13C.png", MidAtl_plot,
 # then plot 1 will go in the upper left, 2 will go in the upper right, and
 # 3 will go all the way across the bottom.
 #
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL, 
-                      fsave = FALSE, fn = NULL, width = NULL, height = NULL) {
-  library(grid)
-  
-  # Make a list from the ... arguments and plotlist
-  plots <- c(list(...), plotlist)
-  
-  numPlots = length(plots)
-  
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                     ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-  
-  if (numPlots==1) {
-    print(plots[[1]])
-    
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-    
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-      
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-  
-  if (fsave) png(filename = fn, width = width, height = height)
-}
+# multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL, 
+#                       fsave = FALSE, fn = NULL, width = NULL, height = NULL) {
+#   library(grid)
+#   
+#   # Make a list from the ... arguments and plotlist
+#   plots <- c(list(...), plotlist)
+#   
+#   numPlots = length(plots)
+#   
+#   # If layout is NULL, then use 'cols' to determine layout
+#   if (is.null(layout)) {
+#     # Make the panel
+#     # ncol: Number of columns of plots
+#     # nrow: Number of rows needed, calculated from # of cols
+#     layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+#                      ncol = cols, nrow = ceiling(numPlots/cols))
+#   }
+#   
+#   if (numPlots==1) {
+#     print(plots[[1]])
+#     
+#   } else {
+#     # Set up the page
+#     grid.newpage()
+#     pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+#     
+#     # Make each plot, in the correct location
+#     for (i in 1:numPlots) {
+#       # Get the i,j matrix positions of the regions that contain this subplot
+#       matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+#       
+#       print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+#                                       layout.pos.col = matchidx$col))
+#     }
+#   }
+#   
+#   if (fsave) png(filename = fn, width = width, height = height)
+# }
+# 
+# # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# 
+# nor_plot2 <- nor_plot + ggtitle("Norway")
+# ire_plot2 <- ire_plot + ggtitle("Ireland")
+# can_plot2 <- can_plot + ggtitle("Canaries")
+# MidAtl_plot2 <- MidAtl_plot + ggtitle("Mid Atlantic")
+# 
+# all_models_plot <- multiplot(nor_plot2, ire_plot2, can_plot2, MidAtl_plot2, 
+#                              cols = 2, fsave = TRUE, 
+#                              fn = "figures/Figure-S4-all.png",
+#                              width = 600, height = 400)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-nor_plot2 <- nor_plot + ggtitle("Norway")
-ire_plot2 <- ire_plot + ggtitle("Ireland")
-can_plot2 <- can_plot + ggtitle("Canaries")
-MidAtl_plot2 <- MidAtl_plot + ggtitle("Mid Atlantic")
-
-all_models_plot <- multiplot(nor_plot2, ire_plot2, can_plot2, MidAtl_plot2, 
-                             cols = 2, fsave = TRUE, 
-                             fn = "figures/Figure-S4-all.png",
-                             width = 600, height = 400)
-
 # do the same but with facets
 
 res_all <- bind_rows(list(Norway = resNor, 
@@ -207,7 +211,6 @@ res_all <- bind_rows(list(Norway = resNor,
                           Canaries = resCan, 
                           "Mid-Atlantic" = resMidAtl), .id = "Region")
 
-sp + facet_wrap( ~ day, ncol=2)
 
 # same as for norway example above
 tmp <- res_all %>% group_by(Region) %>% group_by(Rep) %>% 
@@ -215,16 +218,18 @@ tmp <- res_all %>% group_by(Region) %>% group_by(Rep) %>%
 
 res_all$lo <- tmp$Z
 
-test_plot <- ggplot(res_all, aes(Day.No, lo, group = Rep)) + 
+sim_facet <- ggplot(res_all, aes(Day.No, lo, group = Rep)) + 
   geom_line(col = viridis(3)[2], alpha = 0.25) + 
   xlab("Time") + 
   ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
-  theme_classic(base_size = 14) + ylim(-25, -14)
+  theme_classic(base_size = 14) + ylim(-25, -14) + 
+  theme(strip.background = element_blank(),
+        strip.text = element_text(size = NULL))
 
-test_plot <- test_plot + facet_wrap(~Region, ncol = 2)
+sim_facet <- sim_facet + facet_wrap(~Region, ncol = 2)
 
-print(test_plot)
+print(sim_facet)
 
-ggsave("figures/Figure-S4-facet-wrap-d13C.png", MidAtl_plot, 
+ggsave("figures/Figure-S4-facet-wrap-d13C.png", sim_facet, 
        device = png(width = 600, height = 400))
 

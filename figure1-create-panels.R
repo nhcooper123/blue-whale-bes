@@ -277,10 +277,56 @@ ggsave("figures/Figure-1c-migratory-model-d13C.png", track_plot,
        device = png(width = 600, height = 400))
 
 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# calculate the correlation between the simulated and observed data
+
+zEmpC <- scale(KC7$d13C)
+zDays <- KC7$days + x_shift # align the days between empirical and simulated
+
+
+# predict the loess on the same days
+
+# a function to build the data.frame from the loess fit
+# I need this here as a new "days" vector has to be 
+# created from the length of the predicted loess object
+predict_loess <- function(df, span = 0.1, newdata = NULL){
+  Z <- predict(loess(df$d13C ~ days, 
+                     span = span), newdata = newdata)
+  
+  out <- data.frame(lo = Z, days = seq(1:length(Z)))
+} # end function
+
+
+zSimC <- resTrack %>% group_by(Rep) %>% do(., data.frame(d13C = scale(.$d13C)))
+
+zSimMatched <- zSimC %>% group_by(Rep) %>% 
+  do(., predict_loess(., span = 0.05, newdata = zDays))
 
 
 
+corEmpSim <- zSimMatched %>% group_by(Rep) %>% 
+  summarise(cor = cor(zEmpC, lo), p = cor.test(zEmpC, lo)$p.value)
 
+hist_cor <- ggplot(corEmpSim, aes(cor)) + 
+  geom_histogram(binwidth = 0.1, color = "black", fill = "grey") + 
+  xlim(-0.5, 1) + theme_classic(base_size = 16) + 
+  xlab("Correlation coefficient") + scale_y_continuous(expand = c(0, 0))
+hist_cor
+
+
+hist_cor_p <- ggplot(corEmpSim, aes(p)) + 
+  geom_histogram(binwidth = 0.01, color = "black", fill = "grey") + 
+   theme_classic(base_size = 16) + 
+  xlab("Correlation coefficient") + scale_y_continuous(expand = c(0, 0))
+hist_cor_p
+
+
+# some summary statistics
+corEmpSim %>% summarise(mean = mean(cor), median = median(cor), 
+                        mode = hdrcde::hdr(cor)$mode, sd = sd(cor))
+
+# number of p-values less than 0.05
+p_crit <- sum(corEmpSim$p <= 0.05 / 50)
 
 
 
