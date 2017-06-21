@@ -19,6 +19,7 @@ library(dplyr)
 library(ggplot2)
 library(magrittr)
 library(viridis)
+library(lubridate)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 rm(list = ls())
@@ -248,8 +249,20 @@ mp <- ggplot(resTrack, aes(Lon, Lat, group = Rep))
 # add the world map
 mp <- mp + mapWorld
 
+# remove axes and ticks and labels
+mp <- mp + theme(axis.line  = element_blank(),
+                 axis.text  = element_blank(),
+                 axis.ticks = element_blank(),
+                 axis.title = element_blank())
+
 # customise labels and style
-mp <- mp + theme_classic(base_size = 14) + xlab("Longitude") + ylab("Latitude")
+mp <- mp + theme_classic(base_size = 14) #+ xlab("Longitude") + ylab("Latitude")
+
+# remove axes
+mp <- mp + theme(axis.line  = element_blank(),
+                 axis.text  = element_blank(),
+                 axis.ticks = element_blank(),
+                 axis.title = element_blank())
 
 # zoom into Atlantic region
 mp <- mp +  coord_fixed(xlim = c(-80, 50),  
@@ -257,14 +270,11 @@ mp <- mp +  coord_fixed(xlim = c(-80, 50),
                         ratio = 1.3)
 
 #Now Layer the points on top
-
 mp2 <- mp + geom_point(aes(x=jLon, y=jLat, 
                        color = factor(season)), 
                        size=0.1) + 
   scale_color_viridis(discrete = TRUE, "Quarter") + 
   guides(colour = guide_legend(override.aes = list(size=5)))
-
-  
 
 print(mp2)
 
@@ -315,10 +325,17 @@ ggsave(fn, best_rep_plot, device = png(width = 600, height = 400))
 mp_best <- ggplot(filter(resTrack, Rep == do.this.rep), 
                   aes(jLon, jLat, group = Rep))
 
+# add the world map
 mp_best <- mp_best + mapWorld
 
-mp_best <- mp_best + theme_classic(base_size = 14) + 
-  xlab("Longitude") + ylab("Latitude")
+# apply classic theme
+mp_best <- mp_best + theme_classic(base_size = 14)
+
+# remove axes
+mp_best <- mp_best + theme(axis.line  = element_blank(),
+                           axis.text  = element_blank(),
+                           axis.ticks = element_blank(),
+                           axis.title = element_blank())
 
 # zoom in to Atlantic region
 mp_best <- mp_best + coord_fixed(xlim = c(-80, 50),  
