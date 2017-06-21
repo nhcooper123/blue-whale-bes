@@ -200,9 +200,31 @@ all_models_plot <- multiplot(nor_plot2, ire_plot2, can_plot2, MidAtl_plot2,
                              fn = "figures/Figure-S4-all.png",
                              width = 600, height = 400)
 
+# do the same but with facets
 
-# ggsave("figures/Figure-S4-all.png", 
-#        all_models_plot, 
-#        device = png(width = 600, height = 400))
+res_all <- bind_rows(list(Norway = resNor, 
+                          Ireland = resIre, 
+                          Canaries = resCan, 
+                          "Mid-Atlantic" = resMidAtl), .id = "Region")
 
+sp + facet_wrap( ~ day, ncol=2)
+
+# same as for norway example above
+tmp <- res_all %>% group_by(Region) %>% group_by(Rep) %>% 
+  do(., data.frame(Z = predict(loess((.$d13C + cnst) ~ .$Day.No, span = 0.1))))
+
+res_all$lo <- tmp$Z
+
+test_plot <- ggplot(res_all, aes(Day.No, lo, group = Rep)) + 
+  geom_line(col = viridis(3)[2], alpha = 0.25) + 
+  xlab("Time") + 
+  ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
+  theme_classic(base_size = 14) + ylim(-25, -14)
+
+test_plot <- test_plot + facet_wrap(~Region, ncol = 2)
+
+print(test_plot)
+
+ggsave("figures/Figure-S4-facet-wrap-d13C.png", MidAtl_plot, 
+       device = png(width = 600, height = 400))
 
