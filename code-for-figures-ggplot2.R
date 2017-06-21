@@ -257,6 +257,12 @@ mp <- mp + theme(axis.line  = element_blank(),
 # customise labels and style
 mp <- mp + theme_classic(base_size = 14) #+ xlab("Longitude") + ylab("Latitude")
 
+# remove axes
+mp <- mp + theme(axis.line  = element_blank(),
+                 axis.text  = element_blank(),
+                 axis.ticks = element_blank(),
+                 axis.title = element_blank())
+
 # zoom into Atlantic region
 mp <- mp +  coord_fixed(xlim = c(-80, 50),  
                         ylim = c(0, 80), 
