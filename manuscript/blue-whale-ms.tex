@@ -7,6 +7,8 @@
 \usepackage[superscript,biblabel]{cite} % for superscript citations
 \usepackage{graphicx}
 \usepackage{parskip} 
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{textcomp} % for parts per mille symbol     
 \pagenumbering{arabic}    
 \linespread{1.66}
@@ -90,6 +92,98 @@ This is associated with an overall reduction in $\delta^{15}$N values and a weak
 %      \caption{}
 %      \label{}
 %  \end{figure}
+
+% 2 panel figure of the two traces - real and simulated
+
+\begin{figure}
+  \centering
+    \begin{subfigure}{0.8\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1a-raw-dC-dN-data.png}
+      \label{fig1a}
+    \end{subfigure}
+
+    \begin{subfigure}{0.8\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1c-migratory-model-d13C.png}
+      \label{fig1b}
+    \end{subfigure} 
+  \caption{Two panel figure with two traces}
+\end{figure}
+
+% two panel with the simulations and map
+\begin{figure}
+  \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1b-migratory-model-full-map.png}
+      \label{fig2a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1c-migratory-model-d13C.png}
+      \label{fig2b}
+    \end{subfigure} 
+  \caption{Two panel figure with trace and map}
+\end{figure}
+
+% two panel with the simulations and map
+\begin{figure}
+  \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1b-migratory-model-full-map.png}
+      \label{figa}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1c-migratory-model-d13C.png}
+      \label{figb}
+    \end{subfigure} 
+  \caption{Two panel figure with trace and map}
+\end{figure}
+
+% two panel with the simulations and map
+\begin{figure}
+  \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1c-migratory-model-d13C.png}
+      \label{fig3a}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+      \centering
+      \includegraphics[width = \linewidth]{figures/Figure-1b-migratory-model-full-map.png}
+      \label{fig3b}
+    \end{subfigure} 
+  \caption{Two panel figure with trace and map}
+\end{figure}
+
+% one panel of the real trace
+\begin{figure}
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-1a-raw-dC-dN-data.png}
+  \label{fig11a}
+  \caption{One panel figure}
+\end{figure}
+
+% one panel of the real trace
+\begin{figure}
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-1b-migratory-model-full-map.png}
+  \label{fig11b}
+  \caption{One panel figure}
+\end{figure}
+
+% one panel of the real trace
+\begin{figure}
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-1c-migratory-model-d13C.png}
+  \label{fig11c}
+  \caption{One panel figure}
+\end{figure}
+
  
 To interpret these isotopic signatures, we simulated time series of $\delta^{13}$C and $\delta^{15}$N values expected under differing movement behaviours, by coupling a novel agent-based model of whale movements (see Supplementary Methods) to models of global phytoplankton $\delta^{13}$C and $\delta^{15}$N values\cite{magozzi2017using} (Schmittner and Somes). 
 We simulated the movement of the whale with the likelihood, direction, and extent of movement influenced by behavioural state, sea surface temperature, water depth and phytoplankton concentration (as a proxy for zooplankton food availability). 
