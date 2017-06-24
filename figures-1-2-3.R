@@ -13,6 +13,7 @@ library(gstat)
 library(sp)
 library(maps)
 library(mapdata)
+library(RColorBrewer)
 
 library(tidyr)
 library(dplyr)
@@ -20,6 +21,7 @@ library(ggplot2)
 library(magrittr)
 library(viridis)
 library(lubridate)
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 rm(list = ls())
@@ -76,6 +78,9 @@ new_years_day <- tail(KC7$days,1) -
 new_years_samp <- round(new_years_day[2:length(new_years_day)] * growth_rate / 
                           (samp_resolution * 365.25))
 
+new_years_all <- round(new_years_day * growth_rate / 
+                         (samp_resolution * 365.25))
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -88,7 +93,11 @@ isop <- ggplot(KC7, aes(x = Samp.No)) +
   theme_classic(base_size = 16) + 
   xlab("Baleen sample (cm from youngest sample)") + 
   scale_x_continuous(breaks = seq(0,80,20), 
-                     labels = seq(80,0,-20))
+                     labels = seq(80,0,-20),
+                     sec.axis = sec_axis(~., 
+                                         breaks = new_years_all + 13.5/2,
+                                         labels = new_years,
+                                         name = "Year"))
 
 isop <- isop + geom_line(aes(y = d13C)) + 
   geom_point(aes(y = d13C), size = point_size, shape = 21, fill = "black") +
@@ -113,7 +122,7 @@ isop <- isop + geom_vline(xintercept = new_years_samp,
 
 print(isop)
 
-ggsave("manuscript/figures/Figure-1a-raw-dC-dN-data.png", isop, 
+ggsave("manuscript/figures/Figure-1-raw-dC-dN-data.png", isop, 
        device = png(width = 600, height = 400))
 
 # with(KC7, day_new_year[day_new_year > 0]))
@@ -132,12 +141,22 @@ resTrack <- read.csv("data/record_migrate5.csv", header=TRUE)
 # resTrack <- filter(resTrack, !is.na(d13C))
 
 # create a new sequence of days on which to predict our
-# loess smoothed function
+# loess smoothed function and add it to the resTrack data.frame for 
+# each Rep
 days <- seq(from=1, to=(6*365+60))
+# resTrack$days 
+resTrack <- resTrack %>% group_by(Rep) %>% data.frame(days)
 
 # jitter the points
 resTrack$jLat <- jitter(resTrack$Lat, factor = 2)
 resTrack$jLon <- jitter(resTrack$Lon, factor = 1)
+
+# data required to add a vertical line indicating the start of migration
+migrate <- as.Date("1889-06-01")
+first_sim_day <- as.Date("1885-01-01")
+migrate_day <- as.numeric(migrate - first_sim_day)
+
+resTrack$migrant <- as.numeric(resTrack$days >= migrate_day)
 
 # im not sure what the best colormap to use is for the months / seasons
 # create the colorramp
@@ -151,6 +170,9 @@ four.seasons <-  c(rep(1, 3),
                    rep(3, 3),
                    rep(4, 3)
 )
+
+
+cust.colors <- c(brewer.pal(5, "Blues")[2:5], brewer.pal(5, "Oranges")[2:5])
 
 # add to resTrack df
 resTrack$season <- four.seasons[resTrack$Month]
@@ -181,10 +203,11 @@ mp <- mp +  coord_fixed(xlim = c(-80, 50),
 
 #Now Layer the points on top
 mp2 <- mp + geom_point(aes(x=jLon, y=jLat, 
-                           color = factor(season)), 
+                           color = days), 
                        size=0.1) + 
-  scale_color_viridis(discrete = TRUE, "Quarter") + 
-  guides(colour = guide_legend(override.aes = list(size=5)))
+  scale_color_viridis(discrete = FALSE, "Day")
+  # scale_color_manual(values = cust.colors) + 
+  # guides(colour = guide_legend(override.aes = list(size=5)))
 
 # remove axes and ticks and labels
 mp2 <- mp2 + theme(axis.line  = element_blank(),
@@ -192,9 +215,30 @@ mp2 <- mp2 + theme(axis.line  = element_blank(),
                  axis.ticks = element_blank(),
                  axis.title = element_blank())
 
-print(mp2)
+# add geographical locations
+wexford <- data.frame(x = c(-6.3, 10), y = c(52.25, 51))
 
-ggsave("manuscript/figures/Figure-1b-migratory-model-full-map.png", mp2, 
+azores <- data.frame(x = c(-25.66, -35), y = c(37.75, 25.5))
+
+mp3 <- mp2 + geom_line(data = wexford, 
+                        mapping = aes(x,y, group = NULL), col = "#f03b20",
+                       arrow = arrow(ends = "first", type = "closed", 
+                                     angle = 20, 
+                                     length = unit(0.15, "inches"))) + 
+  annotate("text", x = 10, y = 51.5, label = "Wexford", 
+           hjust = 0, col = "white", size = 6)
+
+mp4 <- mp3 + geom_line(data = azores, 
+                       mapping = aes(x,y, group = NULL), col = "#f03b20",
+                       arrow = arrow(ends = "last", type = "closed", 
+                                     angle = 20, 
+                                     length = unit(0.15, "inches"))) + 
+  annotate("text", x = -35, y = 24, label = "Azores", 
+           hjust = 0.5, col = "black", size = 6)
+
+print(mp4)
+
+ggsave("manuscript/figures/Figure-2-migratory-model-full-map.png", mp2, 
        device = png(width = 600, height = 600, units = "px"))
 
 
@@ -232,10 +276,6 @@ tidy_loess <- function(df, span = 0.1, ...){
 tmp <- resTrack %>% group_by(Rep) %>% 
   do(., tidy_loess(., span = 0.05))
 
-# data required to add a vertical line indicating the start of migration
-migrate <- as.Date("1889-06-01")
-first_sim_day <- as.Date("1885-01-01")
-migrate_day <- as.numeric(migrate - first_sim_day)
 
 # plot the daily tracks
 track_plot <- ggplot(tmp, aes(days, lo, group = Rep)) 
@@ -257,9 +297,10 @@ track_plot <- track_plot + geom_vline(xintercept = new_years_sim_day,
 
 # add the simulated d13C data
 track_plot <- track_plot  + geom_line(col = viridis(3)[2], alpha = 0.25) + 
-  xlab("Days") + 
   ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
-  theme_classic(base_size = 14)
+  theme_classic(base_size = 14) + 
+  scale_x_continuous(name = "Time (years)", breaks = new_years_sim_day, 
+                     labels = new_years)
   
 
 # superimpose the raw d13C data
@@ -287,14 +328,18 @@ track_plot <- track_plot + geom_point(data = KC7,
                                       size = point_size,
                                       shape = 21)
 
+# track_plot <- track_plot + scale_x_continuous(,
+#                                               sec.axis = sec_axis(~.))
 
 
 print(track_plot)
 
-ggsave("manuscript/figures/Figure-1c-migratory-model-d13C.png", track_plot, 
+ggsave("manuscript/figures/Figure-3-migratory-model-d13C.png", track_plot, 
        device = png(width = 600, height = 400))
 
 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# ***********************************************************
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # calculate the correlation between the simulated and observed data
 
@@ -342,6 +387,9 @@ hist_cor_p
 # some summary statistics
 corEmpSim %>% summarise(mean = mean(cor), median = median(cor), 
                         mode = hdrcde::hdr(cor)$mode, sd = sd(cor))
+
+# number of correlation coefficients greater than 0
+count_cor <-sum(corEmpSim$cor > 0)
 
 # number of p-values less than 0.05
 p_crit <- sum(corEmpSim$p <= 0.05 / 50)
