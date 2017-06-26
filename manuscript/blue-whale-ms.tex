@@ -13,6 +13,16 @@
 \pagenumbering{arabic}    
 \linespread{1.66}
 
+
+% -------------------------------------------------------------------------------------------------------
+% some custom commands
+
+% Add support for highlighting
+\usepackage{color}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+% -------------------------------------------------------------------------------------------------------
+
 % Title page information
 \title{Reconstructing the last known movements of one of Nature's giants}
 % 90 characters max
@@ -56,7 +66,7 @@ Animal tissues housed in museum collections provide biochemical records of behav
 Here we combine stable isotope analyses of baleen with novel agent-based simulation models, to reconstruct movements over the last six years of the life of an iconic blue whale (\textit{Balaenoptera musculus}) that stranded off Ireland in 1891 and is now on display at the Natural History Museum, London (NHM). 
 We identify two distinct phases in the whale's behaviour: repeated annual north-south migrations in sub-Arctic waters, and residency in subtropical waters. 
 Subtropical residency is associated with isotopic signatures consistent with pregnancy and lactation in the year before the whale’s death. 
-These results supply the first quantitative multi-yeat records of historical migrations in individual blue whales, and suggest that blue whale residency and movement patterns in the North Atlantic have remained similar for hundreds of years, despite changing human pressures in the region. 
+These results supply the first quantitative multi-year records of historical migrations in individual blue whales, and suggest that blue whale residency and movement patterns in the North Atlantic have remained similar for hundreds of years, despite changing human pressures in the region. 
 Historic tissue collections can provide unique insight into individual-level movement behaviours associated with changing climatic, ecological conditions and human-induced pressures, and reveal aspects of life history. 
 Combining biochemical tracers with simulation modelling unlocks the information recorded in these irreplaceable archives.}
 
@@ -92,7 +102,7 @@ There is also no covariance between $\delta^{13}$C and $\delta^{15}$N values in 
   \centering
   \includegraphics[width = \linewidth]{figures/Figure-1-raw-dC-dN-data.png}
   \label{fig1}
-  \caption{One panel figure}% Can you add these?
+  \caption{Variation in $\delta^{13}$C (black circles, left y-axis) and $\delta^{15}$N (grey circles, right x-axis) longitudinally through the baleen plate (n = 77 samples from a single baleen plate for both isotopes) of the NHM blue whale exhibits strong annual periodicity and cross-correlation (\hilight{Figures S1 and S2}) in both isotopes as well as a change in the mean and magnitude of the cycles during 1890 (approximately at sample 30cm). Approximate relationship to years assuming a growth rate of 13.5 cm y$^{-1}$ is shown on the upper x-axis, and year boundaries are indicated by vertical dotted grey lines.}
 \end{figure}
 
 
@@ -105,7 +115,7 @@ We then compare simulated profiles (Figs. \ref{fig2} and \ref{fig3}) with the me
   \centering
   \includegraphics[width = \linewidth]{figures/Figure-2-migratory-model-full-map.png}
   \label{fig2}
-  \caption{One panel figure}% Can you add these?
+  \caption{Simulated tracks from the migratory movement model (2250 days per each of 50 replicates) with simulated day indicated by colour illustrating the residency period from Ireland to the Barents Sea followed by a migratory period and year spent near the Azores (as indicated by an arrow) and/or Canary Islands before returning north prior to stranding in Wexford, Ireland 1891 (as indicated by an arrow). }% Can you add these?
 \end{figure}
 
 % figure 3
@@ -113,7 +123,7 @@ We then compare simulated profiles (Figs. \ref{fig2} and \ref{fig3}) with the me
   \centering
   \includegraphics[width = \linewidth]{figures/Figure-3-migratory-model-d13C.png}
   \label{fig3}
-  \caption{One panel figure}% Can you add these?
+  \caption{The corresponding $\delta^{13}$C data from these simulated movements correlate with the empirical data from the Baleen: across the 50 simulations, the correlation coefficient between z-score transformations of empirical and time-matched simulation values had a mean of 0.48 (sd = 0.2), 49 of them were positive,  and 39 of the 50 Pearson correlation tests had a p-value less than the Bonferroni corrected p = 0.05 / 50 = 0.001. The initiation of the southward migration around June 1890 is indicated by the vertical broken line. The standard deviation of the empirical data have been rescaled by a factor of 3 so as to better visualise the correlation since as a consumer, the whale is expected to integrate and attenuate the fluctuations in its diet, and the end points of the simulations and empirical data have been aligned to coincide.}
 \end{figure}
  
 During behavioural phase one, the whale is foraging at high northern latitudes, likely off the coast of Norway. 

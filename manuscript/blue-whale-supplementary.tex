@@ -13,8 +13,20 @@
 \pagenumbering{arabic}    
 \linespread{1.66}
 
+
+
+% -------------------------------------------------------------------------------------------------------
+% some custom commands
+
+% Add support for highlighting
+\usepackage{color}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+% figure numbering override
 \renewcommand*{\thefigure}{S\arabic{figure}} % make Fig S1 not Fig 1
 \renewcommand*{\thetable}{S\arabic{table}} % make Table S1 not Table 1
+
+% -------------------------------------------------------------------------------------------------------
 
 % Title page information
 \title{Supplementary Information from:\\
@@ -55,7 +67,7 @@ A distinct change in the isotopic pattern along the baleen plate occurs at aroun
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width = \linewidth]{figures/Figure-S1-periodograms.png}
-  \caption{Fourier analysis of $delta^{15}$N (A,B) and $delta^{13}$C (C,D) values of the full (A,C) and behavioral phase one only (B,D) components of the baleen plate. Inset values are the two highest frequency spectral densities (in cm). Note the baleen plate is 80cm long. Periodic fluctuation with a distance of 13.5cm along the baleen plate is consistently recovered, but is weaker or absent behavioral phase two} % check legend
+  \caption{Fourier analysis of $delta^{15}$N (A,B) and $delta^{13}$C (C,D) values of the full (A,C) and behavioral phase one only (B,D) components of the baleen plate. Inset values are the two highest frequency spectral densities (in cm). Note the baleen plate is 80cm long. Periodic fluctuation with a distance of 13.5cm along the baleen plate is consistently recovered, but is weaker or absent behavioural phase two} % check legend
   \label{figs1}
 \end{figure}
  
@@ -83,7 +95,7 @@ Incorporation of carbon and nitrogen with isotopic ratios consistent with southe
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width = \linewidth]{figures/Figure-S3-plankton-d13C-map.png}
-  \caption{$delta^{13}$C POM values} % add legend
+  \caption{Isoscape map of the $delta^{13}$C values from POM used as simulated food in the movement model.}
   \label{figs3} 
 \end{figure}
 
@@ -100,7 +112,7 @@ In temperate latitudes around the British Isles, seasonal dynamic cycles are pre
   \begin{figure}[!htbp]
     \centering
       \includegraphics[width=\linewidth]{figures/Figure-S4-facet-wrap-d13C.png}
-      \caption{Daily $\delta^{13}$C POM values in regions occupied by 30 simulated blue whales foraging over a two year cycle.} % check legend
+      \caption{Daily $\delta^{13}$C POM values in regions occupied by 30 simulated blue whales foraging over a two year cycle. \hilight{OR} Alternative $\delta^{13}$C series arising from resident-only movement models restricting region to Norway, Ireland, Canaries and the Mid Atlantic ridge as labelled over a simulated 2-year period with daily resolution and 30 replicate simulations per region.  } % check legend
       \label{figs4}
   \end{figure}
  

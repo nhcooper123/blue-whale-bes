@@ -238,7 +238,7 @@ mp4 <- mp3 + geom_line(data = azores,
 
 print(mp4)
 
-ggsave("manuscript/figures/Figure-2-migratory-model-full-map.png", mp2, 
+ggsave("manuscript/figures/Figure-2-migratory-model-full-map.png", mp4, 
        device = png(width = 600, height = 600, units = "px"))
 
 
