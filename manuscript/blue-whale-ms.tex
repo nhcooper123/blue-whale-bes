@@ -89,8 +89,8 @@ Here we apply this method to baleen from the Natural History Museum's blue whale
  
 Baleen is formed of plates of keratin and is used by mysticete whales to filter feed. 
 It is ideal for stable isotope studies because keratin grows continuously through an individual's life, and once laid down it is metabolically inert\cite{best1996stable}. 
-We sampled keratin from the blue whale's baleen plate at 1cm intervals perpendicular to the direction of growth and used continuous-flow isotope ratio mass spectrometry determine the isotopic compositions of carbon and nitrogen (expressed as $\delta^{13}$C and $\delta^{15}$N values). 
-Given the date of stranding (25th March 1891), and estimated baleen growth rates of 13.5cm $y^{-1}$ (see Supplementary Methods), we reconstructed a timeline for $\delta^{13}$C and $\delta^{15}$N fluctuations in the baleen over the last six years of whale's life (autumn 1885 - spring 1891). 
+We sampled keratin from the blue whale's baleen plate at 1cm intervals perpendicular to the direction of growth and used continuous-flow isotope ratio mass spectrometry to determine the isotopic compositions of carbon and nitrogen (expressed as $\delta^{13}$C and $\delta^{15}$N values). 
+Given the date of stranding (25th March 1891), and estimated baleen growth rates of 13.5cm $y^{-1}$ (see Supplementary Methods), we reconstructed a timeline for $\delta^{13}$C and $\delta^{15}$N fluctuations in the baleen over the last six years of the whale's life (autumn 1885 - spring 1891). 
 The $\delta^{13}$C and $\delta^{15}$N profiles show two distinct phases in the whale's behaviour. 
 In behavioural phase one (May 1885 to May 1889), we find strong cyclical fluctuations in both $\delta^{13}$C and $\delta^{15}$N values with strong negative covariance (Fig. \ref{fig1}; Fig. S?). 
 In behavioural phase two (June 1889 to March 1891) we see a sharp increase in $\delta^{13}$C values for approximately eight months.
@@ -159,7 +159,7 @@ Finally, our results highlight that museums represent a vast, mostly untapped, s
 % no figures no tables
 
 \subsection{Stable isotope extractions from baleen}
-Baleen was collected from the Natural History Museum, London (specimen BMNH.1892.3.1.1). 
+Baleen was collected from the Natural History Museum, London (specimen NHMUK.1892.3.1.1). 
 The baleen plate was cleaned with ethanol to remove surface contaminants. 
 {\raise.17ex\hbox{$\scriptstyle\sim$}}1mg samples of keratin powder were then collected from the plate using a hand-held drill and grinding bit. 
 78 samples were taken at 1cm intervals, 0.5cm from the outer edge of the plate, starting at the proximal section which contains the most recent tissue. 
@@ -189,13 +189,13 @@ We therefore used monthly simulated $\delta^{13}$C POM values to simulate the is
 \subsection{Agent-based whale movement model}
 We simulated the movement of the whale with the likelihood, direction, and extent of movement influenced by behavioural state, sea surface temperature, water depth, and phytoplankton concentration (as a proxy for zooplankton food availability). 
 At each time point and location in the simulations, we extracted phytoplankton $\delta^{13}$C values from the spatio-temporal model\cite{magozzi2017using} resulting in a range of simulated isotopic profiles for different migration patterns and foraging areas. 
-Movement was coded as set of probabilistic rules. 
+Movement was coded as a set of probabilistic rules. 
 The parameters for these were taken from the literature on blue whale behaviour (e.g.\cite{handbook}). 
 All terms were expressed as probability distributions allowing us to introduce individual variability. 
  
 In the models, the likelihood of movement, direction (north, south, east, west, northeast, northwest, southeast, or southwest) and extent (1$^{\circ}$ or 2$^{\circ}$) of movement are all influenced by the following. 
 (i) Behavioural state (migrating north, migrating south, foraging, or nursing). 
-Northerly migrations were possible only in spring, and southerly migrations in autumn. Foraging was possible at anytime of year, and was triggered when whales encountered high concentrations of plankton. Nursing occurred at temperatures between 18 and 25$^{\circ}$C only. 
+Northerly migrations were possible only in spring, and southerly migrations in autumn. Foraging was possible at any time of year, and was triggered when whales encountered high concentrations of plankton. Nursing occurred at temperatures between 18 and 25$^{\circ}$C only. 
 (ii) Sea surface temperature ($^{\circ}$C\cite{yool2013medusa}). 
 When migrating north, whales were more likely to move towards lower temperatures provided they were above the minimum temperature threshold (3$^{\circ}$C); whereas whales migrating south sought warmer waters. 
 (iii) Water depth (m; from the General Bathymetric Chart of the Oceans (GEBCO) global bathymetry dataset). 
