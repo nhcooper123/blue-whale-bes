@@ -165,10 +165,15 @@ Parameters defined for the agent-based model best matching the measured profile 
 
 \begin{landscape}
 
+  \vspace{-1cm}
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[trim = 0cm 14cm 0cm 4cm, clip]{figures/flow-diagram-model.pdf}
-  \caption{Summary diagram of agent-based movement model structure.}
+  \includegraphics[trim = 0cm 145mm 0cm 4cm, clip]{figures/flow-diagram-model.pdf}
+  \vspace{-1.2cm}
+  \linespread{0.8}
+  \caption{
+  Schematic structure of the agent-based model used to generate hypothetical movement tracks. 
+  At the start of each simulation, max and min sea surface temperature (SST) and food availability thresholds are fixed for all individuals. Behavioural states are defined \textit{a priori} based on day of the year. Maximum movement distances under each behavioural state are defined for each individual based on a random sample from a Gaussian distribution. The model runs with a daily time step. Current location and day of simulation is noted, and the behavioural state defined. Environmental conditions (SST, food availability and depth) are sensed in the current and eight adjacent 1$^{\circ}$ grid cells. The probability of movement is sampled from a binomial distribution defined according to behavioural state and environmental conditions in the current location. The direction of movement is sampled based on discrete probabilities associated to each of the eight adjacent 1$^{\circ}$ cells, defined according to behavioural state and environmental conditions. Finally the distance moved is sampled from a Poisson distribution conditional on the max distance defined for each individual. The new location is then assigned from a linear vector originating at the current location with magnitude defined as the distance moved and direction as 45$^{\circ}$ increments reflecting the relative orientation of each of the eight potential adjacent cells.}
   \label{figs5}
 \end{figure}
 
@@ -197,7 +202,7 @@ Parameters defined for the agent-based model best matching the measured profile 
     Plankton biomass threshold for remaining to forage (units) & 50 & NA & NA & NA\\
     \hline
   \end{tabular}
-  \caption{Model parameters for agent-based model of whale movement.}
+  \caption{Model parameters for agent-based model of whale movement. See Fig. \ref{figs5} for details.}
   \label{tables1}
 \end{table}
 
