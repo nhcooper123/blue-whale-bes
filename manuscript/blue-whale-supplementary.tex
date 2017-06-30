@@ -6,6 +6,7 @@
 %\usepackage[round]{natbib} % author-year citations
 \usepackage[superscript,biblabel]{cite} % for superscript citations
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{parskip} 
 \usepackage{amsmath}
 \usepackage{textcomp} % for parts per mille symbol  
@@ -33,8 +34,8 @@
 \textit{Reconstructing the last known movements of one of Nature's giants}}
 % 90 characters max
 
-\author{Natalie Cooper, Andrew L. Jackson, Katharyn S. Chadwick,\\ 
-Ellen J. Coombs, Richard C. Sabin and Clive N. Trueman}
+\author{Clive N. Trueman, Andrew L. Jackson, Katharyn S. Chadwick,\\ 
+Ellen J. Coombs, Richard C. Sabin and Natalie Cooper}
 
 \date{}
 
@@ -82,21 +83,29 @@ Cross-correlation analysis demonstrates a strong negative covariance between $\d
 \end{figure}
  
 \subsection*{BASELINE ISOTOPE COMPARISONS}
-Isotope-enabled biogeochemical ocean models\cite{magozzi2017using} (Schmittner and Somes) were used to characterize the isotopic composition of phytoplankton expected in different potential foraging grounds. 
+Isotope-enabled biogeochemical ocean models\cite{magozzi2017using,schmittner2016complementary} were used to characterise the isotopic composition of phytoplankton expected in different potential foraging grounds. 
 Annual average $\delta^{15}$N POM values were provided by C.J. Somes (pers.comm) based on a 5$^{\circ}$ resolution biogeochemical model. 
 $\delta^{13}$C POM values were simulated using an isotopic extension to the NEMO-MEDUSA model\cite{magozzi2017using}.
  
-Simulated $\delta^{15}$N POM values are relatively positive in the northeast Atlantic north of c.60$^{\circ}$N, and relatively negative in the central and southern North Atlantic, associated with high levels of nitrogen fixation. 
+Simulated $\delta^{15}$N POM values are relatively positive in the northeast Atlantic north of c.60$^{\circ}$N, and relatively negative in the central and southern North Atlantic, associated with high levels of nitrogen fixation (Fig. \ref{figs3}B). 
 Annual average $\delta^{13}$C POM values largely vary with latitude, with more negative values in more northerly regions. 
-In the central North Atlantic, $\delta^{13}$C POM values are relatively positive in the west, reflecting warm gulf stream waters (Fig. \ref{figs3}). 
+In the central North Atlantic, $\delta^{13}$C POM values are relatively positive in the west, reflecting warm gulf stream waters (Fig. \ref{figs3}A). 
 The temporally coincident periodic, inverse fluctuations in $\delta^{13}$C and $\delta^{15}$N values in the initial phase of the baleen plate are therefore consistent with migration between waters north of 60$^{\circ}$N and more southerly southern waters in the North Atlantic, with northerly occupancy in summer months and southerly occupancy in winter months. 
 Incorporation of carbon and nitrogen with isotopic ratios consistent with southerly latitudes during winter months indicates continued feeding during migration and winter residency.
  
 \begin{figure}[!htbp]
-  \centering
-  \includegraphics[width = \linewidth]{figures/Figure-S3-plankton-d13C-map.png}
-  \caption{Isoscape map of the $\delta^{13}$C values from POM used as simulated food in the movement model.}
-  \label{figs3} 
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Figure-S3-plankton-d13C-map.png} 
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Figure-S3-plankton-d15N-map.png} 
+    \end{subfigure}
+    \caption{Spatial model (isoscape) of model-simulated biomass weighted annual average (A) $\delta^{13}$C and (B) $\delta^{15}$N values from POM. $\delta^{13}$C values are from Magozzi et al. 2017\cite{magozzi2017using} and $\delta^{15}$N from Schmittner \& Somes 2016\cite{schmittner2016complementary} and Somes (pers. comm.)} 
+    \label{figs3}
 \end{figure}
 
 The isotopic composition of carbon in phytoplankton also varies through seasons as isotopic fractionation of carbon during photosynthesis is strongly influenced by sea surface temperature\cite{laws1995dependence}. 
@@ -112,7 +121,7 @@ In temperate latitudes around the British Isles, seasonal dynamic cycles are pre
   \begin{figure}[!htbp]
     \centering
       \includegraphics[width=\linewidth]{figures/Figure-S4-facet-wrap-d13C.png}
-      \caption{Daily $\delta^{13}$C POM values in regions occupied by 30 simulated blue whales foraging over a two year cycle. \hilight{OR} Alternative $\delta^{13}$C series arising from resident-only movement models restricting region to Norway, Ireland, Canaries and the Mid Atlantic ridge as labelled over a simulated 2-year period with daily resolution and 30 replicate simulations per region.  } % check legend
+      \caption{Alternative $\delta^{13}$C series arising from resident-only movement models restricting region to Norway, Ireland, Canaries and the Mid Atlantic ridge as labelled over a simulated two year period with daily resolution and 30 replicate simulations for each region.} % check legend
       \label{figs4}
   \end{figure}
  
@@ -123,16 +132,16 @@ Simulated temporal isotopic profiles for northern resident whales, do not displa
 Adding seasonal north-south migrations within mid-high latitude regions to foraging models, closely matches the measured profile, including $\delta^{13}$C minima preceding the June bloom (Fig. \ref{figs4}, Fig. 1).
  
 \subsubsection*{Matching isotope model simulations with whale isotopes in behavioural phase two}
-Behavioural phase two is characterized by a dramatic shift to maximum $\delta^{13}$C values in June of 1889 followed by approximately 18 months of relatively positive and constant $\delta^{13}$C values. 
+Behavioural phase two is characterized by a dramatic shift to maximum $\delta^{13}$C values in spring 1889 followed by approximately 18 months of relatively positive and constant $\delta^{13}$C values. 
 $\delta^{15}$N values in this phase are relatively low and the isotopic cyclicity associated with north-south migration is absent in 1890. 
 The final sample representing feeding shortly before death in Irish waters implies a return to isotopic conditions more consistent with behavioural phase one. 
 The relatively positive and constant carbon isotope composition of behavioural phase two is consistent with residency (and continued feeding) in more southerly latitudes, particularly in the relatively isotopically positive waters southwest of the Azores.
  
-Accordingly we modelled whale movements allowing five years of seasonal north-south migration in the north east northern Atlantic, followed by rapid migration to subtropical waters in the spring of 1890, relative residency for eight months and rapid migration returning to more northerly waters in the spring of 1891.
+Accordingly we modelled whale movements allowing five years of seasonal north-south migration in the north east northern Atlantic, followed by rapid migration to subtropical waters in the late spring of 1889, relative residency for eight months and rapid migration returning to more northerly waters in the spring of 1891.
 The resulting simulated profiles closely match the measured baleen plate, capturing all major temporal fluctuations (Fig. 1). 
 Consistently low $\delta^{15}$N values in 1890 are also consistent with residency in relatively southern waters. 
  
-The dramatic positive excursion in $\delta^{13}$C values seen between March and July 1889 cannot be replicated purely through movement to warmer waters, thus we tentatively ascribe this signal to the physiological demands of pregnancy.  
+The dramatic positive excursion in $\delta^{13}$C values seen in the late spring and early summer of 1889 cannot be replicated purely through movement to warmer waters, thus we tentatively ascribe this signal to the physiological demands of pregnancy.  
 A captive feeding study in south American sea lions\cite{cardona2017temporal} showed positive $\delta^{13}$C values associated with pregnancy, falling at birth, and a gradual increase in $\delta^{15}$N  values during lactation. 
 $\delta^{15}$N values in whale baleen during the autumn of 1890 show a gradual increase, consistent with the isotopic expression associated with lactation in south American fur seals\cite{cardona2017temporal}.
  
@@ -145,14 +154,8 @@ We simulated the likely isotopic expression associated with feeding and movement
 The agent-based model developed employs a simple set of movement rules dictated by behavioural state which is itself fixed according to calendar month by the operator. 
 At each daily step, the probability of movement, movement directions and distance traveled are sampled from probability distributions to allow individual variation.
 
-%  \begin{figure}[!htbp]
-%    \centering
-%      \includegraphics[width=12cm]{XXX.pdf}
-%      \caption{Summary diagram of agent-based movement model structure.}
-%      \label{figs5}
-%  \end{figure}
- 
-Initial boundary conditions are defined with a maximum temperature of 25$^{\circ}$C and minimum temperature of 3$^{\circ}$C. The likelihood of movement (i.e. whether to move or not from the current location) is sampled from a binomial distribution with the probability of movement influenced by behavioural state and external conditions. The maximum daily movement distance permitted in each behavioural state is defined as a random sample of a Gaussian distribution with specified mean and standard deviation (see Table \ref{tables1}).
+Initial boundary conditions are defined with a maximum temperature of 25$^{\circ}$C and minimum temperature of 3$^{\circ}$C. The likelihood of movement (i.e. whether to move or not from the current location) is sampled from a binomial distribution with the probability of movement influenced by behavioural state and external conditions. 
+The maximum daily movement distance permitted in each behavioural state is defined as a random sample of a Gaussian distribution with specified mean and standard deviation (see Table \ref{tables1}).
  
 The behavioural states employed in the model simulations are foraging, migrating north, migrating south and nursing. When foraging, the probability of movement and likely direction of movement is primarily controlled by the biomass of phytoplankton in the current and adjacent 1$^{\circ}$ cells. When migrating, a fixed higher probability of movement is given to southerly or northerly movement directions, and the probability of movement is influenced by the ambient sea surface temperature and phytoplankton biomass. When nursing a calf, movement is limited to a daily mean of 25km, as long as sea surface temperatures remain between 18$^{\circ}$C and 25$^{\circ}$C.
  
@@ -161,6 +164,15 @@ Parameters defined for the agent-based model best matching the measured profile 
 \newpage
 
 \begin{landscape}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[trim = 0cm 14cm 0cm 4cm, clip]{figures/flow-diagram-model.pdf}
+  \caption{Summary diagram of agent-based movement model structure.}
+  \label{figs5}
+\end{figure}
+
+\newpage
 
 \centering
 \begin{table}
@@ -174,7 +186,7 @@ Parameters defined for the agent-based model best matching the measured profile 
     \hline
     Month - pregnancy (365 days) & June - Oct & April - May & Nov - March & NA\\
     \hline
-    Month - nursing (240 days) & NA & NA & NA & Month???\\
+    Month - nursing (210 days) & NA & NA & NA & June - Dec\\
     \hline
     Minimum sea surface temperature ($^{\circ}$C) & 3 & 3 & 3 & 18\\
     \hline
