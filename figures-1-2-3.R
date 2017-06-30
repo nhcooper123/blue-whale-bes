@@ -276,9 +276,15 @@ tidy_loess <- function(df, span = 0.1, ...){
 tmp <- resTrack %>% group_by(Rep) %>% 
   do(., tidy_loess(., span = 0.05))
 
+# add the simulated d13C data
+
+# add a vector to enable different alphas for each simulated rep
+tmp$best <- tmp$Rep == -1 # -1 means they are all zero
 
 # plot the daily tracks for simulation days >= 101 only
-track_plot <- ggplot(filter(tmp, days >= 101), aes(days, lo, group = Rep)) 
+track_plot <- ggplot(filter(tmp, days >= 101), aes(days, lo, group = Rep, 
+                                                   alpha = best )) + 
+  scale_alpha_discrete(range = c(0.25, 0.9), guide = FALSE)
 
 # add the vertical line where migration starts in the simulations
 track_plot <- track_plot + geom_vline(xintercept = as.numeric(migrate_day),
@@ -295,8 +301,9 @@ new_years_sim_day <- as.numeric(new_years_date - first_sim_day)
 track_plot <- track_plot + geom_vline(xintercept = new_years_sim_day,
                                       color = "grey", lty = 2)
 
-# add the simulated d13C data
-track_plot <- track_plot  + geom_line(col = viridis(3)[2], alpha = 0.25) + 
+
+
+track_plot <- track_plot  + geom_line(col = viridis(3)[2]) + 
   ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
   theme_classic(base_size = 14) + 
   scale_x_continuous(name = "Time (years)", breaks = new_years_sim_day, 
@@ -315,14 +322,18 @@ KC7$d13C_scaled <- with(KC7, ((d13C - mean(d13C)) * y_scale) + mean(d13C))
 track_plot <- track_plot + geom_line(data = KC7, 
                                      mapping = aes(x = days + x_shift, 
                                                    y = d13C_scaled, 
-                                                   group = NULL), 
+                                                   group = NULL,
+                                                   alpha = NULL), 
+                                     alpha = 1,
                                      col = viridis::viridis(3)[1],
                                      size = 1)
 
 track_plot <- track_plot + geom_point(data = KC7, 
                                       mapping = aes(x = days + x_shift, 
                                                    y = d13C_scaled, 
-                                                   group = NULL), 
+                                                   group = NULL,
+                                                   alpha = NULL),
+                                      alpha = 1,
                                       col = viridis::viridis(6)[1],
                                       fill = viridis::viridis(6)[2],
                                       size = point_size,
