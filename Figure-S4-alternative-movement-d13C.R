@@ -212,13 +212,19 @@ res_all <- bind_rows(list(Norway = resNor,
                           "Mid-Atlantic" = resMidAtl), .id = "Region")
 
 
-# same as for norway example above
-tmp <- res_all %>% group_by(Region) %>% group_by(Rep) %>% 
-  do(., data.frame(Z = predict(loess((.$d13C + cnst) ~ .$Day.No, span = 0.1))))
+# same as for norway example above but we are going to plot directly from the 
+# tmp object as the order gets changed due to grouping by Region.
+tmp <- res_all %>% group_by(Region, Rep)  %>% 
+  do(., data.frame(Z = predict(loess((.$d13C + cnst) ~ .$Day.No, span = 0.1)),
+                   Day.No = .$Day.No))
 
-res_all$lo <- tmp$Z
+# re-order the Region Factor
+tmp$Region <- factor(tmp$Region, levels = c("Ireland","Norway",
+                                            "Canaries","Mid-Atlantic"))
 
-sim_facet <- ggplot(res_all, aes(Day.No, lo, group = Rep)) + 
+# res_all$lo <- tmp$Z
+
+sim_facet <- ggplot(tmp, aes(Day.No, Z, group = Rep)) + 
   geom_line(col = viridis(3)[2], alpha = 0.25) + 
   xlab("Time") + 
   ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
