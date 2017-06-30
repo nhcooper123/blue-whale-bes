@@ -1,39 +1,11 @@
-# Author: Clive Trueman
-# Adapted by: Andrew Jackson 19-Jun-2017
-# About: script to generate figure 1
-
-
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-# setwd("/Users/trueman/Desktop/R scripts/migrate.files")
-
-
-library(raster)
-library(gstat)
-library(sp)
-library(maps)
-library(mapdata)
-library(RColorBrewer)
-
-library(tidyr)
-library(dplyr)
-library(ggplot2)
-library(magrittr)
-library(viridis)
-library(lubridate)
-
-
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 rm(list = ls())
-graphics.off()
-
 
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Panel A - raw whale isotope data with two y-axes
+# Import and Process the empirical data
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-
+# Import Whale data
 whale_isos <- read.csv("data/KC.NHM.full.csv", header = TRUE, 
                        stringsAsFactors = FALSE)
 
@@ -83,55 +55,12 @@ new_years_all <- round(new_years_day * growth_rate /
 
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-#----
-# plot the isotope data
-
-point_size <- 4
-
-isop <- ggplot(KC7, aes(x = Samp.No)) + 
-  theme_classic(base_size = 16) + 
-  xlab("Baleen sample (cm from youngest sample)") + 
-  scale_x_continuous(breaks = seq(0,80,20), 
-                     labels = seq(80,0,-20),
-                     sec.axis = sec_axis(~., 
-                                         breaks = new_years_all + 13.5/2,
-                                         labels = new_years,
-                                         name = "Year"))
-
-isop <- isop + geom_line(aes(y = d13C)) + 
-  geom_point(aes(y = d13C), size = point_size, shape = 21, fill = "black") +
-  ylab(expression(paste(delta^{13}, "C (\u2030)")))
-
-# add the d15N data but need to scale it to d13C
-v_shift <- 27.6 #mean(KC7$d15N) - mean(KC7$d13C) 
-# sd <- sd(KC7$d15N) / sd(KC7$d13C) # not currently used in rescaling
-
-isop <- isop + geom_line(aes(y = d15N - v_shift)) + 
-  geom_point(aes(y = (d15N - v_shift)), size = point_size, 
-             shape = 21, fill = "grey")
-
-# add the second axis and rescale it apppropriately
-isop <- isop + 
-  scale_y_continuous(
-    sec.axis = sec_axis(~.+v_shift, 
-                        name = expression(paste(delta^{15}, "N (\u2030)"))))
-
-isop <- isop + geom_vline(xintercept = new_years_samp,
-                          color = "grey", lty = 2)
-
-print(isop)
-
-ggsave("manuscript/figures/Figure-1-raw-dC-dN-data.png", isop, 
-       device = png(width = 600, height = 400))
-
-# with(KC7, day_new_year[day_new_year > 0]))
-
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# ***********************************************************
+# Import and process the simulation data
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # ----
-# Panel B
+
+# which Rep will we plot
+do_rep = 43
 
 # Map plot of all simulated tracks for the full migratory model
 
@@ -145,7 +74,7 @@ resTrack <- read.csv("data/record_migrate5.csv", header=TRUE)
 # each Rep
 days <- seq(from=1, to=(6*365+60))
 # resTrack$days 
-resTrack <- resTrack %>% group_by(Rep) %>% data.frame(days)
+resTrack <- resTrack %>% filter(Rep == do_rep) %>% group_by(Rep) %>% data.frame(days)
 
 # jitter the points
 resTrack$jLat <- jitter(resTrack$Lat, factor = 2)
@@ -177,6 +106,10 @@ cust.colors <- c(brewer.pal(5, "Blues")[2:5], brewer.pal(5, "Oranges")[2:5])
 # add to resTrack df
 resTrack$season <- four.seasons[resTrack$Month]
 
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Plot Map of simulation data
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # prep mp object
 mp <- NULL
 
@@ -186,7 +119,8 @@ mapWorld <- borders("world",
 
 
 # set up the plot for simulation days >= 101
-mp <- ggplot(filter(resTrack, days >= 101), aes(Lon, Lat, group = Rep)) 
+mp <- ggplot(filter(resTrack, days >= 101), 
+             aes(Lon, Lat, group = Rep)) 
 
 # add the world map
 mp <- mp + mapWorld
@@ -206,14 +140,14 @@ mp2 <- mp + geom_point(aes(x=jLon, y=jLat,
                            color = days), 
                        size=0.1) + 
   scale_color_viridis(discrete = FALSE, "Day")
-  # scale_color_manual(values = cust.colors) + 
-  # guides(colour = guide_legend(override.aes = list(size=5)))
+# scale_color_manual(values = cust.colors) + 
+# guides(colour = guide_legend(override.aes = list(size=5)))
 
 # remove axes and ticks and labels
 mp2 <- mp2 + theme(axis.line  = element_blank(),
-                 axis.text  = element_blank(),
-                 axis.ticks = element_blank(),
-                 axis.title = element_blank())
+                   axis.text  = element_blank(),
+                   axis.ticks = element_blank(),
+                   axis.title = element_blank())
 
 # add geographical locations
 wexford <- data.frame(x = c(-6.3, 10), y = c(52.25, 51))
@@ -221,7 +155,7 @@ wexford <- data.frame(x = c(-6.3, 10), y = c(52.25, 51))
 azores <- data.frame(x = c(-25.66, -35), y = c(37.75, 25.5))
 
 mp3 <- mp2 + geom_line(data = wexford, 
-                        mapping = aes(x,y, group = NULL), col = "#f03b20",
+                       mapping = aes(x,y, group = NULL), col = "#f03b20",
                        arrow = arrow(ends = "first", type = "closed", 
                                      angle = 20, 
                                      length = unit(0.15, "inches"))) + 
@@ -238,17 +172,15 @@ mp4 <- mp3 + geom_line(data = azores,
 
 print(mp4)
 
-ggsave("manuscript/figures/Figure-2-migratory-model-full-map.png", mp4, 
+ggsave("manuscript/figures/Figure-X-migratory-model-best-map.png", mp4, 
        device = png(width = 600, height = 600, units = "px"))
 
 
-
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# ***********************************************************
+# Plot empirical and simulated isotope data
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # ----
-# Panel C
-
+# matching isotope data
 
 
 
@@ -273,12 +205,14 @@ tidy_loess <- function(df, span = 0.1, ...){
 # take resTrack and group it by replicate, then apply our 
 # tidy_loess() function to generate estimated d13C for 
 # each of our days
-tmp <- resTrack %>% group_by(Rep) %>% 
+tmp <- resTrack %>% filter(Rep == do_rep) %>% 
   do(., tidy_loess(., span = 0.05))
 
 
 # plot the daily tracks for simulation days >= 101 only
-track_plot <- ggplot(filter(tmp, days >= 101), aes(days, lo, group = Rep)) 
+point_size <- 4
+
+track_plot <- ggplot(filter(tmp, days >= 101), aes(days, lo)) 
 
 # add the vertical line where migration starts in the simulations
 track_plot <- track_plot + geom_vline(xintercept = as.numeric(migrate_day),
@@ -296,12 +230,12 @@ track_plot <- track_plot + geom_vline(xintercept = new_years_sim_day,
                                       color = "grey", lty = 2)
 
 # add the simulated d13C data
-track_plot <- track_plot  + geom_line(col = viridis(3)[2], alpha = 0.25) + 
+track_plot <- track_plot  + geom_line(col = viridis(3)[2], alpha = 1) + 
   ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
   theme_classic(base_size = 14) + 
   scale_x_continuous(name = "Time (years)", breaks = new_years_sim_day, 
                      labels = new_years)
-  
+
 
 # superimpose the raw d13C data
 # tdf <- 3.5 # a y-scale shift, not currently used.
@@ -321,8 +255,8 @@ track_plot <- track_plot + geom_line(data = KC7,
 
 track_plot <- track_plot + geom_point(data = KC7, 
                                       mapping = aes(x = days + x_shift, 
-                                                   y = d13C_scaled, 
-                                                   group = NULL), 
+                                                    y = d13C_scaled, 
+                                                    group = NULL), 
                                       col = viridis::viridis(6)[1],
                                       fill = viridis::viridis(6)[2],
                                       size = point_size,
@@ -334,71 +268,6 @@ track_plot <- track_plot + geom_point(data = KC7,
 
 print(track_plot)
 
-ggsave("manuscript/figures/Figure-3-migratory-model-d13C.png", track_plot, 
+ggsave("manuscript/figures/Figure-Y-migratory-model-best-sim-d13C.png", track_plot, 
        device = png(width = 600, height = 400))
-
-
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# ***********************************************************
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# calculate the correlation between the simulated and observed data
-
-zEmpC <- scale(KC7$d13C)
-zDays <- KC7$days + x_shift # align the days between empirical and simulated
-
-
-# predict the loess on the same days
-
-# a function to build the data.frame from the loess fit
-# I need this here as a new "days" vector has to be 
-# created from the length of the predicted loess object
-predict_loess <- function(df, span = 0.1, newdata = NULL){
-  Z <- predict(loess(df$d13C ~ days, 
-                     span = span), newdata = newdata)
-  
-  out <- data.frame(lo = Z, days = seq(1:length(Z)))
-} # end function
-
-
-zSimC <- resTrack %>% group_by(Rep) %>% do(., data.frame(d13C = scale(.$d13C)))
-
-zSimMatched <- zSimC %>% group_by(Rep) %>% 
-  do(., predict_loess(., span = 0.05, newdata = zDays))
-
-
-
-corEmpSim <- zSimMatched %>% group_by(Rep) %>% 
-  summarise(cor = cor(zEmpC, lo), p = cor.test(zEmpC, lo)$p.value)
-
-hist_cor <- ggplot(corEmpSim, aes(cor)) + 
-  geom_histogram(binwidth = 0.1, color = "black", fill = "grey") + 
-  xlim(-0.5, 1) + theme_classic(base_size = 16) + 
-  xlab("Correlation coefficient") + scale_y_continuous(expand = c(0, 0))
-hist_cor
-
-
-hist_cor_p <- ggplot(corEmpSim, aes(p)) + 
-  geom_histogram(binwidth = 0.01, color = "black", fill = "grey") + 
-   theme_classic(base_size = 16) + 
-  xlab("Correlation coefficient") + scale_y_continuous(expand = c(0, 0))
-hist_cor_p
-
-
-# some summary statistics
-corEmpSim %>% summarise(mean = mean(cor), median = median(cor), 
-                        mode = hdrcde::hdr(cor)$mode, sd = sd(cor))
-
-# number of correlation coefficients greater than 0
-count_cor <-sum(corEmpSim$cor > 0)
-
-# number of p-values less than 0.05
-p_crit <- sum(corEmpSim$p <= 0.05 / 50)
-
-# which simulation Rep has the highest correlation coefficient?
-best_sim <- which.max(corEmpSim$cor)
-
-
-
-
-
 
