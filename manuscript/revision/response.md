@@ -2,11 +2,11 @@
 
 Dear Editors,
 
-Our paper was reviewed at Nature and was not accepted for publication. However, it was suggested that we transfer the paper to Nature Ecology and Evolution, which we are glad to do. We are transferring the reviews with the paper, therefore we include a response to reviewers as part of this cover letter. We are grateful to the referees for their helpful and constructive comments, and hope that our edits, along with the move from Nature to Nature Ecology and Evolution, will have allayed their concerns about the manuscript.
+Our paper was reviewed at Nature and was not accepted for publication. However, it was suggested that we transfer the paper to Nature Ecology and Evolution, which we are glad to do. We are transferring the reviews with the paper, therefore we include a response to referees as part of this cover letter. We are grateful to the referees for their helpful and constructive comments, and hope that our edits, along with the move from Nature to Nature Ecology and Evolution, will have allayed their concerns about the manuscript.
 
-We respond to their points below. To improve the clarity of this document we have included the reviewers comments in italics.
+We respond to their points below. To improve the clarity of this document we have included our responses to the referees comments in italics.
 
-**Important note to the reviewers**. During the revisions of this manuscript, which included substantial extra analysis, we discovered an error in our original results. Essentially, the baleen samples had been labelled in the reverse direction to what we expected. The values for all the stable isotope measures remain the same but the timeline is reversed (this occurred due to a misunderstanding with the masters student who ran to original mass spec analyses and subsequently finished her masters project and moved away). We regret this error, but these things happen, and we are relieved that we noticed the error before publication. Interestingly, when we added the extra data to the end of our time series, we find our overall results do not change from our previous manuscript. We communicated with Editor in Chief Patrick Goymer about whether it was still appropriate to cascade our reviews with the paper given this error, and he said this was fine as long as we made this very clear in our response letter. This note is to alert the reveiwers that the results graphs will look different to the original version, though our conclusions have not changed qualitatively.
+**Important note to the referees**. During the revisions of this manuscript, which included substantial extra analysis, we discovered an error in our original results. Essentially, the baleen samples had been labelled in the reverse direction to what we expected. The values for all the stable isotope measures remain the same but the timeline is reversed (this occurred due to a misunderstanding with the masters student who ran to original mass spec analyses and subsequently finished her masters project and moved away). We regret this error, but these things happen, and we are relieved that we noticed the error before publication. Interestingly, when we added the extra data to the end of our time series, we find our overall results do not change from our previous manuscript. We communicated with Editor in Chief Patrick Goymer about whether it was still appropriate to cascade our reviews with the paper given this error, and he said this was fine as long as we made this very clear in our response letter. This note is to alert the reveiwers that the results graphs will look different to the original version, though our conclusions have not changed qualitatively.
 
 
 ## Referee 1
@@ -29,6 +29,7 @@ I strongly believe this will not prohibit publication, as the results are still 
 ### Appropriate use of statistics:
 
 The statistical analyses seem sound and appropriate, although the use of Fourier analysis to calculate periodicity and growth rate in baleen can be difficult with the typically low number of samples per cycle and replication. However, since most of the literature is based on “eyeballing” cycles and visual estimates, the Fourier analysis is a good way to confirm the visual estimates. 
+
 There are no error bars or replication of samples, but this is typical of stable isotopes.
 
 ### Suggested improvements/ References:
