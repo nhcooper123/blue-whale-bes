@@ -32,7 +32,6 @@ KC7 <- filter(whale_isos, whale_ID == "KC7")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # convert year and day number to date 
-
 KC7$date <- ymd(paste0(KC7$year, "-01-01")) + KC7$day
 
 # Create a variable to label the years
@@ -80,14 +79,10 @@ ggsave("manuscript/revision/figures/Figure-1-raw-dC-dN-data.png", isop,
 
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# ***********************************************************
+# Figure 2 - Map plot of all simulated tracks for the full migratory model
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# ----
-# Panel B
 
-# Map plot of all simulated tracks for the full migratory model
-
-resTrack <- read.csv("data/record_migrate5.csv", header=TRUE)
+resTrack <- read.csv("data/Model.sims.csv", header = TRUE)
 
 # remove NAs from the dataset
 # resTrack <- filter(resTrack, !is.na(d13C))
