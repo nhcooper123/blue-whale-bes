@@ -21,22 +21,22 @@ library(viridis)
 library(lubridate)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Panel A - raw whale isotope data with two y-axes
+# Figure 1 - raw whale isotope data with two y-axes
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-whale_isos <- read.csv("data/KC.NHM.full.csv", header = TRUE, 
+whale_isos <- read.csv("data/raw-whale-isotope-data.csv", header = TRUE, 
                        stringsAsFactors = FALSE)
 
-KC7 <- filter(whale_isos, Whale == "KC7")
+KC7 <- filter(whale_isos, whale_ID == "KC7")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # convert year and day number to date 
 
-KC7$date <- ymd(paste0(KC7$Year, "-01-01")) + KC7$Day
+KC7$date <- ymd(paste0(KC7$year, "-01-01")) + KC7$day
 
 # Create a variable to label the years
-year_labels <- with(KC7, seq(min(Year), max(Year), by = 1))
-year_breaks <- which(duplicated(KC7$Year) == FALSE)
+year_labels <- with(KC7, seq(min(year), max(year), by = 1))
+year_breaks <- which(duplicated(KC7$year) == FALSE)
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #----
@@ -44,7 +44,7 @@ year_breaks <- which(duplicated(KC7$Year) == FALSE)
 
 point_size <- 4
 
-isop <- ggplot(KC7, aes(x = rev(Samp.No))) + 
+isop <- ggplot(KC7, aes(x = rev(sample_cm))) + 
   theme_classic(base_size = 16) + 
   xlab("Baleen sample (cm from youngest sample)") + 
   scale_x_continuous(breaks = seq(0, 100, 20), 
@@ -60,13 +60,12 @@ isop <- isop + geom_line(aes(y = d13C)) +
 
 # add the d15N data but need to scale it to d13C
 v_shift <- 27.6 #mean(KC7$d15N) - mean(KC7$d13C) 
-# sd <- sd(KC7$d15N) / sd(KC7$d13C) # not currently used in rescaling
 
 isop <- isop + geom_line(aes(y = d15N - v_shift)) + 
   geom_point(aes(y = (d15N - v_shift)), size = point_size, 
              shape = 21, fill = "grey")
 
-# add the second axis and rescale it apppropriately
+# add the second axis and rescale it appropriately
 isop <- isop + 
   scale_y_continuous(
     sec.axis = sec_axis(~.+v_shift, 
