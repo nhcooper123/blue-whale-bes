@@ -24,6 +24,7 @@ library(lubridate)
 # Figure 1 - raw whale isotope data with two y-axes
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+# read in data and extract just the blue whale
 whale_isos <- read.csv("data/raw-whale-isotope-data.csv", header = TRUE, 
                        stringsAsFactors = FALSE)
 
@@ -39,9 +40,7 @@ year_labels <- with(KC7, seq(min(year), max(year), by = 1))
 year_breaks <- which(duplicated(KC7$year) == FALSE)
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-#----
 # plot the isotope data
-
 point_size <- 4
 
 isop <- ggplot(KC7, aes(x = rev(sample_cm))) + 
@@ -59,7 +58,7 @@ isop <- isop + geom_line(aes(y = d13C)) +
   ylab(expression(paste(delta^{13}, "C (\u2030)")))
 
 # add the d15N data but need to scale it to d13C
-v_shift <- 27.6 #mean(KC7$d15N) - mean(KC7$d13C) 
+v_shift <- mean(KC7$d15N) - mean(KC7$d13C) 
 
 isop <- isop + geom_line(aes(y = d15N - v_shift)) + 
   geom_point(aes(y = (d15N - v_shift)), size = point_size, 
