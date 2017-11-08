@@ -49,12 +49,13 @@ There are no error bars or replication of samples, but this is typical of stable
 
 Some basic stable isotope knowledge, as well as blue whale feeding ecology should probably be mentioned (ie krill/fish feeding, no fasting) or trophic influence on isotopic signal compared to model POM values. Adding sentence on feeding ecology at beginning, and explaining in model why POM is a good proxy for zooplankton should be enough. For example: Line 65: a reference such as West et al, 2006 “Stable isotopes as one of Nature’s ecological records” relevant to SIA basics. Line 82: reference again with basic SIA shifts in marine food webs? Possibly McMahon et al, 2015 “Millennial Scale plankton regime shifts in the subtropical North Pacific Ocean”.
 
-> We have added this as suggested
+> We have added these as suggested. 
 
-
-> 
-
-* Add it!
+* In line XX we specifically mention that blue hwale feed on krill ("Blue whales feed mainly on krill (Euphausiacea), small crustaceans that feed on phytoplankton."). 
+* In lines XX we mention the trophic influence on isotopic signatures [NEED to D/o this]
+* We have added the West et al reference at lines XX and XX
+* We have added an explanation of d13C and d15N at line XX: "Note that carbon and nitrogen isotopes are expressed as d13C and d15N values, i.e. relative to a standard and as ratios of the rare (13C, 15N) to common (12C, 14N) isotope"
+* We have added the McMahon reference at line XX [ADD]
 
 The reported baleen growth rates fit the literature, but I believe it may be worth mentioning in Line 61 that baleen gets worn down over time, and that the records are not full life spans. 
 
@@ -62,7 +63,7 @@ The reported baleen growth rates fit the literature, but I believe it may be wor
 
 According to the model, d15N is relatively higher in the arctic during summer than the Atlantic in winter. In the profile, the winter values in phase one are still comparatively higher than the summer values. Would you be able to explain? I am mostly curious, but it may reflect difficulties with reading the model from a figure.
 
-> Explain
+> Explain. I'm not sure what is going on here - Clive?
 
 While the d13C increase fits the sea lion theory, the drop in d13C seen after/at birth happens too quick (late 1889) in the whale to fit the d15N rise consistent with lactation (Almost 6 months late according to timeline, past mid 1890). Human analyses in hair showed a decrease in d15N (1%o) during pregnancy, which can be seen in the baleen if we take the d13C drop as birth time and early 1889 as pregnancy time (see Fuller et al 2004 “Nitrogen Balance and 15N, why you're not what you eat during pregnancy”). While it's not a study conducted in marine mammals, it's a further indication that the birth time may indeed be in late 1889, or at least that the lactation peak is very late. Could indicate a slowing down in baleen growth, or something else? Could be worth checking with hormonal analyses (see above). 
 
