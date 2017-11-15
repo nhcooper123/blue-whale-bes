@@ -26,7 +26,7 @@ Second: the baleen isotope records themselves are interesting as there are very 
 
 I am satisfied with the SIA methods and results, but I have some slight comments. While I have no experience with modelling, I noted that there was no mention of isotopic fractionation in the model. As far as I know, blue whale feed on zooplankton and small fish, not directly on phytoplankton. If I am correct, the comparison of the baleen records to the modelled isotopes may be incorrect, as it should be affected by trophic shifts. I suppose it depends on whether the model was used for a direct pattern comparison, or if the values modelled and the baleen values were compared to each other. 
 
-> The referee is correct 
+> The referee is correct that blue whales feed predominantly on krill (small crustaceans), not directly on phytoplankton. However, the trophic shift from phytoplankton to crustacean predators is very small
 
 * CLIVE how are we dealing with this???
 
@@ -35,7 +35,7 @@ I strongly believe this will not prohibit publication, as the results are still 
 
 > Measuring hormone levels in the baleen would be a great addition to this work. We have colleagues in the US who are planning to extract hormones from this baleen. Unfortunately these results have been delayed now for over a year due to US permitting issues (thanks Trump!) and the CITES status of blue whales. But we agree that this would be really interesting, if the hormone signals remain over time.
 
-* LACTATION SIGNAL - comments?
+> In terms of the lactation signal, the reviewer makes a good point, and the changes to our results in this version also fail to demonstrate a convincing signal of lactation. We have therefore removed the mention of the lactation signal from the manuscript. We still see evidence of pregnancy and have retained this interpretation.
 
 ### Appropriate use of statistics:
 
@@ -43,7 +43,7 @@ The statistical analyses seem sound and appropriate, although the use of Fourier
 
 There are no error bars or replication of samples, but this is typical of stable isotopes.
 
-* Do we need a comment on this?
+> Thank you
 
 ### Suggested improvements/ References:
 
@@ -51,8 +51,8 @@ Some basic stable isotope knowledge, as well as blue whale feeding ecology shoul
 
 > We have added these as suggested. 
 
-* In line XX we specifically mention that blue hwale feed on krill ("Blue whales feed mainly on krill (Euphausiacea), small crustaceans that feed on phytoplankton."). 
-* In lines XX we mention the trophic influence on isotopic signatures [NEED to D/o this]
+* In line XX we specifically mention that blue whales feed on krill ("Blue whales feed mainly on krill (Euphausiacea), small crustaceans that feed on phytoplankton."). 
+* In lines XX we mention the trophic influence on isotopic signatures [NEED to DO this]
 * We have added the West et al reference at lines XX and XX
 * We have added an explanation of d13C and d15N at line XX: "Note that carbon and nitrogen isotopes are expressed as d13C and d15N values, i.e. relative to a standard and as ratios of the rare (13C, 15N) to common (12C, 14N) isotope"
 * We have added the McMahon reference at line XX [ADD]
@@ -67,15 +67,15 @@ According to the model, d15N is relatively higher in the arctic during summer th
 
 While the d13C increase fits the sea lion theory, the drop in d13C seen after/at birth happens too quick (late 1889) in the whale to fit the d15N rise consistent with lactation (Almost 6 months late according to timeline, past mid 1890). Human analyses in hair showed a decrease in d15N (1%o) during pregnancy, which can be seen in the baleen if we take the d13C drop as birth time and early 1889 as pregnancy time (see Fuller et al 2004 “Nitrogen Balance and 15N, why you're not what you eat during pregnancy”). While it's not a study conducted in marine mammals, it's a further indication that the birth time may indeed be in late 1889, or at least that the lactation peak is very late. Could indicate a slowing down in baleen growth, or something else? Could be worth checking with hormonal analyses (see above). 
 
-> Explain
+> As mentioned above, we are unable to complete hormonal analyses at this time (and are unsure if the signal will remain for over 100 years). However, we agree with the reviewers concerns and have removed mention of lactation signal from the manuscript, particularly after our reanalysis removed the strength of any signal.
 
 Another possibility lies in the location of baleen analyses. Since the methods are not clear on that point, can you confirm that the samples were taken past the gum line? Dried skin/gum could have affected the isotopic signals if samples were taken outside of the erupted zone. Could it be why the isotopic signals are so different in phase two? Busquet Vass paper shows no difference in 13C between skin and baleen so unlikely, but worth confirming.
 
-> Check
+> We sampled starting at 0.5cm from the proximal end of the baleen, which is likely to cross the gum line. However, the baleen plate was cleaned thoroughly before analysis, and even prior to this no trace of skin or gum could be seen on the plates (this material was carefully cleaned back in the 1800s when the baleen was first stored). We therefore do not believe this reflects skin or gum influencing the isotopic signals. We had mentioned cleaning the plate in the methods previously, but have now explicitly mentioned that this cleaning removes skin/gum (and that this can influence stable isotope readings) at line XX: "The baleen plate was cleaned with ethanol to remove surface contaminants such as skin/gum or other lipids that can influence isotopic signals." 
 
 The final sample interpretation of a return to cyclicity is very open to discussion, as a single point is too weak to be a guarantee. I will concede that the isotopes are consistent with past migratory values, but may be worth softening the comment (line 109-110)?
 
-> OK
+> This is a fair point. We have now edited this whole section because of the reverse of the timescale of the analysis and so have removed this comment.
 
 When describing the different behaviours, such as whales staying in high latitudes instead of migrating, also talk about the ones staying at low lat (isotope blue whale ref. Busquet-Vass) since it is more relevant to your own isotopic interpretation (line 127).
 
@@ -102,15 +102,15 @@ Page 2, line 1: “)” extraneous bracket after “behavioural phase 2”
 
 The manuscript was clear, but lacked some information on basic isotope literature, and blue whale ecology. While the ecology side is less important, some information on how isotope analyses work could be beneficial to the greater public. I understand that the limited space available prevents a thorough explanation of SIA, but there is no explanation of the general differences between d13C and d15N (geographical versus trophic information). I believe a quick sentence describing the two tracers in line 57 (for example) could help. 
 
-> We have added a brief comment on what blue whales eat on line XXX:. 
+> We have added a brief comment on what blue whales eat on line XXX: "Blue whales feed mainly on krill (Euphausiacea), small crustaceans that feed on phytoplankton". 
 
-> We have also added some simpler references to stable isotopes. For example. We also calrify the units used as this often trips up new users: lin XXX "Note that carbon and nitrogen isotopes are expressed as $\delta^{13}$C and $\delta^{15}$N values, i.e. relative to a standard and as ratios of the rare ($^{13}$C, $^{15}$N) to common ($^{12}$C, $^{14}$N) isotope (West et al 2006)."
-"
+> We have also added some basic information on stable isotopes, but have tried to avoid increasing the word count too much. We clarify the units used as this often trips up new users. line XXX "We then used continuous-flow isotope ratio mass spectrometry to determine the isotopic compositions of carbon and nitrogen in the keratin. These isotopes are expressed as d13C and d15N values, i.e. relative to a standard and as ratios of the rare (13C and 15N) to common (12C and 14N) isotope (West et al 2006).
+Carbon and nitrogen isotopes are commonly reported together as they provide complementary information; isotopes provide information on the geographical locations of an individual, whereas nitrogen isotopes provide trophic and physiological information (West et al 2006)."
 
 The abstract was clear and direct, providing a good summary of the paper's approach and conclusions.
 The conclusion is clear and justified, although the claim of first quantitative evidence of movement behaviours in blue whale seems unlikely given the slightly older paper from Busquets-Vass also reporting blue whale baleen isotopes. 
 
-> Clarify
+> We have removed this comment from the manuscript, and discuss the novelty of our work more in the response to referee 2 below.
 
 
 ## Referee 2:
