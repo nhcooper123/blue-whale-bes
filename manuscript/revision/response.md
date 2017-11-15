@@ -115,11 +115,7 @@ The conclusion is clear and justified, although the claim of first quantitative 
 
 ## Referee 2:
 
-> If we are interpreting Referee 2's comments correctly (see below), we think they mostly revolve around issues about the novelty of the study, and overstatement of results based on one individual. We completely see the points the referee is making. Some of this was related to the difficulties of writing in the shorthand Nature style - we have clearly been a little too casual in some of our wording. In other cases we haven't been clear that the selling point of this method is that it can easily be applied to hundreds of individuals at relatively low cost. Here we test the methods on one individual, but the real value in the method is its broader applicability. We have tried to clarify this where possible and have also toned down/removed/clarified a lot of our previous statements about the novelty of the study and interpretations of the results. We explain our changes in more detail below.
-
-
-
-line XXX: These methods can be applied to large numbers of individuals, but as proof of concept, here we apply this method to baleen from the Natural History Museum (NHM) London's blue whale `Hope'.
+> If we are interpreting Referee 2's comments correctly (see below), we think they mostly revolve around issues about the novelty of the study, and overstatement of results based on one individual. We completely see the points the referee is making. Some of this was related to the difficulties of writing in the shorthand Nature style - we have clearly been a little too casual in some of our wording. In other cases we haven't been clear that the selling point of this method is that it can easily be applied to hundreds of individuals at relatively low cost. Here we test the methods on one individual, but the real value in the method is its broader applicability. We have tried to clarify this where possible and have also toned down/removed/clarified a lot of our previous statements about the novelty of the study and interpretations of the results. We explain our changes in more detail below, and apologise for any offense caused by our apparent disregard for previous excellent work in this area.
 
 I appreciated the opportunity to review the submitted manuscript “Reconstructing the last known movements of one of Nature's giants”. 
 
@@ -131,39 +127,35 @@ The Abstract and text explicitly or implicitly state the novelty of the followin
 
 The study does not provide "multi-year records of...individual blue whales", but of one blue whale. The generalization of the results from one individual to the entire population is a central issue to the current paper.
 
-> Agreed
+> This is a fair point, and partially the result of some lax wording on our part. We have toned down our claims of novelty throughout and removed this sentence from the abstract.
 
 There are also issues with the movement interpretations for this one whale; the most important is that the authors make strong conclusions re: movement when the measured SIA values match those predicted by their model, but then employ a physiological argument for 'phase 2' (pregnancy and lactation) when there is a mismatch between measured data and the model. Of course, this approach makes the assumption that physiology can override the environmental signal, which calls into question any inferred movement patterns throughout the time series.
 
-> OK
+> The referee is correct in that 
 
 A main conclusion of the paper, that blue whales then migrated as they do now, simply cannot be made from one whale. I appreciate the difficulty of obtaining specimens like the one here, which makes larger sample sizes difficult to obtain. That limitation does make n = 1 studies reasonable, worthwhile, and interesting; it is my opinion that the results here, both for insights into the movements of this whale and for the methodology employed (combining a movement/isoscape model with measured values), should be published. However, n = 1 studies cannot be used to generalize the movements of an entire wild, historical population. 
 
-> OK keep your hair on
+> This is a fair point again. As stated above this is partially an issue of our wording and attempts to write this in a Nature style. We have toned down these comments throughout, and focus instead on promoting the methodological approach we have used, which we do believe is novel.
 
 This paper is also not the first to use historical data to reconstruct past movements of blue whales; see for example Reeves et al (2004) that addresses the same question with whale landings data.
 
-> OK
-
 As the authors cite, the reconstruction of whale movements using baleen is well established in the literature; see papers by Best, Schell, Hobson, and others for similar analyses on Bowhead, Right, and other baleen whales.
 
-> OK
+> Yes we are aware of these other papers, and cite many of them already. We agree that our wording in the original manuscript was not very clear and overly stated the novelty of our findings. We have tried to tone this down throughout, and provide more balanced coverage of previous work. 
 
 The penultimate sentence of the abstract and final sentence of the paper suggest that using archived museum specimens is a novel concept in marine ecology. The use of archived museum specimens is not new or overlooked; two immediate examples (of many) include Vo et al (2010) using century-old seabirds and Yeakel et al (2009) on the famous lions of Tsavo. There are papers written that point to the value of using archived collections for data (e.g. Lister 2011), and the approach is common enough that there is a methods paper written on the preparation of archived specimens for SIA (Edwards et al 2002).
 
-> OK
+> Again we realise that our wording was lax in places and overstated the novelty of this approach. This was not our intention - our intention was to encourage more ecologists to consider these archives of data in their work. We are often surprised by how under-utilised our collections are for this kind of work (even in the NHM) so wanted to highlight this. We have toned down our claims of novelty and have added more references to clarify that this is an established field of research.
 
 The “novel” movement model using SIA is indeed an improvement over many past studies using SIA to reconstruct animal movements. However, there are some studies have employed similar methods (e.g. Flockhart et al 2013 in Monarch butterflies).
 
-> OK
+> OK ???? HAVE THEY???
 
 In short, the authors applied a common tool in an established way to a single historical specimen of a rare species (though their agent-based movement model is a significant improvement over similar studies). Their model matched their measurements sometimes, but not always, leading to a movement-based interpretation for one period and a physiology-based interpretation (pregnancy and lactation) for the second period. 
 
->
+Perhaps most importantly, if the results and conclusions are considered completely correct, the authors still provide the movements of only a single whale. The conclusion that historical blue whale movements were the same as today's based on a single individual is simply not appropriate.
 
-Perhaps most importantly, if the results and conclusions are considered completely correct, the authors still provide the movements of only a single whale. The conclusion that historical blue whale movements were the same as today’s based on a single individual is simply not appropriate.
-
->
+> We have removed this from the text and have toned down interpretations that relate to just a single individual. 
 
 By not overextending their results and by addressing a few issues, I do think this could be an interesting and valuable addition to the isotope and marine mammal literature.
 
@@ -173,31 +165,33 @@ See below for additional, specific comments.
 
 Abstract: the inference of pregnancy and lactation seems more questionable than as it is stated here.
 
->
+> We have removed the reference to lactation, and reworded to make it clear that the pregnancy conclusion is more tenuous than it appeared in the original abstract.
 
 As mentioned above, the Abstract overextends the results (e.g., "migrations in blue whales" shouldnt be plural; "hundreds of years" which is not the timeline they present, etc). 
 
->
+> We have reworded the abstract and removed this inaccurate comment.
 
 Intro: migratory species may be affected by climate change by modifying movements, but aren't necessarily 'vulnerable'. Some would argue that migratory species are the least vulnerable to climate change.
 
->
+> We have reworded this to "Such species may also be particularly affected by climate change".
 
 lines 51-52 criticize approaches that are limited to only a few individuals, but this paper provides information on only one individual.
 
->
+> Fair point. We were trying to clarify that our approach is more scalable, but agree that this was poorly worded. Instead we now state on line XXX: "These methods can be applied to large numbers of individuals, but as proof of concept, here we apply this method to baleen from the Natural History Museum (NHM) London's blue whale `Hope'."
 
 Fig 1 is not very clear. There is no clear indication of the whales movement, and no isotope data on the Figure. I understand the isoscape is in the SM but this figure could be improved to provide better movement and/or isotope data.
 
->
+> We are a little confused by this comment. I assume the referee meant Figure 2? Figure 1 is a trace of d13C and d15N, and quite clearly contains isotope data. 
+FIX!!!
 
 The movement simulations in Fig 2 are also confusing. The SM clarifies but this Figure could show more. For example, the data matches the simulations...of what? The reader cannot tell if the differences in simulations are due to isotopic variability or different movement scenarios. Perhaps the 4 movement scenarios shown in SM could be 4 different colors here. In that case, when the measured data match a given slope, peak, or trough, the reader can associate it with a geographic region.
 
->
+> Again, we assume the referee is referring to Fig 3 not Fig 2. This figure has changed now we have changed our movement models and added more data. We have clarified what the figure is showing in the legend as follows: :
+FIX!!!
 
 lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactation is stated rather strongly here given the evidence (the authors describe the inference as 'tentative' in the SM).
 
->
+> We have rephrased this paragraph in response to the new data and analyses we have added. We have also toned down the claims of pregnancy and removed those about lactation.
 
 128: "resident" to where?
 
@@ -205,7 +199,7 @@ lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactati
 
 137: this point made extensively above....describes the overall "spatial ecology of blue whales in the North Atlantic" based on isotopic inferences over 6 years in a single whale.
 
->
+> We have removed this statement and toned down claims based on this one whale throughout.
 
 139: Has it been demonstrated that whaling can actually modify movement patterns? Should be stated if so.
 
@@ -213,11 +207,11 @@ lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactati
 
 140-141: OK...but it is movement behavior in a single blue whale, and this has been done in larger sample sets of other baleen whales.
 
->
+> We have removed this statement and toned down claims based on this one whale throughout.
 
 147-149. This sentence makes it seem like hardly anyone is using museum specimens for SIA or other chemical analyses, which simply isn't the case.
 
->
+> We have rephrased this.
 
 > We hope we have responded to all these comments appropriately. Please let us know if you require any further information,
 
