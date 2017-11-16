@@ -6,8 +6,14 @@ Our paper was reviewed at Nature and was not accepted for publication. However, 
 
 We respond to their points below. To improve the clarity of this document we have included our responses to the referees comments in italics.
 
-**Important note to the referees**. During the revisions of this manuscript, which included substantial extra analysis, we discovered an error in our original results. Essentially, the baleen samples had been labeled in the reverse direction to what we expected. The values for all the stable isotope measures remain the same but the timeline is reversed (this occurred due to a misunderstanding with the masters student who ran to original mass spec analyses and subsequently finished her masters project and moved away). We regret this error, but these things happen, and we are relieved that we noticed the error before publication. Interestingly, when we added the extra data to the end of our time series, we find our overall results do not change from our previous manuscript. We communicated with Editor in Chief Patrick Goymer about whether it was still appropriate to cascade our reviews with the paper given this error, and he said this was fine as long as we made this very clear in our response letter. This note is to alert the referees that the results graphs will look different to the original version, though our conclusions have not changed qualitatively.
+## Important note to the referees 
+During the revisions of this manuscript, which included substantial extra analysis, we discovered an error in our original results. Essentially, the baleen samples had been labeled in the reverse direction to what we expected. The values for all the stable isotope measures remain the same but the timeline is reversed (this occurred due to a misunderstanding with the masters student who ran to original mass spec analyses and subsequently finished her masters project and moved away). We regret this error, but these things happen, and we are relieved that we noticed the error before publication. Interestingly, when we added the extra data to the end of our time series, we find our overall results do not change from our previous manuscript. We communicated with Editor in Chief Patrick Goymer about whether it was still appropriate to cascade our reviews with the paper given this error, and he said this was fine as long as we made this very clear in our response letter. This note is to alert the referees that the results graphs will look different to the original version, though our conclusions have not changed qualitatively.
 
+## New analyses
+As well as responding to the referee comments, and substantially rewriting sections of the paper, this new version contains several new analyses. In brief:
+
+1. We took further keratin samples from the fronds of the baleen, this has increased our number of samples from 78 to XX, and the time series from six to seven full years of records.
+2. We have increased the number of simulations on our models from 100 to 1000, to better explore parameter space. We provide X new figures in the supplementary information exploring these models more thoroughly.  
 
 ## Original referee comments
 
@@ -25,7 +31,6 @@ Second: the baleen isotope records themselves are interesting as there are very 
 ### Data and Methodology: Validity
 
 I am satisfied with the SIA methods and results, but I have some slight comments. While I have no experience with modelling, I noted that there was no mention of isotopic fractionation in the model. As far as I know, blue whale feed on zooplankton and small fish, not directly on phytoplankton. If I am correct, the comparison of the baleen records to the modelled isotopes may be incorrect, as it should be affected by trophic shifts. I suppose it depends on whether the model was used for a direct pattern comparison, or if the values modelled and the baleen values were compared to each other. 
-
 > The referee is correct that blue whales feed predominantly on krill (small crustaceans), not directly on phytoplankton. However, the trophic shift from phytoplankton to crustacean predators is very small
 
 * CLIVE how are we dealing with this???
@@ -55,7 +60,7 @@ Some basic stable isotope knowledge, as well as blue whale feeding ecology shoul
 * In lines XX we mention the trophic influence on isotopic signatures [NEED to DO this]
 * We have added the West et al reference at lines XX and XX
 * We have added an explanation of d13C and d15N at line XX: "Note that carbon and nitrogen isotopes are expressed as d13C and d15N values, i.e. relative to a standard and as ratios of the rare (13C, 15N) to common (12C, 14N) isotope"
-* We have added the McMahon reference at line XX [ADD]
+* We have added the McMahon reference at line XX
 
 The reported baleen growth rates fit the literature, but I believe it may be worth mentioning in Line 61 that baleen gets worn down over time, and that the records are not full life spans. 
 
@@ -79,7 +84,7 @@ The final sample interpretation of a return to cyclicity is very open to discuss
 
 When describing the different behaviours, such as whales staying in high latitudes instead of migrating, also talk about the ones staying at low lat (isotope blue whale ref. Busquet-Vass) since it is more relevant to your own isotopic interpretation (line 127).
 
-> Alright
+> We have added this reference.
 
 Typos etc:
 
@@ -131,7 +136,7 @@ The study does not provide "multi-year records of...individual blue whales", but
 
 There are also issues with the movement interpretations for this one whale; the most important is that the authors make strong conclusions re: movement when the measured SIA values match those predicted by their model, but then employ a physiological argument for 'phase 2' (pregnancy and lactation) when there is a mismatch between measured data and the model. Of course, this approach makes the assumption that physiology can override the environmental signal, which calls into question any inferred movement patterns throughout the time series.
 
-> The referee is correct in that 
+> The referee is correct in that ???
 
 A main conclusion of the paper, that blue whales then migrated as they do now, simply cannot be made from one whale. I appreciate the difficulty of obtaining specimens like the one here, which makes larger sample sizes difficult to obtain. That limitation does make n = 1 studies reasonable, worthwhile, and interesting; it is my opinion that the results here, both for insights into the movements of this whale and for the methodology employed (combining a movement/isoscape model with measured values), should be published. However, n = 1 studies cannot be used to generalize the movements of an entire wild, historical population. 
 
@@ -195,7 +200,7 @@ lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactati
 
 128: "resident" to where?
 
->
+> We have removed this comment from the text.
 
 137: this point made extensively above....describes the overall "spatial ecology of blue whales in the North Atlantic" based on isotopic inferences over 6 years in a single whale.
 
@@ -203,7 +208,7 @@ lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactati
 
 139: Has it been demonstrated that whaling can actually modify movement patterns? Should be stated if so.
 
->
+> Not per se, though we see changes in pre and post whaling distributions, as seen in Reeves et al 2004. We have modified this statement.
 
 140-141: OK...but it is movement behavior in a single blue whale, and this has been done in larger sample sets of other baleen whales.
 
@@ -211,7 +216,7 @@ lines 112-122. The conclusion of an isotopic reflection of pregnancy and lactati
 
 147-149. This sentence makes it seem like hardly anyone is using museum specimens for SIA or other chemical analyses, which simply isn't the case.
 
-> We have rephrased this.
+> We have rephrased this to make it clear we are highlighting something others have also highlighted in the past.
 
 > We hope we have responded to all these comments appropriately. Please let us know if you require any further information,
 
