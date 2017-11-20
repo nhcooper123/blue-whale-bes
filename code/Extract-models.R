@@ -78,6 +78,15 @@ limit <- length(r2) - length(r2) * cut
 bottom <- 0.1
 limitB <- length(r2) * bottom
 
+# Define phase of behaviour
+# Phase 1 = days 1 - 999
+# Phase 2 = days 1000 - 2499
+# Phase 3 = days 2500 - 3019
+resTrack$phase <- rep(NA, length(resTrack$Rep))
+resTrack$phase[resTrack$count2 < 1000] <- "blue"
+resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- "orange"
+resTrack$phase[resTrack$count2 > 2500] <- "red"
+
 topX <- ddply(resTrack, "Rep", function(x) {
   newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
 })
