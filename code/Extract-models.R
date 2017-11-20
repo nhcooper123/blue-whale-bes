@@ -74,34 +74,24 @@ for(run in 1:length(unique(resTrack$Rep))){
 # write out for figures 
 cut <- 0.1
 limit <- length(r2) - length(r2) * cut
-top100 <- test3[, order(r2)[limit:length(r2)] + 1]
 
 bottom <- 0.1
 limitB <- length(r2) * bottom
-bottom100 <- test3[, order(r2)[1:limitB] + 1]
-
-# Add blue whale data back in
-top100$blue <- rev(blue$d13C)
-top100$day <- test2$count2[test2$Rep == 1][1:97]
-
-bottom100$blue <- rev(blue$d13C)
-bottom100$day <- test2$count2[test2$Rep == 1][1:97]
-
-# Write to file
-write.csv(file = "data/top100models.csv", top100, quote = FALSE)
-write.csv(file = "data/bottom100models.csv", bottom100, quote = FALSE)
-
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Extract latitude and longtiudes from top and bottom 10% of models
 
 topX <- ddply(resTrack, "Rep", function(x) {
-	newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
+  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
 })
 
 bottomY <- ddply(resTrack, "Rep", function(x) {
-	newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[1:limitB]],]
+  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[1:limitB]],]
 })
 
+# Write to file
+write.csv(file = "data/top10.csv", topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/bottom10.csv", bottomY, quote = FALSE, row.names = FALSE)
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Extract latitude and longtiudes from top and bottom 10% of models
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # what is the max lat for each of the top X models?
 max.lat <- ddply(topX, "Rep", function(x) {
