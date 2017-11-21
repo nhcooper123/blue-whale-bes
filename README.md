@@ -13,7 +13,7 @@ To cite this repo:
 ## Data
 These analyses are based on d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. 
 All isotope data are available from the [NHM Data Portal](DOI here) and can be found in the `data/` folder. 
-We then created 1000 movement model simulations. These data are available from the [NHM Data Portal](DOI here) but the file is too large for GitHub. The top 10% and bottom 10% of models are however available (`data/top10.csv` and `data/bottom10.csv`), along with their extracted maximum latitudes.
+We then created 1000 movement model simulations. These data are available from the [NHM Data Portal](DOI here) but the file is too large for GitHub. The top 10% and bottom 10% of models are however available (`data/top10.csv` and `data/bottom10.csv`), along with their extracted maximum latitudes and their standard deviations.
 
 If you use the data please cite as follows: 
 > XXX.
@@ -32,7 +32,7 @@ The movement models were written by Clive Trueman and are currently not availabl
 All code used to run downstream analyses and make figures is included in the `code/` folder. Before starting remember to either set your working directory to the **blue-whale-bes** folder on your computer, or open an RStudio project from that folder.
 
 * **Extract-models.R** extracts the top 10% and bottom 10% of movement models, and the maximum and standard deviation of the latitudes of these models. It writes these to the `data/` folder for use in building figures.
-* **Figure-1-code.R	** does what is says on the tin - creates Figure 1.
+* **Figure-1-code.R** does what is says on the tin - creates Figure 1.
 * **Figure-2-code.R** is code for Figure 2.
 * **Figure-3-code.R** is code for Figure 3.
 * **Figure-S1-S2-code.R** is code for Figures S1 and S2.
