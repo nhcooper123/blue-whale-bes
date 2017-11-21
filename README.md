@@ -38,8 +38,8 @@ All code used to run downstream analyses and make figures is included in the `co
 * **Figure-S1-S2-code.R** is code for Figures S1 and S2.
 * **Figure-S3-code.R** is code for Figure S3.
 * **Figure-S4-code.R** is code for Figure S4.
-* **Figure-S5-code.R** is code for Figure S4.
-* **Figure-S6-code.R** is code for Figure S4.
+* **Figure-S5-code.R** is code for Figure S5.
+* **Figure-S6-code.R** is code for Figure S6.
 
 Most of this code was written by Clive Trueman, with some tidying/modifications by Andrew Jackson and Natalie Cooper. Unfortunately/interestingly (depending on your opinion!) we all code in different ways (tidyverse vs base being the biggest difference). So some of the code may be a bit hard to follow, depending on your preferred approach, and it is not as consistent as we'd like. But it works goddammit! And we are all too busy to convince the others that one way is better...
 
