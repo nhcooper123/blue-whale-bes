@@ -9,8 +9,6 @@ library(plyr)
 # note if using group_by in dplyr later you'll need to detach plyr
 library(maps)
 library(mapdata)
-library(R.utils)
-library(viridis)
 library(tidyverse)
 
 # Read in the measured whale data and select blue whale
