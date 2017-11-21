@@ -85,9 +85,9 @@ limitB <- length(r2) * bottom
 # Phase 2 = days 1000 - 2499
 # Phase 3 = days 2500 - 3019
 resTrack$phase <- rep(NA, length(resTrack$Rep))
-resTrack$phase[resTrack$count2 < 1000] <- viridis_pal()(10)[1]
-resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- viridis_pal()(10)[5]
-resTrack$phase[resTrack$count2 > 2500] <- viridis_pal()(10)[9]
+resTrack$phase[resTrack$count2 < 1000] <- 1
+resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- 2
+resTrack$phase[resTrack$count2 > 2500] <- 3
 
 topX <- ddply(resTrack, "Rep", function(x) {
   newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
