@@ -23,7 +23,7 @@ blue$Day.sim <- rev(predict.days)
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
-resTrack <- read_csv("data/Model.sims.csv")
+resTrack <- read_csv("data/model.sims.csv")
 
 # Remove rep that didn't work
 resTrack<-resTrack[-c(3213051:3213211),]
@@ -100,7 +100,7 @@ write.csv(file = "data/top10.csv", topX, quote = FALSE, row.names = FALSE)
 write.csv(file = "data/bottom10.csv", bottomY, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Extract latitude and longtiudes from top and bottom 10% of models
+# Extract latitude and longitudes from top and bottom 10% of models
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # what is the max lat for each of the top X models?
 max.lat <- ddply(topX, "Rep", function(x) {
