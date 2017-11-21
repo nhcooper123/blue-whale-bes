@@ -6,10 +6,12 @@
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
 library(plyr)
-# note if using dplyr later you'll need to detach plyr
+# note if using group_by in dplyr later you'll need to detach plyr
 library(maps)
 library(mapdata)
 library(R.utils)
+library(viridis)
+library(tidyverse)
 
 # Read in the measured whale data and select blue whale
 whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
@@ -83,9 +85,9 @@ limitB <- length(r2) * bottom
 # Phase 2 = days 1000 - 2499
 # Phase 3 = days 2500 - 3019
 resTrack$phase <- rep(NA, length(resTrack$Rep))
-resTrack$phase[resTrack$count2 < 1000] <- "blue"
-resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- "orange"
-resTrack$phase[resTrack$count2 > 2500] <- "red"
+resTrack$phase[resTrack$count2 < 1000] <- viridis_pal()(10)[1]
+resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- viridis_pal()(10)[5]
+resTrack$phase[resTrack$count2 > 2500] <- viridis_pal()(10)[9]
 
 topX <- ddply(resTrack, "Rep", function(x) {
   newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
