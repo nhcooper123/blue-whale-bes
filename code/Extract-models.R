@@ -45,9 +45,18 @@ test2 <- ddply(test, "Rep", function(x) {
 	newSeries <- x[x$count2 < 3021, ]
 })
 
+# Add the different d13C isoscape values only for the sampled tracks
+# for the six month sliding window isoscape
+for(i in 1:nrow(test2)){
+  mon.no <- test2$Month[i]
+  test2$TL4[i] <- raster::extract(x = TL4[[mon.no]], 
+                                  y = test2[i, c("Lon", "Lat")])
+}
+
 # Run loess through series and predict for same days as measured
+# for the six month sliding window isoscape
 test3 <- ddply(test2, "Rep", function(x){
-	lo <- predict(loess(x$d13C ~ x$count2, span = 0.05))[1:97]
+  lo <- predict(loess(x$TL4 ~ x$count2, span = 0.05))[1:97]
 })
 
 # Transpose
