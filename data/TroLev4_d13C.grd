@@ -1,0 +1,25 @@
+[general] 
+creator=R package 'raster' 
+created= 2017-10-19 15:52:15 
+[georeference] 
+nrows= 180 
+ncols= 360 
+xmin= -180 
+ymin= -90 
+xmax= 180 
+ymax= 90 
+projection= +proj=longlat +datum=WGS84 
+[data] 
+datatype= FLT8S 
+byteorder= little 
+nbands= 12 
+bandorder= BIL 
+minvalue= -32.7536541044186:-33.0244920248386:-33.3438620188068:-33.6288945084568:-33.794344286228:-33.7926489629328:-33.6320449543296:-33.3578686250344:-33.0408866235409:-32.7609935999482:-32.5990859171877:-32.5990126702133 
+maxvalue= -15.8688606960622:-15.8544722744825:-15.8867840278313:-15.9587471447777:-16.0542338201719:-16.144508051581:-16.200773795365:-16.209262688363:-16.1746697264881:-16.1063249295973:-16.0167377827848:-15.9287447599018 
+nodatavalue= -1.7e+308 
+[legend] 
+legendtype=  
+values=  
+color=  
+[description] 
+layername= layer.1:layer.2:layer.3:layer.4:layer.5:layer.6:layer.7:layer.8:layer.9:layer.10:layer.11:layer.12 
