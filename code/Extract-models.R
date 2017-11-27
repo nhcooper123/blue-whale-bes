@@ -1,7 +1,7 @@
 # Author: Clive Trueman
 # About: script to extract top 10% and bottom 10% of models from 
 # simulations and extract latitude and longitude info from them
-# Tidied by Natalie Cooper Oct 2017
+# Tidied by Natalie Cooper Nov 2017
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
@@ -10,6 +10,7 @@ library(plyr)
 library(maps)
 library(mapdata)
 library(tidyverse)
+library(raster)
 
 # Read in the measured whale data and select blue whale
 whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
@@ -21,12 +22,16 @@ predict.days <- seq(from = 30, to = (8 * 365) + 100, by = 31)
 blue$Day.sim <- rev(predict.days)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Read in d13C of different trophic levels
+TL4 <- stack("data/Trolev4_d13C.grd")
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
 resTrack <- read_csv("data/model.sims.csv")
 
 # Remove rep that didn't work
-resTrack<-resTrack[-c(3213051:3213211),]
+resTrack <- resTrack[-c(3213051:3213211), ]
 
 # Fix day numbers reflecting monthly samples (for loess sampling)
 lengthS <- length(resTrack$d13C[resTrack$Rep == 1])

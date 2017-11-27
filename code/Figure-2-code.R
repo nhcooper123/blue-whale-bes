@@ -24,14 +24,20 @@ jLon <- jitter(top10$Lon, factor = 1)
 png("manuscript/revision/figures/Figure-2-points.png", width = 800, height = 600)
 
 # Top 10 %
-plot(x = NA, y = NA, xlim = c(-80,50), ylim = c(0, 80), 
+plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
      xlab = "", ylab = "", axes = FALSE)
 rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
      col = "grey90")
 
 # Add points coloured by phase
 points(jLon, jLat, pch = 16, col = mycols[top10$phase], cex = 0.2)
+
+# Add world map
 map('world', col = "black", fill = TRUE, add = TRUE, lwd = 0.25)
+# If you get this error, 
+# Error in as_mapper(.f, ...) : argument ".f" is missing, with no default
+# You need to detach the package purrr (detach(package:purrr)) and reload
+# the maps library (library(map))
 
 legend(x = 42, y = 28, legend = c(1, 2, 3), col = mycols, pch = 16, fill = "white",
        border = "white", title = "Phase", bg = "white", box.col = "white", xjust = 0.5,
