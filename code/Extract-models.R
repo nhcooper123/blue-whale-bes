@@ -99,7 +99,7 @@ resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- 2
 resTrack$phase[resTrack$count2 > 2500] <- 3
 
 topX <- ddply(resTrack, "Rep", function(x) {
-  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit:length(r2)]], ]
+  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit+1:length(r2)]], ]
 })
 
 bottomY <- ddply(resTrack, "Rep", function(x) {
@@ -107,8 +107,8 @@ bottomY <- ddply(resTrack, "Rep", function(x) {
 })
 
 # Write to file
-write.csv(file = "data/top10.csv", topX, quote = FALSE, row.names = FALSE)
-write.csv(file = "data/bottom10.csv", bottomY, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/top100.csv", topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/bottom100.csv", bottomY, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract latitude and longitudes from top and bottom 10% of models
