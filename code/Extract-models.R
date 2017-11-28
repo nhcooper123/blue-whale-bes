@@ -28,10 +28,7 @@ TL4 <- stack("data/Trolev4_d13C.grd")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
-resTrack <- read_csv("data/model.sims.csv")
-
-# Remove rep that didn't work
-resTrack <- resTrack[-c(3213051:3213211), ]
+resTrack <- read_csv("data/model.sims1000.csv")
 
 # Fix day numbers reflecting monthly samples (for loess sampling)
 lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
