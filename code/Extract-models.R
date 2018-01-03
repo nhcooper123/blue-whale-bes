@@ -184,15 +184,17 @@ mid.test3 <- as.data.frame(mid.test3[-1, ])
 
 # Link to the measured data to allow regression comparison
 mid.test3$Day <- mid.test$count2[mid.test$Rep == 1][1:48]
-mid.test3$Blue<-rev(blue$d13C[blue$Day.sim < 2500 & blue$Day.sim >= 1000])
+mid.test3$Blue <-rev(blue$d13C[blue$Day.sim < 2500 & blue$Day.sim >= 1000])
 
 # Remove runs with missing data
-mid.test4<-mid.test3[, -which(colMeans(is.na(mid.test3)) > 0.5)]
+# In my 1000 models there are no missing data
+#mid.test4 <- mid.test3[, -which(colMeans(is.na(mid.test3)) > 0.5)]
+mid.test4 <- mid.test3
 
 # Run regressions for each model simulation and save r square values
 mid.r2 <- vector()
 
-for(run in 3:dim(mid.test4)[2] - 2){
+for(run in 3:length(unique(mid$Rep))){
   mid.r2[run]<-summary(lm(mid.test4[, run] ~ mid.test4$Blue))$adj.r.squared
 }
 
