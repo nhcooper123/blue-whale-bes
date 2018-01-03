@@ -80,6 +80,8 @@ for(run in 1:length(unique(resTrack$Rep))){
 	r2[run] <- summary(lm(test3[, run] ~ test3$Blue))$adj.r.squared
 }
 
+write.csv(file = "data/all.r2.csv", r2, quote = FALSE, row.names = FALSE)
+
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 # extract top 10% and bottom 10% best fit models for whole series
 # write out for figures 
