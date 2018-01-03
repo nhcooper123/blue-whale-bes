@@ -98,12 +98,13 @@ resTrack$phase[resTrack$count2 < 1000] <- 1
 resTrack$phase[resTrack$count2 >= 1000 & resTrack$count2 < 2500] <- 2
 resTrack$phase[resTrack$count2 > 2500] <- 3
 
+# extract top 10% and bottom 10% best fit models
 topX <- ddply(resTrack, "Rep", function(x) {
-  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit+1:length(r2)]], ]
+  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[limit + 1:length(r2)]], ]
 })
 
 bottomY <- ddply(resTrack, "Rep", function(x) {
-  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[1:limitB]],]
+  newSeries <- x[x$Rep%in%unique(resTrack$Rep)[order(r2)[1:limitB]], ]
 })
 
 # Write to file
@@ -149,3 +150,67 @@ write.csv(file = "data/max.lat.csv", max.lat.ds, quote = FALSE)
 write.csv(file = "data/sd.lat.csv", sd.lat.ds, quote = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# extract top 10% and bottom 10% best fit models for 
+# phase 2 only (day 1000 - day 2499)
+# write out for figures 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+# Extract only phase 2 days from simulations 
+mid <- ddply(resTrack, "Rep", function(x) {
+  newSeries <- x[x$count2%in%seq(from = 1000, to = 2499, by = 1), ]
+})
+
+# Get sample days
+mo_no.mid <- 1500/30 - 1
+sampleD.mid <- rnorm(mo_no.mid, 30, 1)
+sampledays.mid <- as.integer(cumsum(sampleD.mid)) + 1000 - 30
+
+# Extract only values for days of sample
+mid.test <- ddply(mid, "Rep", function(x) {
+  newSeries <- x[x$count2%in%sampledays.mid, ]
+})
+
+# Run loess through series and predict for same days as measured
+mid.test3 <- ddply(mid.test, "Rep", function(x) {
+  lo <- predict(loess(x$d13C ~ x$count2, span = 0.2))[1:48]
+})
+
+# Transpose
+mid.test3 <- t(mid.test3)
+
+# Add column names
+colnames(mid.test3) <- seq(from = 1, to = length(unique(mid.test$Rep)), by = 1)
+mid.test3 <- as.data.frame(mid.test3[-1, ])
+
+# Link to the measured data to allow regression comparison
+mid.test3$Day <- mid.test$count2[mid.test$Rep == 1][1:48]
+mid.test3$Blue<-rev(blue$d13C[blue$Day.sim < 2500 & blue$Day.sim >= 1000])
+
+# Remove runs with missing data
+mid.test4<-mid.test3[, -which(colMeans(is.na(mid.test3)) > 0.5)]
+
+# Run regressions for each model simulation and save r square values
+mid.r2 <- vector()
+
+for(run in 3:dim(mid.test4)[2] - 2){
+  mid.r2[run]<-summary(lm(mid.test4[, run] ~ mid.test4$Blue))$adj.r.squared
+}
+
+# Extract top 10% and bottom 10% of models
+cut <- 0.1
+mid.limit <- length(mid.r2) - length(mid.r2) * cut
+
+bottom <- 0.1
+mid.limitB <- length(mid.r2) * bottom
+
+mid.topX <- ddply(mid, "Rep", function(x) {
+  newSeries <- x[x$Rep%in%unique(mid$Rep)[order(mid.r2)[mid.limit + 1:length(mid.r2)]], ]
+})
+
+mid.bottomY <- ddply(mid, "Rep", function(x) {
+  newSeries <- x[x$Rep%in%unique(mid$Rep)[order(mid.r2)[1:mid.limitB]], ]
+})
+
+# Write to file
+write.csv(file = "data/mid.top100.csv", topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/mid.bottom100.csv", bottomY, quote = FALSE, row.names = FALSE)
