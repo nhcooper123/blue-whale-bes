@@ -13,7 +13,7 @@ library(viridis)
 # Read in data
 mid.top10 <- read.csv("data/mid.top100.csv")
 
-# Pick colours
+# Pick colours to match phases in Figure 2
 mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -29,7 +29,7 @@ for (Mn in 1:12) {
   
   # Make background of plots
   plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
-       xlab = "", ylab = "", axes = FALSE, main = month.abb[Mn])
+       xlab = "", ylab = "", axes = FALSE, main = month.abb[Mn], cex.main = 2)
   rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
        col = "grey90")
   
@@ -41,7 +41,7 @@ for (Mn in 1:12) {
   jLon <- jitter(Month$Lon, factor = 1)
   
   # Add points coloured by phase
-  points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.05, lwd = 0.01)
+  points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.2)
 
   # Add world map
   map('world', col = "black", fill = TRUE, add = TRUE, lwd = 0.25)
@@ -50,9 +50,6 @@ for (Mn in 1:12) {
   # You need to detach the package purrr (detach(package:purrr)) and reload
   # the maps library (library(map))
   
-  
-  # Add mont hheader somewhere
-  # remove massive margins
   par(new=FALSE)
 }
 
