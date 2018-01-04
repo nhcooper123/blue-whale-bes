@@ -11,7 +11,7 @@ library(spatstat)
 library(viridis)
 
 # Read in data
-mid.top10 <- read.csv("data/mid.top100.csv")
+mid.top10 <- read.csv("data/mid.top10percent.csv")
 
 # Pick colours to match phases in Figure 2
 mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
