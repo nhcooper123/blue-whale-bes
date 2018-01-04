@@ -9,8 +9,8 @@ library(mapdata)
 library(spatstat)
 
 # Read in data
-top10 <- read.csv("data/top100.csv")
-bottom10 <- read.csv("data/bottom100.csv")
+top10 <- read.csv("data/top10percent.csv")
+bottom10 <- read.csv("data/bottom10percent.csv")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Kernal density plots
