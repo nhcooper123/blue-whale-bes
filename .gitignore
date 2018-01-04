@@ -1,3 +1,8 @@
+# Problem datasets that are too large for GitHub
+
+data/model.sims.csv
+data/model.sims.full.csv
+
 .Rproj.user
 .Rhistory
 .RData
