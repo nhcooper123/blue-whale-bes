@@ -1,5 +1,5 @@
 # Fixing up movement model simulations dataset
-# Some of the runs have < 3000 days so these need to be cut
+# Some of the runs end before 3019 days so these need to be cut
 # before we start (where the simulation got stuck and "stranded")
 # Natalie Cooper Jan 2018
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -10,12 +10,12 @@ library(tidyverse)
 # Takes a bit of time
 resTrack <- read_csv("data/model.sims.csv")
 
-# Remove reps with < 3000 days
+# Remove reps with < 3019 days
 remove <- 
   resTrack %>%
   group_by(Rep) %>%
-  summarise(ln = length(count2)) %>%
-  filter(ln < 3000)
+  summarise(last.day = max(count2)) %>%
+  filter(last.day < 3019)
 
 toremove <- match(resTrack$Rep, remove$Rep, nomatch = 0)
 
@@ -23,4 +23,4 @@ resTrack2 <- resTrack[toremove == 0, ]
 
 # Write to data folder
 # Use this for later analyses
-write.csv(resTrack2, "data/model.sims.3000.csv", quote = FALSE, row.names = FALSE)
+write.csv(resTrack2, "data/model.sims.full.csv", quote = FALSE, row.names = FALSE)
