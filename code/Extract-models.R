@@ -12,10 +12,12 @@ library(mapdata)
 library(tidyverse)
 library(raster)
 
+### NOT SURE THIS IS NEEDED HERE
 # Read in the measured whale data and select blue whale
 whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
 blue <- filter(whale_isos, whale_ID == "KC7")
 
+### NOT SURE THIS IS NEEDED HERE
 # Fix day numbers reflecting monthly samples 
 # (for loess sampling - fixed to have same no.s)
 predict.days <- seq(from = 30, to = (8 * 365) + 100, by = 31)
@@ -43,6 +45,8 @@ test <- ddply(resTrack, "Rep", function(x) {
 	newSeries <- x[x$count2%in%sampledays, ]
 })
 
+# Remove any simulated values where the day > 3020
+# which is the last day of the real data
 test2 <- ddply(test, "Rep", function(x) {
 	newSeries <- x[x$count2 < 3021, ]
 })
@@ -76,7 +80,6 @@ test3$Blue <- rev(blue$d13C)
 r2 <- vector()
 
 for(run in 1:length(unique(resTrack$Rep))){
-	testX <- lm(test3[, run] ~ test3$Blue)
 	r2[run] <- summary(lm(test3[, run] ~ test3$Blue))$adj.r.squared
 }
 
