@@ -10,7 +10,7 @@ library(spatstat)
 library(viridis)
 
 # Read in data
-top10 <- read.csv("data/top100.csv")
+top10 <- read.csv("data/top10percent.csv")
 
 # Pick colours
 mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
