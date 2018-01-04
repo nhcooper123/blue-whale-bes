@@ -7,17 +7,15 @@
 # Load libraries
 library(plyr)
 # note if using group_by in dplyr later you'll need to detach plyr
-library(maps)
-library(mapdata)
+#library(maps)
+#library(mapdata)
 library(tidyverse)
 library(raster)
 
-### NOT SURE THIS IS NEEDED HERE
 # Read in the measured whale data and select blue whale
 whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
 blue <- filter(whale_isos, whale_ID == "KC7")
 
-### NOT SURE THIS IS NEEDED HERE
 # Fix day numbers reflecting monthly samples 
 # (for loess sampling - fixed to have same no.s)
 predict.days <- seq(from = 30, to = (8 * 365) + 100, by = 31)
@@ -30,7 +28,7 @@ TL4 <- stack("data/Trolev4_d13C.grd")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
-resTrack <- read_csv("data/model.sims1000.csv")
+resTrack <- read_csv("data/model.sims.full.csv")
 
 # Fix day numbers reflecting monthly samples (for loess sampling)
 lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
@@ -45,11 +43,13 @@ test <- ddply(resTrack, "Rep", function(x) {
 	newSeries <- x[x$count2%in%sampledays, ]
 })
 
+### NOT SURE THIS IS NEEDED HERE
 # Remove any simulated values where the day > 3020
 # which is the last day of the real data
-test2 <- ddply(test, "Rep", function(x) {
-	newSeries <- x[x$count2 < 3021, ]
-})
+## test2 <- ddply(test, "Rep", function(x) {
+#	newSeries <- x[x$count2 < 3021, ]
+#})
+test2 <- test
 
 # Add the different d13C isoscape values only for the sampled tracks
 # for the six month sliding window isoscape
@@ -113,8 +113,39 @@ bottomY <- ddply(resTrack, "Rep", function(x) {
 })
 
 # Write to file
-write.csv(file = "data/top100.csv", topX, quote = FALSE, row.names = FALSE)
-write.csv(file = "data/bottom100.csv", bottomY, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/top10percent.csv", topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/bottom10percent.csv", bottomY, quote = FALSE, row.names = FALSE)
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Export top 10% of loess predictions for Figure 3
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Identify the top 10% of r2 values
+toptestX <- order(r2)[length(r2):limit] + 1
+
+# Extract these from the loess predictions in test3
+testtopX <- test3[, c(toptestX)] 
+
+# Make Days into rownames
+rownames(testtopX) <- test3$Day
+
+# Transpose
+testtopX <- t(testtopX)
+
+# Coerce to a dataframe
+testtopX <- data.frame(testtopX)
+
+# Reshape so data are in the correct format for plotting
+# Add Reps column from rownames
+# Rename the gathered column as "Day"
+# Remove the X at the start
+testtopX2 <- testtopX %>%
+  mutate(Rep = rownames(testtopX)) %>%
+  gather(X30:X2901, d13C_smooth, -Rep) %>%
+  dplyr::rename(Day = `X30:X2901`) %>%
+  mutate(Day = str_replace(Day, "X", ""))
+  
+# Write to file
+write.csv(file = "data/top10smooth.csv", testtopX2, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract latitude and longitudes from top and bottom 10% of models
@@ -176,25 +207,25 @@ mid.test <- ddply(mid, "Rep", function(x) {
 })
 
 # Run loess through series and predict for same days as measured
-mid.test3 <- ddply(mid.test, "Rep", function(x) {
+mid.test2 <- ddply(mid.test, "Rep", function(x) {
   lo <- predict(loess(x$d13C ~ x$count2, span = 0.2))[1:48]
 })
 
 # Transpose
-mid.test3 <- t(mid.test3)
+mid.test2 <- t(mid.test2)
 
 # Add column names
-colnames(mid.test3) <- seq(from = 1, to = length(unique(mid.test$Rep)), by = 1)
-mid.test3 <- as.data.frame(mid.test3[-1, ])
+colnames(mid.test2) <- seq(from = 1, to = length(unique(mid.test$Rep)), by = 1)
+mid.test2 <- as.data.frame(mid.test2[-1, ])
 
 # Link to the measured data to allow regression comparison
-mid.test3$Day <- mid.test$count2[mid.test$Rep == 1][1:48]
-mid.test3$Blue <-rev(blue$d13C[blue$Day.sim < 2500 & blue$Day.sim >= 1000])
+mid.test2$Day <- mid.test$count2[mid.test$Rep == 1][1:48]
+mid.test2$Blue <-rev(blue$d13C[blue$Day.sim < 2500 & blue$Day.sim >= 1000])
 
 # Remove runs with missing data
 # In my 1000 models there are no missing data
-#mid.test4 <- mid.test3[, -which(colMeans(is.na(mid.test3)) > 0.5)]
-mid.test4 <- mid.test3
+#mid.test3 <- mid.test2[, -which(colMeans(is.na(mid.test2)) > 0.5)]
+mid.test4 <- mid.test2
 
 # Run regressions for each model simulation and save r square values
 mid.r2 <- vector()
