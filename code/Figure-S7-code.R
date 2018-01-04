@@ -26,7 +26,7 @@ pts <- ppp(jLon, jLat, window = owin(c(-80, 55), c(-10, 85)))
 ptsB <- ppp (jLonB, jLatB, window = owin(c(-80, 55), c(-10, 85)))
 
 
-png("manuscript/revision/figures/Figure-S6-kernals.png", width = 1200, height = 800)
+png("manuscript/revision/figures/Figure-S7-kernals.png", width = 1200, height = 800)
 
 par(mfrow = c(1, 2))
 par(mar = c(2, 1, 3, 1))
