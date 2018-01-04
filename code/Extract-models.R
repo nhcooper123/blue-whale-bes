@@ -250,5 +250,5 @@ mid.bottomY <- ddply(mid, "Rep", function(x) {
 })
 
 # Write to file
-write.csv(file = "data/mid.top100.csv", topX, quote = FALSE, row.names = FALSE)
-write.csv(file = "data/mid.bottom100.csv", bottomY, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/mid.top10percent.csv", mid.topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/mid.bottom10percent.csv", mid.bottomY, quote = FALSE, row.names = FALSE)
