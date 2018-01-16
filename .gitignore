@@ -2,6 +2,8 @@
 
 data/model.sims.csv
 data/model.sims.full.csv
+data/Bathy_raster.grd
+data/Bathy_raster.gri
 
 .Rproj.user
 .Rhistory
