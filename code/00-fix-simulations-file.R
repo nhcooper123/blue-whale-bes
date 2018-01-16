@@ -21,6 +21,13 @@ toremove <- match(resTrack$Rep, remove$Rep, nomatch = 0)
 
 resTrack2 <- resTrack[toremove == 0, ]
 
+# Remove non needed/confusing column headers
+resTrack2 <- 
+  resTrack2 %>%
+  select(-c(X, X1, km.Lat, km.Lon, count))
+
 # Write to data folder
 # Use this for later analyses
 write.csv(resTrack2, "data/model.sims.full.csv", quote = FALSE, row.names = FALSE)
+
+
