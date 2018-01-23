@@ -165,7 +165,7 @@ Parameters defined for the agent-based model best matching the measured profile 
   \linespread{0.8}
   \caption{
   Schematic structure of the agent-based model used to generate hypothetical movement tracks. 
-  At the start of each simulation, max and min sea surface temperature (SST) and food availability thresholds are fixed for all individuals. Behavioural states are defined \textit{a priori} based on day of the year. Maximum movement distances under each behavioural state are defined for each individual based on a random sample from a Gaussian distribution. The model runs with a daily time step. Current location and day of simulation is noted, and the behavioural state defined. Environmental conditions (SST, food availability and depth) are sensed in the current and eight adjacent 1$^{\circ}$ grid cells. The probability of movement is sampled from a binomial distribution defined according to behavioural state and environmental conditions in the current location. The direction of movement is sampled based on discrete probabilities associated to each of the eight adjacent 1$^{\circ}$ cells, defined according to behavioural state and environmental conditions. Finally the distance moved is sampled from a Poisson distribution conditional on the max distance defined for each individual. The new location is then assigned from a linear vector originating at the current location with magnitude defined as the distance moved and direction as 45$^{\circ}$ increments reflecting the relative orientation of each of the eight potential adjacent cells.}
+  At the start of each simulation, max and min sea surface temperature (SST) and food availability thresholds are fixed for all individuals. Behavioural states are defined \textit{a priori} based on day of the year. Maximum movement distances under each behavioural state are defined for each individual based on a random sample from a Gaussian distribution. The model runs with a daily time step. Current location and day of simulation is noted, and the behavioural state defined. Environmental conditions (SST, food availability and depth) are sensed in the current and eight adjacent 1$^{\circ}$ grid cells. The probability of movement is sampled from a binomial distribution defined according to behavioural state and environmental conditions in the current location. The direction of movement is sampled based on discrete probabilities associated to each of the eight adjacent 1$^{\circ}$ cells, defined according to behavioural state and environmental conditions. Finally the distance moved is sampled from a Poisson distribution conditional on the maximum distance defined for each individual. The new location is then assigned from a linear vector originating at the current location with magnitude defined as the distance moved and direction as 45$^{\circ}$ increments reflecting the relative orientation of each of the eight potential adjacent cells.}
   \label{figs5}
 \end{figure}
 
@@ -173,7 +173,7 @@ Parameters defined for the agent-based model best matching the measured profile 
 
 \centering
 \begin{table}
-  \begin{tabular}{|p{5cm}|c|c|c|} 
+  \begin{tabular}{|p{8cm}|c|c|c|} 
     \hline
     & \multicolumn{3}{|c|}{\textbf{Behavioural state}} \\
     \hline
@@ -191,7 +191,7 @@ Parameters defined for the agent-based model best matching the measured profile 
     \hline
     Maximum sea surface temperature ($^{\circ}$C) & 25 & 25 & 25\\
     \hline
-    Maximum daily distance traveled (km)$^**$ & $N(\mu=50, \sigma=25)$ & $N(\mu=150, \sigma=75)$ & $N(\mu=150, \sigma=75)$\\
+    Maximum daily distance traveled (km)$^{**}$ & $N(\mu=50, \sigma=25)$ & $N(\mu=150, \sigma=75)$ & $N(\mu=150, \sigma=75)$\\
     \hline
     Plankton biomass threshold for remaining to forage (units) & 50 & NA & NA\\
     \hline
@@ -199,11 +199,37 @@ Parameters defined for the agent-based model best matching the measured profile 
   \caption{Model parameters for agent-based model of whale movement. 
   See Fig. \ref{figs5} and text for more details. 
   $^*$During nursing minimum sea surface temperature is set to 18$^{\circ}$C. 
-  $^**$During behavioural phase one, mean maximum daily distance is set to 20km.}
+  $^{**}$During behavioural phase one, mean maximum daily distance is set to 20km.}
   \label{tables1}
 \end{table}
 
 \end{landscape}
+
+\newpage
+
+\subsection*{ADDITIONAL RESULTS FIGURES}
+
+  \begin{figure}[!htbp]
+    \centering
+      \includegraphics[width=\linewidth]{figures/Figure-S5-r2.png}
+      \caption{Histogram of $r^2$ values from linear regressions comparing model simulation $\delta^{13}$C values to those of the real data (Fig. 1).} % check legend
+      \label{figs6}
+  \end{figure}
+
+    \begin{figure}[!htbp]
+    \centering
+      \includegraphics[width=\linewidth]{figures/Figure-S6-boxplots.png}
+      \caption{Boxplots showing the maximum and standard devations of latitudinal positions of simulated whales taken from the top 10\%, and bottom 10\%, of movement model simulations.} % check legend
+      \label{figs7}
+  \end{figure}
+
+    \begin{figure}[!htbp]
+    \centering
+      \includegraphics[width=\linewidth]{figures/Figure-S7-kernals.png}
+      \caption{Kernal density plots showing the positions of simulated whales taken from the top 10\%, and bottom 10\%, of movement model simulations. 
+      High densities are in yellow, low densities are in blue.} % check legend
+      \label{figs8}
+  \end{figure}
  
 % References
 \newpage
