@@ -64,71 +64,71 @@ Most of this code was written by Clive Trueman, with some tidying/modifications 
 For reproducibility purposes, here is the output of `devtools::session_info()` used to perform the analyses in the publication.
 
     Session info ------------------------------------------------------------------
- setting  value                       
- version  R version 3.4.3 (2017-11-30)
- system   x86_64, darwin15.6.0        
- ui       RStudio (1.1.414)           
- language (EN)                        
- collate  en_GB.UTF-8                 
- tz       Europe/London               
- date     2018-01-23                  
+    setting  value                       
+    version  R version 3.4.3 (2017-11-30)
+    system   x86_64, darwin15.6.0        
+    ui       RStudio (1.1.414)           
+    language (EN)                        
+    collate  en_GB.UTF-8                 
+    tz       Europe/London               
+    date     2018-01-23                  
 
     Packages ----------------------------------------------------------------------
- package        * version date       source        
- abind            1.4-5   2016-07-21 cran (@1.4-5) 
- base           * 3.4.3   2017-12-07 local         
- colorspace       1.3-2   2016-12-14 CRAN (R 3.4.0)
- compiler         3.4.3   2017-12-07 local         
- curl             2.8.1   2017-07-21 CRAN (R 3.4.1)
- datasets       * 3.4.3   2017-12-07 local         
- deldir           0.1-14  2017-04-22 CRAN (R 3.4.0)
- devtools         1.13.4  2017-11-09 CRAN (R 3.4.2)
- digest           0.6.12  2017-01-27 CRAN (R 3.4.0)
- ggplot2          2.2.1   2016-12-30 CRAN (R 3.4.0)
- goftest          1.1-1   2017-04-03 CRAN (R 3.4.0)
- graphics       * 3.4.3   2017-12-07 local         
- grDevices      * 3.4.3   2017-12-07 local         
- grid           * 3.4.3   2017-12-07 local         
- gridExtra      * 2.3     2017-09-09 CRAN (R 3.4.1)
- gtable         * 0.2.0   2016-02-26 CRAN (R 3.4.0)
- lattice          0.20-35 2017-03-25 CRAN (R 3.4.3)
- lazyeval         0.2.1   2017-10-29 CRAN (R 3.4.2)
- leaps          * 3.0     2017-01-10 CRAN (R 3.4.0)
- locfit         * 1.5-9.1 2013-04-20 CRAN (R 3.4.0)
- mapdata        * 2.2-6   2016-01-14 CRAN (R 3.4.0)
- maps           * 3.2.0   2017-06-08 cran (@3.2.0) 
- Matrix           1.2-12  2017-11-20 CRAN (R 3.4.3)
- memoise          1.1.0   2017-04-21 CRAN (R 3.4.0)
- methods        * 3.4.3   2017-12-07 local         
- mgcv           * 1.8-22  2017-09-24 CRAN (R 3.4.3)
- munsell          0.4.3   2016-02-13 CRAN (R 3.4.0)
- nlme           * 3.1-131 2017-02-06 CRAN (R 3.4.3)
- plyr             1.8.4   2016-06-08 CRAN (R 3.4.0)
- polyclip         1.6-1   2017-03-22 CRAN (R 3.4.0)
- quadprog         1.5-5   2013-04-17 cran (@1.5-5) 
- quantmod         0.4-12  2017-12-10 CRAN (R 3.4.3)
- RColorBrewer   * 1.1-2   2014-12-07 CRAN (R 3.4.0)
- Rcpp             0.12.15 2018-01-20 CRAN (R 3.4.3)
- rlang            0.1.6   2017-12-21 CRAN (R 3.4.3)
- rpart          * 4.1-11  2017-03-13 CRAN (R 3.4.3)
- scales           0.5.0   2017-08-24 CRAN (R 3.4.1)
- spatstat       * 1.54-0  2017-11-21 CRAN (R 3.4.3)
- spatstat.data  * 1.2-0   2017-11-20 CRAN (R 3.4.3)
- spatstat.utils   1.8-0   2017-11-20 CRAN (R 3.4.3)
- stats          * 3.4.3   2017-12-07 local         
- tensor           1.5     2012-05-05 CRAN (R 3.4.0)
- tibble           1.3.4   2017-08-22 CRAN (R 3.4.1)
- tools            3.4.3   2017-12-07 local         
- TSA            * 1.01    2012-11-13 CRAN (R 3.4.0)
- tseries        * 0.10-42 2017-06-22 CRAN (R 3.4.1)
- TTR              0.23-2  2017-07-11 CRAN (R 3.4.1)
- utils          * 3.4.3   2017-12-07 local         
- viridis        * 0.4.1   2018-01-08 CRAN (R 3.4.3)
- viridisLite    * 0.2.0   2017-03-24 CRAN (R 3.4.0)
- withr            2.0.0   2017-07-28 CRAN (R 3.4.1)
- xts              0.10-1  2017-12-20 CRAN (R 3.4.3)
- yaml             2.1.14  2016-11-12 cran (@2.1.14)
- zoo              1.8-1   2018-01-08 CRAN (R 3.4.3)
+    package        * version date       source        
+    abind            1.4-5   2016-07-21 cran (@1.4-5) 
+    base           * 3.4.3   2017-12-07 local         
+    colorspace       1.3-2   2016-12-14 CRAN (R 3.4.0)
+    compiler         3.4.3   2017-12-07 local         
+    curl             2.8.1   2017-07-21 CRAN (R 3.4.1)
+    datasets       * 3.4.3   2017-12-07 local         
+    deldir           0.1-14  2017-04-22 CRAN (R 3.4.0)
+    devtools         1.13.4  2017-11-09 CRAN (R 3.4.2)
+    digest           0.6.12  2017-01-27 CRAN (R 3.4.0)
+    ggplot2          2.2.1   2016-12-30 CRAN (R 3.4.0)
+    goftest          1.1-1   2017-04-03 CRAN (R 3.4.0)
+    graphics       * 3.4.3   2017-12-07 local         
+    grDevices      * 3.4.3   2017-12-07 local         
+    grid           * 3.4.3   2017-12-07 local         
+    gridExtra      * 2.3     2017-09-09 CRAN (R 3.4.1)
+    gtable         * 0.2.0   2016-02-26 CRAN (R 3.4.0)
+    lattice          0.20-35 2017-03-25 CRAN (R 3.4.3)
+    lazyeval         0.2.1   2017-10-29 CRAN (R 3.4.2)
+    leaps          * 3.0     2017-01-10 CRAN (R 3.4.0)
+	 locfit         * 1.5-9.1 2013-04-20 CRAN (R 3.4.0)
+	 mapdata        * 2.2-6   2016-01-14 CRAN (R 3.4.0)
+	 maps           * 3.2.0   2017-06-08 cran (@3.2.0) 
+	 Matrix           1.2-12  2017-11-20 CRAN (R 3.4.3)
+	 memoise          1.1.0   2017-04-21 CRAN (R 3.4.0)
+	 methods        * 3.4.3   2017-12-07 local         
+	 mgcv           * 1.8-22  2017-09-24 CRAN (R 3.4.3)
+	 munsell          0.4.3   2016-02-13 CRAN (R 3.4.0)
+	 nlme           * 3.1-131 2017-02-06 CRAN (R 3.4.3)
+	 plyr             1.8.4   2016-06-08 CRAN (R 3.4.0)
+	 polyclip         1.6-1   2017-03-22 CRAN (R 3.4.0)
+	 quadprog         1.5-5   2013-04-17 cran (@1.5-5) 
+	 quantmod         0.4-12  2017-12-10 CRAN (R 3.4.3)
+	 RColorBrewer   * 1.1-2   2014-12-07 CRAN (R 3.4.0)
+	 Rcpp             0.12.15 2018-01-20 CRAN (R 3.4.3)
+	 rlang            0.1.6   2017-12-21 CRAN (R 3.4.3)
+	 rpart          * 4.1-11  2017-03-13 CRAN (R 3.4.3)
+	 scales           0.5.0   2017-08-24 CRAN (R 3.4.1)
+	 spatstat       * 1.54-0  2017-11-21 CRAN (R 3.4.3)
+	 spatstat.data  * 1.2-0   2017-11-20 CRAN (R 3.4.3)
+	 spatstat.utils   1.8-0   2017-11-20 CRAN (R 3.4.3)
+	 stats          * 3.4.3   2017-12-07 local         
+	 tensor           1.5     2012-05-05 CRAN (R 3.4.0)
+	 tibble           1.3.4   2017-08-22 CRAN (R 3.4.1)
+	 tools            3.4.3   2017-12-07 local         
+	 TSA            * 1.01    2012-11-13 CRAN (R 3.4.0)
+	 tseries        * 0.10-42 2017-06-22 CRAN (R 3.4.1)
+	 TTR              0.23-2  2017-07-11 CRAN (R 3.4.1)
+	 utils          * 3.4.3   2017-12-07 local         
+	 viridis        * 0.4.1   2018-01-08 CRAN (R 3.4.3)
+	 viridisLite    * 0.2.0   2017-03-24 CRAN (R 3.4.0)
+	 withr            2.0.0   2017-07-28 CRAN (R 3.4.1)
+	 xts              0.10-1  2017-12-20 CRAN (R 3.4.3)
+	 yaml             2.1.14  2016-11-12 cran (@2.1.14)
+	 zoo              1.8-1   2018-01-08 CRAN (R 3.4.3)
 
 ## Checkpoint for reproducibility
 To rerun all the code with packages as they existed on CRAN at time of our analyses we recommend using the `checkpoint` package, and running this code prior to the analysis:
