@@ -65,8 +65,6 @@ The oldest 35cm of the baleen plate  record relatively positive and constant $\d
 $\delta^{13}$C values also show repeated fluctuations in the middle 50cm of the baleen plate (behavioural phase two), with a similar periodicity of 13.5cm (Fig. \ref{figs1}). 
 A distinct change in the isotopic pattern along the baleen plate occurs at around 84cm in behavioural phase two, with a transition to uniform, relatively low $\delta^{13}$C values followed by an abrupt transition to positive $\delta^{13}$C values and a decline in $\delta^{13}$C values in the last 3cm of the record.
 
-Cross-correlation analysis demonstrates a strong negative covariance between $\delta^{13}$C and $\delta^{15}$N  values within behavioural phase two (Fig. \ref{figs2}), but no relationship between $\delta^{13}$C and $\delta^{15}$N values exists during behavioural phase one.
-
 % figure s1
 \begin{figure}[!htbp]
   \centering
@@ -75,7 +73,7 @@ Cross-correlation analysis demonstrates a strong negative covariance between $\d
   \label{figs1}
 \end{figure}
  
-Cross-correlation analysis demonstrates a strong negative covariance between $\delta^{13}$C and $\delta^{15}$N values within behavioural phase one (oldest 60cm of the baleen plate; Fig. \ref{figs2}), but no relationship between $\delta^{13}$C and $\delta^{15}$N values exists during behavioural phase two (the final 20cm of the baleen plate). 
+Cross-correlation analysis demonstrates a strong negative covariance between $\delta^{13}$C and $\delta^{15}$N  values within behavioural phase two (Fig. \ref{figs2}), but no relationship between $\delta^{13}$C and $\delta^{15}$N values exists during behavioural phase one.
 
 % figure s2
 \begin{figure}[!htbp]
@@ -129,28 +127,19 @@ In temperate latitudes around the British Isles, seasonal dynamic cycles are pre
   \end{figure}
  
 \subsubsection*{Matching isotope model simulations with whale isotopes in behavioural phase one}
-Temporal dynamics in $\delta^{13}$C values simulated in northerly latitudes are similar to the measured $\delta^{13}$C profile during the four years of behavioural phase one. 
-Simulated profiles display the same asymmetric isotopic cycles associated with development of the spring bloom, with annual $\delta^{13}$C maxima in June (Fig. \ref{figs4}, Fig. 3). 
-Simulated temporal isotopic profiles for northern resident whales, do not display clear isotopic minima preceding the onset of the bloom (Fig. \ref{figs4}). 
-Adding seasonal north-south migrations within mid-high latitude regions to foraging models, closely matches the measured profile, including $\delta^{13}$C minima preceding the June bloom (Fig. \ref{figs4}, Fig. 1).
+Behavioural phase one is characterised by approximately 24 months of relatively positive and constant $\delta^{13}$C values. 
+$\delta^{15}$N values in this phase are relatively low and the isotopic cyclicity is absent (Fig. \ref{figs1}). 
+Positive and temporally constant $\delta^{13}$C values are characteristic of subtropical regions particularly upwelling areas around Mauritania, Cape Verde and the Azores region.
  
 \subsubsection*{Matching isotope model simulations with whale isotopes in behavioural phase two}
-Behavioural phase two is characterised by a dramatic shift to maximum $\delta^{13}$C values in spring 1889 followed by approximately 18 months of relatively positive and constant $\delta^{13}$C values. 
-$\delta^{15}$N values in this phase are relatively low and the isotopic cyclicity associated with north-south migration is absent in 1890 (Fig. 1). 
-The final sample representing feeding shortly before death in Irish waters implies a return to isotopic conditions more consistent with behavioural phase one. 
-The relatively positive and constant carbon isotope composition of behavioural phase two is consistent with residency (and continued feeding) in more southerly latitudes, particularly in the relatively isotopically positive waters southwest of the Azores.
- 
-Accordingly we modeled whale movements allowing five years of seasonal north-south migration in the north east northern Atlantic, followed by rapid migration to subtropical waters in the late spring of 1889, relative residency for eight months and rapid migration returning to more northerly waters in the spring of 1891.
+Temporal dynamics in $\delta^{13}$C values simulated in northerly latitudes cannot be reproduced from simulated temporal trends in $\delta^{13}$C values in krill within static areas (Fig. \ref{figs4}, Fig. 3). 
+Adding seasonal north-south migrations within mid-high latitude regions to foraging models, closely matches the measured profile, including $\delta^{13}$C minima preceding the June bloom (Fig. \ref{figs4}, Fig. 1).
+
+Accordingly we modeled whale movements allowing three years of residency in warm waters of the Azores or Cape Verde/Mauritania region followed by a further 3.5 years of seasonal north-south migration in the northeast northern Atlantic, followed by residency in subtropical waters in 1890 and rapid migration returning to more northerly waters in the spring of 1891. 
 The resulting simulated profiles closely match the measured baleen plate, capturing all major temporal fluctuations (Fig. 3). 
-Consistently low $\delta^{15}$N values in 1890 are also consistent with residency in relatively southern waters. 
- 
-The dramatic positive excursion in $\delta^{13}$C values seen in the late spring and early summer of 1889 cannot be replicated purely through movement to warmer waters, thus we tentatively ascribe this signal to the physiological demands of pregnancy.  
-A captive feeding study in south American sea lions\cite{cardona2017temporal} showed positive $\delta^{13}$C values associated with pregnancy, falling at birth, and a gradual increase in $\delta^{15}$N  values during lactation. 
-$\delta^{15}$N values in whale baleen during the autumn of 1890 show a gradual increase, consistent with the isotopic expression associated with lactation in south American fur seals\cite{cardona2017temporal}.
- 
-Blue whales have a gestation period of 10-12 months, and calves suckle for approximately 6-7 months\cite{handbook}. 
+Blue whales have a gestation period of 10-12 months, and calves suckle for approximately 6-7 months \cite{handbook}. 
 The proposed timescale of pregnancy around early spring 1889, birth in spring 1890, lactation through summer and autumn 1890 and return to northern feeding grounds in early 1891 is therefore fully consistent with the assumed reproductive ecology of blue whales.
- 
+
 \subsection*{AGENT-BASED WHALE MOVEMENT MODEL}
 We simulated the likely isotopic expression associated with feeding and movement behaviours by building an agent-based model sampling $\delta^{13}$C POM values predicted by the isotopic extension to the NEMO-MEDUSA model\cite{magozzi2017using,yool2013medusa}, where movement behavior is influenced by sea surface temperature and phytoplankton biomass estimates provided by NEMO-MEDUSA\cite{yool2013medusa}, and bathymetry (Fig. \ref{figs5}).
  
@@ -160,7 +149,7 @@ At each daily step, the probability of movement, movement direction and distance
 Initial boundary conditions are defined with a maximum temperature of 25$^{\circ}$C and minimum temperature of 3$^{\circ}$C. The likelihood of movement (i.e. whether to move or not from the current location) is sampled from a binomial distribution with the probability of movement influenced by behavioural state and external conditions. 
 The maximum daily movement distance permitted in each behavioural state is defined as a random sample of a Gaussian distribution with specified mean and standard deviation (see Table \ref{tables1}).
  
-The behavioural states employed in the model simulations are foraging, migrating north, migrating south and nursing. When foraging, the probability of movement and likely direction of movement is primarily controlled by the biomass of phytoplankton in the current and adjacent 1$^{\circ}$ cells. When migrating, a fixed higher probability of movement is given to southerly or northerly movement directions, and the probability of movement is influenced by the ambient sea surface temperature and phytoplankton biomass. When nursing a calf, movement is limited to a daily mean of 25km, as long as sea surface temperatures remain between 18$^{\circ}$C and 25$^{\circ}$C.
+The behavioural states employed in the model simulations are foraging, migrating north and migrating south. When foraging, the probability of movement and likely direction of movement is primarily controlled by the biomass of phytoplankton in the current and adjacent 1$^{\circ}$ cells. When migrating, a fixed higher probability of movement is given to southerly or northerly movement directions, and the probability of movement is influenced by the ambient sea surface temperature and phytoplankton biomass.
  
 Parameters defined for the agent-based model best matching the measured profile are summarised in Table \ref{tables1}.
 
