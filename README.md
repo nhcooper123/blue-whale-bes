@@ -1,6 +1,6 @@
 # Reconstructing the last known movements of one of Nature's giants
 
-Author(s): Clive N. Trueman, Andrew L. Jackson and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk)  
+Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), Andrew L. Jackson and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk)  
 
 This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale now adorning Hintze Hall at the Natural History Museum, London.
 
@@ -11,26 +11,42 @@ To cite this repo:
 > XXX
 
 ## Data
-These analyses are based on d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. 
-All isotope data are available from the [NHM Data Portal](DOI here) and can be found in the `data/` folder. 
-We then created 1000 movement model simulations. These data are available from the [NHM Data Portal](DOI here) but the file is too large for GitHub. The top 10% and bottom 10% of models are however available (`data/top10.csv` and `data/bottom10.csv`), along with their extracted maximum latitudes and their standard deviations.
+All data are available from the [NHM Data Portal](https://doi.org/10.5519/0093278).
+However, to aid reproducibility we have also included data required to replicate our analyses/figures in the `data/` folder. 
 
 If you use the data please cite as follows: 
-> XXX.
+> Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs et al. (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
+
+* `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout including Figure 1, Figure 3, Figures S1 & S2.
+* `TroLev4_d13C.grd` and `TroLev4_d13C.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
+* `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 2, Figure S7.
+* `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 3.
+* `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 4.
+* `Atl_Annual_d13C.grd`, `Atl_Annual_d13C.gri`, `Atl_Annual_d15N.grd` and `Atl_Annual_d15N`.gri are rasters of Atlantic Ocean stable isotope values needed for Figure S3.
+* `Canaries.csv` etc. are for Figure S4.
+* `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S5.
+* `max.lat.csv` and `sd.lat.csv` are the extracted maximum latitudes and their standard deviations from the top 10% and of models, required for Figure S6.
+
+Note that due to size limitations, the input data for the movement models (bathymetry data and outputs from NEMO MEDUSA models providing d13C, plankton biomass, and sea surface temperature values), and the model simulation outputs themselves are only available from the [NHM Data Portal](https://doi.org/10.5519/0093278).
+
+To use the NEMO MEDUSA data please cite: 
+> A. Yool, E. E. Popova, and T. R. Anderson. 2013MEDUSA-2.0: an intermediate complexity biogeochemical model of the marine carbon cycle for climate change and ocean acidification studies. Geosci. Model Dev., 6, 1767–1811. www.geosci-model-dev.net/6/1767/2013/ doi:10.5194/gmd-6-1767-2013. Also see [https://www.nemo-ocean.eu/](https://www.nemo-ocean.eu/)
 
 -------
 ## Analyses
 The analysis is divided as follows.
 
-1. Extraction of d13C and d15N isotopes from baleen. Raw samples are available on request from NHM. The output values for d13C and d15N can be found on the NHM Data Portal (link).
-1. Fitting movement models.
+1. Extraction of d13C and d15N isotopes from baleen. Raw samples are available on request from NHM. The output values for d13C and d15N can be found on the [NHM Data Portal](https://doi.org/10.5519/0093278).
+1. Fitting movement simulation models.
 1. Downstream analyses and figures. 
 
-The movement models were written by Clive Trueman and are currently not available in this repo. EXPLAIN
+## Movement simulation models
+The code CT used to run the models is provided. However, this has only been minimally cleaned and tidied for public consumption, so 1) please don't judge(!) and 2) this may not be reproducible (sorry!). If you're interested in using the model on your own data feel free to drop Clive an [email](mailto:trueman@noc.soton.ac.uk) if you're confused.
 
 ## Downstream analyses and figures
 All code used to run downstream analyses and make figures is included in the `code/` folder. Before starting remember to either set your working directory to the **blue-whale-bes** folder on your computer, or open an RStudio project from that folder.
 
+* **00-fix-simulations-file.R** removes simulations with fewer than 3019 days.
 * **Extract-models.R** extracts the top 10% and bottom 10% of movement models, and the maximum and standard deviation of the latitudes of these models. It writes these to the `data/` folder for use in building figures.
 * **Figure-1-code.R** does what is says on the tin - creates Figure 1.
 * **Figure-2-code.R** is code for Figure 2.
@@ -40,6 +56,7 @@ All code used to run downstream analyses and make figures is included in the `co
 * **Figure-S4-code.R** is code for Figure S4.
 * **Figure-S5-code.R** is code for Figure S5.
 * **Figure-S6-code.R** is code for Figure S6.
+* **Figure-S7-code.R** is code for Figure S7.
 
 Most of this code was written by Clive Trueman, with some tidying/modifications by Andrew Jackson and Natalie Cooper. Unfortunately/interestingly (depending on your opinion!) we all code in different ways (tidyverse vs base being the biggest difference). So some of the code may be a bit hard to follow, depending on your preferred approach, and it is not as consistent as we'd like. But it works goddammit! And we are all too busy to convince the others that one way is better...
 
@@ -53,5 +70,5 @@ Session info -------------------------------------------------------------------
 To rerun all the code with packages as they existed on CRAN at time of our analyses we recommend using the `checkpoint` package, and running this code prior to the analysis:
 
 ```{r}
-checkpoint("2017-08-17")
+checkpoint("2018-01-24")
 ```

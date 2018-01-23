@@ -10,10 +10,10 @@ library(spatstat)
 library(viridis)
 
 # Read in data
-top10 <- read.csv("data/top100.csv")
+top10 <- read.csv("data/top10percent.csv")
 
 # Pick colours
-mycols <- c(viridis_pal()(10)[1],viridis_pal()(10)[5],viridis_pal()(10)[9])
+mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
 
 # Jitter points of lat and long to get smooth density plot
 jLat <- jitter(top10$Lat, factor = 2)
@@ -23,7 +23,7 @@ jLon <- jitter(top10$Lon, factor = 1)
 # Points plot with phases coloured
 png("manuscript/revision/figures/Figure-2-points.png", width = 800, height = 600)
 
-# Top 10 %
+# Create empty backgrounds
 plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
      xlab = "", ylab = "", axes = FALSE)
 rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 

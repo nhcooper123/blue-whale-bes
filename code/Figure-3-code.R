@@ -11,13 +11,11 @@ library(grid)
 whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
 blue <- filter(whale_isos, whale_ID == "KC7")
 
-# Fix day numbers reflecting monthly samples 
-# (for loess sampling - fixed to have same no.s)
-predict.days <- seq(from = 30, to = (8 * 365) + 100, by = 31)
-blue$Day.sim <- rev(predict.days)
-
 # Read in top 100 models
-top100 <- read.csv("data/top100.csv")
+top100 <- read.csv("data/top10smooth.csv")
+
+# Fix day numbers to match in both
+blue$Day.sim <- rev(unique(top100$Day))
 
 # Create three plots, one for blue whale and one for simulations, and 
 # a base plot with axes etc.
@@ -30,18 +28,18 @@ base_plot <-
   scale_y_continuous(limits = c(-20, -16.5),
                      sec.axis = sec_axis(~.+4, 
                                 breaks = c(-16, -15, -14, -13),
-                                labels = c(-30,-25,-20, -15),
+                                labels = c(-30, -25, -20, -15),
                                 name = expression(paste("simulated ", 
                                                         delta^{13}, "C (\u2030)")))) +
   theme(panel.background = element_blank())
 
 top_plot <- 
-  ggplot(top100, aes(x = count2, y = d13C+4, group = Rep)) +
+  ggplot(top100, aes(x = Day, y = d13C_smooth+2, group = Rep)) +
   geom_line(alpha = 0.1, col = "grey") +
   theme_classic(base_size = 16) + 
   xlab("") + 
   ylab("") +
-  scale_y_continuous(limits = c(-29, -12.5))  +
+  scale_y_continuous(limits = c(-30, -12.5))  +
   theme(panel.background = element_blank())
 
 blue_plot <- 
@@ -53,7 +51,7 @@ blue_plot <-
   scale_y_continuous(limits = c(-20, -16.5),
                      sec.axis = sec_axis(~.+4, 
                                          breaks = c(-16, -15, -14, -13),
-                                         labels = c(-30,-25,-20, -15),
+                                         labels = c(-30, -25, -20, -15),
                                          name = expression(paste("simulated ", 
                                                                  delta^{13}, "C (\u2030)")))) +
   theme(panel.background = element_blank())

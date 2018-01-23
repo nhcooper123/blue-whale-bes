@@ -1,3 +1,10 @@
+# Problem datasets that are too large for GitHub
+
+data/model.sims.csv
+data/model.sims.full.csv
+data/Bathy_raster.grd
+data/Bathy_raster.gri
+
 .Rproj.user
 .Rhistory
 .RData
