@@ -41,7 +41,7 @@ The analysis is divided as follows.
 1. Downstream analyses and figures. 
 
 ## Movement simulation models
-The code CT used to run the models is provided in the `movement-models/` folder. However, this has only been minimally cleaned and tidied for public consumption, so 1) please don't judge(!) and 2) this may not be reproducible (sorry!). If you're interested in using the model on your own data feel free to drop Clive an [email](mailto:trueman@noc.soton.ac.uk) if you're confused.
+The code CT used to run the models is provided in the `movement-model/` folder. However, this has only been minimally cleaned and tidied for public consumption, so 1) please don't judge(!) and 2) this may not be reproducible (sorry!). If you're interested in using the model on your own data feel free to drop Clive an [email](mailto:trueman@noc.soton.ac.uk) if you're confused.
 
 ## Downstream analyses and figures
 All code used to run downstream analyses and make figures is included in the `code/` folder. Before starting remember to either set your working directory to the **blue-whale-bes** folder on your computer, or open an RStudio project from that folder.
