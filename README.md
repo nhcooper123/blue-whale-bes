@@ -19,11 +19,11 @@ If you use the data please cite as follows:
 
 * `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout including Figure 1, Figure 3, Figures S1 & S2.
 * `TroLev4_d13C.grd` and `TroLev4_d13C.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
-* `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 2, Figure S7.
+* `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 2 and Figure S7.
 * `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 3.
 * `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 4.
 * `Atl_Annual_d13C.grd`, `Atl_Annual_d13C.gri`, `Atl_Annual_d15N.grd` and `Atl_Annual_d15N`.gri are rasters of Atlantic Ocean stable isotope values needed for Figure S3.
-* `Canaries.csv` etc. are for Figure S4. NEED TO ADD
+* `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.TL.csv`, `Ireland.Res.TL.csv`, `Norway.Res.TL.csv` and `Mauritania.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
 * `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S5.
 * `max.lat.csv` and `sd.lat.csv` are the extracted maximum latitudes and their standard deviations from the top 10% and of models, required for Figure S6.
 
