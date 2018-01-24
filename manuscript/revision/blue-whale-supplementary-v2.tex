@@ -146,10 +146,13 @@ We simulated the likely isotopic expression associated with feeding and movement
 The agent-based model developed employs a simple set of movement rules dictated by behavioural state which is itself fixed according to calendar month by the operator. 
 At each daily step, the probability of movement, movement direction and distance traveled are sampled from probability distributions to allow individual variation.
 
-Initial boundary conditions are defined with a maximum temperature of 25$^{\circ}$C and minimum temperature of 3$^{\circ}$C. The likelihood of movement (i.e. whether to move or not from the current location) is sampled from a binomial distribution with the probability of movement influenced by behavioural state and external conditions. 
+Initial boundary conditions are defined with a maximum temperature of 25$^{\circ}$C and minimum temperature of 3$^{\circ}$C. 
+The likelihood of movement (i.e. whether to move or not from the current location) is sampled from a binomial distribution with the probability of movement influenced by behavioural state and external conditions. 
 The maximum daily movement distance permitted in each behavioural state is defined as a random sample of a Gaussian distribution with specified mean and standard deviation (see Table \ref{tables1}).
  
-The behavioural states employed in the model simulations are foraging, migrating north and migrating south. When foraging, the probability of movement and likely direction of movement is primarily controlled by the biomass of phytoplankton in the current and adjacent 1$^{\circ}$ cells. When migrating, a fixed higher probability of movement is given to southerly or northerly movement directions, and the probability of movement is influenced by the ambient sea surface temperature and phytoplankton biomass.
+The behavioural states employed in the model simulations are foraging, migrating north and migrating south. 
+When foraging, the probability of movement and likely direction of movement is primarily controlled by the biomass of phytoplankton in the current and adjacent 1$^{\circ}$ cells. 
+When migrating, a fixed higher probability of movement is given to southerly or northerly movement directions, and the probability of movement is influenced by the ambient sea surface temperature and phytoplankton biomass.
  
 Parameters defined for the agent-based model best matching the measured profile are summarised in Table \ref{tables1}.
 
