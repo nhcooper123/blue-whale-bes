@@ -55,8 +55,8 @@ resCV <-
   
 
 # Combine datasets
-res_all <- bind_rows(list(Norway = resNor, 
-                          Ireland = resIre, 
+res_all <- bind_rows(list("Norwegian Sea" = resNor, 
+                          "West Ireland" = resIre, 
                           Canaries = resCan, 
                           "Mid-Atlantic" = resMidAtl,
                           #"Mauritania" = resMaur,
@@ -77,7 +77,7 @@ tmp2 <- res_all %>% group_by(Region, Rep)  %>%
                    Day.No = .$Day.No))
 
 # re-order the Region Factor
-tmp2$Region <- factor(tmp2$Region, levels = c("west Ireland","Norwegian Sea",
+tmp2$Region <- factor(tmp2$Region, levels = c("West Ireland","Norwegian Sea",
                                               "Canaries","Mid-Atlantic",
                                               #"Mauritania",
                                               "Cape Verde"))
@@ -86,7 +86,7 @@ tmp2$Region <- factor(tmp2$Region, levels = c("west Ireland","Norwegian Sea",
 sim_facet <- 
   ggplot(tmp2, aes(Day.No, Z, group = Rep)) + 
     geom_line(col = viridis(3)[2], alpha = 0.25) + 
-    xlab("Time") + 
+    xlab("Time (days)") + 
     ylab(expression(paste(delta^{13}, "C (\u2030)"))) + 
     theme_classic(base_size = 14) + ylim(-25, -14) + 
     theme(strip.background = element_blank(),
