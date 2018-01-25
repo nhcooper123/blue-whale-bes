@@ -18,7 +18,6 @@ resIre <- read.csv("data/Ireland.Res.TL.csv", header = TRUE)
 resCan <- read.csv("data/Canaries.Res.TL.csv", header = TRUE)
 resMidAtl <- read.csv("data/Atl.Res.TL.csv", header = TRUE)
 resCV <- read.csv("data/CV.TL.csv", header = TRUE)
-#resMaur <- read.csv("data/Maur.TL.csv", header = TRUE)
 
 # Remove B.state variable as it messes up bind.rows
 resNor <- 
@@ -41,26 +40,19 @@ resMidAtl <-
   resMidAtl %>%
   select(-B.state)
 
-#resMaur <- 
-#  resMaur %>%
-#  select(-B.state)
-
 # Here count is correct, but Day.No is not
 # so switch them to get the next steps to work
-# Also shift up start to 120 days to match others
 resCV <- 
   resCV %>%
   select(-B.state, -Day.No) %>%
-  mutate(Day.No = count + 119)
+  rename(Day.No = count)
   
-
 # Combine datasets
 res_all <- bind_rows(list("Norwegian Sea" = resNor, 
                           "West Ireland" = resIre, 
                           Canaries = resCan, 
                           "Mid-Atlantic" = resMidAtl,
-                          #"Mauritania" = resMaur,
-                          "Cape Verde" = resCV), .id = "Region")
+                          "Cape Verde/Mauritania" = resCV), .id = "Region")
 
 # Remove lines with no d13C values
 res_all <- res_all[which(!is.na(res_all$d13C)), ]
@@ -79,8 +71,7 @@ tmp2 <- res_all %>% group_by(Region, Rep)  %>%
 # re-order the Region Factor
 tmp2$Region <- factor(tmp2$Region, levels = c("West Ireland","Norwegian Sea",
                                               "Canaries","Mid-Atlantic",
-                                              #"Mauritania",
-                                              "Cape Verde"))
+                                              "Cape Verde/Mauritania"))
 
 # Plot and facet wrap by region
 sim_facet <- 
