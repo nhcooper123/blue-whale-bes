@@ -23,7 +23,7 @@ If you use the data please cite as follows:
 * `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 3.
 * `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 4.
 * `Atl_Annual_d13C.grd`, `Atl_Annual_d13C.gri`, `Atl_Annual_d15N.grd` and `Atl_Annual_d15N`.gri are rasters of Atlantic Ocean stable isotope values needed for Figure S3.
-* `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.TL.csv`, `Ireland.Res.TL.csv`, `Norway.Res.TL.csv` and `Mauritania.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
+* `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.Res.TL.csv`, `Ireland.Res.TL.csv`, and `Norway.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
 * `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S5.
 * `max.lat.csv` and `sd.lat.csv` are the extracted maximum latitudes and their standard deviations from the top 10% and of models, required for Figure S6.
 
