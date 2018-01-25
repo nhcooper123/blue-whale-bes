@@ -17,13 +17,9 @@ resNor <- read.csv("data/Norway.Res.TL.csv", header = TRUE)
 resIre <- read.csv("data/Ireland.Res.TL.csv", header = TRUE)
 resCan <- read.csv("data/Canaries.Res.TL.csv", header = TRUE)
 resMidAtl <- read.csv("data/Atl.Res.TL.csv", header = TRUE)
-resCV <- read.csv("data/CV.TL.csv", header = TRUE)
+resCV <- read.csv("data/CV.Res.TL.csv", header = TRUE)
 
 # Remove B.state variable as it messes up bind.rows
-resNor <- 
-  resNor %>%
-  select(-B.state)
-
 resNor <- 
   resNor %>%
   select(-B.state)
