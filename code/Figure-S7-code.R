@@ -48,5 +48,5 @@ p2 <-
 
 boxes <- grid.arrange(p1, p2, ncol = 2)
 
-ggsave("manuscript/revision/figures/Figure-S6-boxplots.png", boxes, 
+ggsave("manuscript/revision/figures/Figure-S7-boxplots.png", boxes, 
        device = png(width = 600, height = 400))
