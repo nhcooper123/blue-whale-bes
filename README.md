@@ -15,7 +15,7 @@ All data are available from the [NHM Data Portal](https://doi.org/10.5519/009327
 However, to aid reproducibility we have also included data required to replicate our analyses/figures in the `data/` folder. 
 
 If you use the data please cite as follows: 
-> Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs, Sarah Magozzi, Ricahrd C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
+> Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
 
 * `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout including Figure 1, Figure 3, Figures S1 & S2.
 * `TroLev4_d13C.grd` and `TroLev4_d13C.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
