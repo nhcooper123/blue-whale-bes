@@ -21,7 +21,7 @@ mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
 png("manuscript/revision/figures/Figure-4-monthly.png", width = 800, height = 600)
 
 # Make 12 plots
-par(mfrow = c(2, 6))
+par(mfrow = c(3, 4))
 par(mar = c(1, 1, 2, 1))
 
 # Loop through months  
