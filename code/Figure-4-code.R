@@ -45,9 +45,7 @@ for (Mn in 1:12) {
   jLon <- jitter(Month$Lon, factor = 1)
   
   # Add points coloured by phase
-  # points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.2)
-  hdrinfo <- hdrcde::hdr.2d(Month$Lon, Month$Lat)
-  plot(hdrinfo, new = FALSE, add = TRUE)
+  points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.2)
   
   # AJ add monthly means
   points(mean(Month$Lon), mean(Month$Lat), pch = 19, cex = 1, col = 1)
