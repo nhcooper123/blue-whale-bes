@@ -5,10 +5,12 @@
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
+try(detach(package:purrr))
 library(maps)
 library(mapdata)
 library(spatstat)
 library(viridis)
+library(hdrcde)
 
 # Read in data
 mid.top10 <- read.csv("data/mid.top10percent.csv")
@@ -18,7 +20,9 @@ mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Points plot with phases coloured
-png("manuscript/revision/figures/Figure-4-monthly.png", width = 800, height = 600)
+
+#AJ commented out
+#png("manuscript/revision/figures/Figure-4-monthly.png", width = 800, height = 600)
 
 # Make 12 plots
 par(mfrow = c(3, 4))
@@ -41,8 +45,13 @@ for (Mn in 1:12) {
   jLon <- jitter(Month$Lon, factor = 1)
   
   # Add points coloured by phase
-  points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.2)
-
+  # points(jLon, jLat, pch = 16, col = mycols[2], cex = 0.2)
+  hdrinfo <- hdrcde::hdr.2d(Month$Lon, Month$Lat)
+  plot(hdrinfo, new = FALSE, add = TRUE)
+  
+  # AJ add monthly means
+  points(mean(Month$Lon), mean(Month$Lat), pch = 19, cex = 1, col = 1)
+         
   # Add world map
   map('world', col = "black", fill = TRUE, add = TRUE, lwd = 0.25)
   # If you get this error, 
@@ -53,5 +62,6 @@ for (Mn in 1:12) {
   par(new=FALSE)
 }
 
-dev.off()
+#AJ commented out
+# dev.off()
 

@@ -8,6 +8,7 @@ library(maps)
 library(mapdata)
 library(spatstat)
 library(viridis)
+library(tidyverse) # AJ added 
 
 # Read in data
 top10 <- read.csv("data/top10percent.csv")
@@ -20,8 +21,16 @@ jLat <- jitter(top10$Lat, factor = 2)
 jLon <- jitter(top10$Lon, factor = 1)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# AJ - added 24/4/18
+# code to calculate monthly means to add the trace overlay
+
+monthly_means <- top10 %>% group_by(Month) %>% summarise(muX = mean(Lon), muY = mean(Lat))
+ 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Points plot with phases coloured
-png("manuscript/revision/figures/Figure-2-points.png", width = 800, height = 600)
+
+# AJ - turned off
+# png("manuscript/revision/figures/Figure-2-points.png", width = 800, height = 600)
 
 # Create empty backgrounds
 plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
@@ -31,6 +40,10 @@ rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4],
 
 # Add points coloured by phase
 points(jLon, jLat, pch = 16, col = mycols[top10$phase], cex = 0.2)
+
+# AJ - add monthly means
+points(muY ~ muX, data = monthly_means, pch = 19, cex = 1, col = c(2, rep(1, 11)))
+lines(muY ~ muX, data = monthly_means, lty = 1, cex = 1, col = 1)
 
 # Add world map
 map('world', col = "black", fill = TRUE, add = TRUE, lwd = 0.25)
@@ -43,4 +56,5 @@ legend(x = 42, y = 28, legend = c(1, 2, 3), col = mycols, pch = 16, fill = "whit
        border = "white", title = "Phase", bg = "white", box.col = "white", xjust = 0.5,
        pt.cex = 2, cex = 2)
 
-dev.off()
+# AJ - turned off
+# dev.off()
