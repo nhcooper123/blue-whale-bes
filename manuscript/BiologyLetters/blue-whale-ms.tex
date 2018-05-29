@@ -1,0 +1,436 @@
+% Preamble
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[osf]{mathpazo} % palatino
+\usepackage{ms}            % load the template
+%\usepackage[round]{natbib} % author-year citations
+%\usepackage[superscript,biblabel]{cite} % for superscript citations
+\usepackage{graphicx}
+\usepackage{parskip} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{textcomp} % for parts per mille symbol     
+\pagenumbering{arabic}    
+\linespread{1.66}
+
+% remove brackets from bibliography list
+\makeatletter 
+\renewcommand\@biblabel[1]{#1} 
+\makeatother
+
+% -------------------------------------------------------------------------------------------------------
+% some custom commands
+
+% Add support for highlighting
+\usepackage{color}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+% -------------------------------------------------------------------------------------------------------
+
+% Title page information
+\title{Reconstructing the last known movements of one of Nature's giants}
+% 150 characters max
+
+\author{
+  Clive N. Trueman$^{1}$, Andrew L. Jackson$^{2}$, Katharyn S. Chadwick$^{1}$,\\ 
+  Ellen J. Coombs$^{3,4}$, Sarah Magozzi$^{1,5}$, Richard C. Sabin$^{3}$ \\
+  and Natalie Cooper$^{3*}$
+}
+\date{}
+\affiliation{\noindent{\footnotesize
+  $^1$ Ocean and Earth Science, University of Southampton Waterfront Campus, Southampton, SO14 3ZH, UK.\\
+  $^2$ Department of Zoology, School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\
+  $^3$ Department of Life Sciences, Natural History Museum London, Cromwell Road, London, SW7 5BD, UK.\\ 
+  $^4$ Department of Earth Sciences, University College London, Gower Street, London, WC1E 6BT, UK.\\
+  $^5$ Department of Geology and Geophysics, University of Utah, Salt Lake City, UT 84112-0102, USA.\\
+  $^*$Corresponding author: natalie.cooper@nhm.ac.uk. 
+}}
+
+\vfill
+
+%\runninghead{}
+\keywords{stable isotope analysis, movement models, museum collections, blue whale, baleen}
+
+% End of preamble
+
+\begin{document}
+\modulolinenumbers[1]   % Line numbering on every line
+
+\mstitlepage
+
+\parindent = 1.5em
+\addtolength{\parskip}{.9em}
+
+\raggedright
+
+\section{Abstract} % 200 words max (199 at present)
+%Animal tissues housed in museum collections provide biochemical records of behaviour that can be used to reconstruct individual-level movements over long timescales and under historical climatic and ecological conditions, but interpreting these records is difficult. 
+%Many baleen whales face severe conservation threats, therefore knowledge of their movements and space use over multiple years are needed. 
+The spatial ecology of rare, migratory, baleen whales is challenging to study directly, leading to gaps in our knowledge of their individual-level migratory behaviours.
+Here we combine stable isotope analyses of baleen with novel agent-based simulation models, to infer seven years of movements of an iconic blue whale (\textit{Balaenoptera musculus}) that stranded off Ireland in 1891 and is now on display at the Natural History Museum, London. 
+We identify three distinct behavioural states that we interpret as residency in sub-tropical waters, three annual cycles of seasonal latitudinal migrations and pregnancy and calf-rearing in the year before death.
+Our approach combining simulation modeling and stable isotope data yields individual-level movement inferences that are consistent with the current population-based understanding of the movement ecology of blue whales in the northeast Atlantic ocean. 
+Combining biochemical tracers with simulation modeling unlocks the information recorded in historic collections, providing a link between traditional population-based assessments of animal distributions and more recent methodologies drawing inferences from high-resolution observations of relatively few individuals. 
+This approach can be adapted to infer movements in any animal where underlying stable isotope models and incrementally grown tissues are available.
+
+\textbf{Keywords:} stable isotope analysis, movement models, museum collections, blue whale, baleen.
+
+\newpage
+\section{Introduction}
+%Migratory species pose a particular challenge for conservation practitioners because their effective conservation relies on protection at many, often distant, sites \cite{runge2014conserving}.
+%Migratory species may also be particularly vulnerable to changes in climate or human use of the environment, as they are influenced by conditions in multiple locations across different parts of their life cycle \cite{robinson2009travelling}. 
+Identifying threats to migratory species, understanding species responses to change, and developing effective conservation measures all require information on individual-level movements spanning multiple years, ideally for both historical and present-day populations.
+With the development of electronic tagging technology, studies of animal populations have shifted from infrequent observations of many individuals with limited or no information about individual movement behaviour to frequent observations of a few individuals, with detailed information about individual movement \cite{holdo2013inferring}. 
+However, such data are scarce, especially for rare, wide-ranging and long-lived marine species \cite{ryan2013stable,bailey2009behavioural}. 
+The blue whale (\textit{Balaenoptera musculus}), the largest animal to have ever lived, is one such migratory marine species. 
+Although hunting for blue whales has been banned for over 50 years, blue whales are still listed as Endangered on the IUCN Red List \cite{reilly2008balaenoptera}.
+%Blue whales in the northeast Atlantic appear to form a separate population, with little evidence for exchange between northeast and northwest Atlantic populations \cite{pike2009note}.  
+The northeast Atlantic population of blue whales was the first large whale population to be systematically hunted with explosive harpoons, and while the population was probably relatively small before hunting, currently fewer than 1000 individuals are estimated to be in the northeast Atlantic in summer, mainly distributed around Iceland \cite{pike2009note}.
+Their small population size and oceanic habit makes blue whale movements extremely hard to study. 
+
+Current methods for tracking large whales include satellite tracking, radio tagging, aerial photography, passive acoustic monitoring, and sightings records. 
+While these methods are adding vital behavioural data to our understanding of whale movements \cite{bailey2009behavioural,mate2007evolution,silva2013north}, they are often expensive, limited to short-term studies \cite{bailey2009behavioural,mate2007evolution}, and may influence whale behaviour \cite{walker2012review}.
+%At present the longest period of continuous monitoring via satellite tagging of an individual blue whale in the north Atlantic, that we are aware of, is 177 days \cite{lesage2017foraging}, but most satellite deployments on blue whales report movement data for under three months \cite{heide2001new,silva2013north, bailey2009behavioural,lesage2017foraging}, and are unable to show individual movements between feeding and wintering areas. 
+%To our knowledge photographic identification has matched summer and winter locations of a single north-east Atlantic blue whale with sightings in Iceland and Mauritania \cite{poster}. 
+
+%Similar to other large balaenopterid whales, blue whales in the northeast Atlantic are generally assumed to conduct annual migrations between high and low latitudes. 
+%A combination of historic whaling data, observations, satellite tracks and acoustic monitoring suggests that blue whales in the northeast Atlantic track regions of high production throughout the year, with at least some whales wintering in the upwelling systems between Mauritania and the Cape Verde Islands \cite{baines2014upwellings}. 
+%Northward migration in the spring may occur along mid Atlantic corridors with peak sightings in the Azores around April-May \cite{silva2013north}. 
+%Summer feeding appears to occur in northerly latitudes around Iceland, and historically in the Norwegian and Barents Seas \cite{pike2009note}. 
+%Blue whales are frequently detected in waters to the west of the UK, with peak acoustic detections occurring between November and December, in southerly migrating animals \cite{reeves2004historical,baines2017autumn,charif2009acoustic,visser2011timing}.
+%Inferences concerning movements of blue whales in the northeast Atlantic are therefore largely drawn from disparate information sources and rarely detail movements of individual animals. 
+%It is difficult to know whether spatial variations in observed distributions reflect movements undertaken by individual animals or the frequency that individuals may undertake movements. 
+%Information on historical movement patterns of individual blue whales is particularly important for understanding the drivers of whale declines, and potential human-whale conflicts as populations recover. 
+
+An alternative technique for investigating whale movements retrospectively is to use intrinsic biochemical information such as stable isotope compositions \cite{west2006stable,busquets2017estimating,hobson2008tracking}. 
+%Present-day populations can be studied with material collected in the field, while historic samples can be taken from museum collections; rich archives of behavioural information that are often under-utilised \cite{lister2011natural}. 
+The stable isotope composition of animal tissues reflects the isotopic composition of diet at the time and place of ingestion, integrated over the timescale of tissue growth. 
+Stable isotope data therefore provide information on diet and location, but incomplete knowledge of the spatio-temporal distribution of the isotopic composition of prey currently limits interpretation of measured values. 
+Here we use the isotopic compositions of whale tissues to reconstruct movement by comparing them to spatially referenced models of isotopic variation in diet across the species' range in the northeast Atlantic \cite{hobson2008tracking,eisenmann2016isotopic}.
+
+Mysticete (baleen) whales are characterized by the development of baleen, keratinous structures in the upper jaw used to filter food items from seawater. 
+Baleen is ideal for stable isotope studies because keratin grows continuously through an individual's life, and once laid down it is metabolically inert \cite{best1996stable,hobson1998stable}. 
+Baleen plates therefore offer a continuous isotopic record of behaviour reflecting multiple years of life of an individual whale, although as baleen is worn away at the tips over time, so rarely records an individual's entire lifespan. 
+Baleen stable isotope records have a long history of use as biochemical markers to infer movement patterns in whales \cite{ryan2013stable,best1996stable,hobson1998stable,hobson2008tracking}, but have yet to be applied to blue whales from the North Atlantic population. 
+Here we apply this method to baleen from the Natural History Museum London's (NHM) blue whale ``Hope''. 
+Hope stranded in Wexford Ireland in March 1891 and is a young adult female, estimated to be at least 15 years at death, suggesting that her baleen will yield information about migratory behaviours in north Atlantic blue whales around the peak of industrial whaling.
+
+\section{Materials and Methods}
+
+\subsubsection{Baleen and oceanic stable isotope comparisons}
+%\subsubsection{Stable isotope extractions from baleen}
+Baleen was collected from the Natural History Museum, London (specimen NHMUK.1892.3.1.1).  
+97 samples were taken at 1cm intervals, starting at the proximal (gingival) section that contains the most recent tissue. 
+We assume that baleen grows at a relatively constant rate, so the samples are equally spaced through time \cite{best1996stable}. 
+Carbon and nitrogen isotope analysis was performed simultaneously via continuous-flow isotope ratio mass spectrometry at the University of Southampton SEAPORT Stable Isotope Ratio Mass Spectrometry Laboratory (Southampton, UK), using a Vario Isotope select elemental analyser, coupled to an Isoprime 100 isotope mass spectrometer. 
+Carbon and nitrogen isotopes are expressed as $\delta^{13}$C and $\delta^{15}$N values, i.e. relative to a standard and as ratios of the rare ($^{13}$C, $^{15}$N) to common ($^{12}$C, $^{14}$N) isotope \cite{west2006stable}.
+%Carbon and nitrogen isotopes are commonly reported together as they provide complementary information; both isotopes provide information on the geographical locations of an individual, but nitrogen isotopes are more strongly fractionated during protein metabolism and thus contain additional trophic and physiological information \cite{west2006stable}.
+%Replicates using internal laboratory standards (L-glutamic acid (C), Glutamic acid (CT standard), acetanilide and protein standard OAS) were used for quality control and calibration. 
+%C:N ratios for samples ranged from 3.28\text{\textperthousand} to 3.72\text{\textperthousand}, well within the acceptable theoretical range for pure keratin ($3.4\pm0.5$) allowing for comparison among samples \cite{hobson1998stable}. 
+All data are available from the NHM Data Portal \cite{data-set}.
+ 
+%\subsubsection{Time calibrating stable isotope profiles}
+%Seasonal migrations across isotopic gradients induce cyclical variations in the isotopic composition of baleen, the distance between cycles reflecting growth rates \cite{hobson1998stable,busquets2017estimating}. 
+%Clear periodicity was evident in $\delta^{15}$N values across the entire baleen plate, and in $\delta^{13}$C values at 70 - 18cm distance from the gingival end of the plate (behavioural phase two). 
+We calculated isotopic periodicity within the baleen sample using Fourier Transform analysis 
+%\cite{cardona2017temporal} 
+(Supplemental Figure S1), revealing a consistent growth rate of 13.5$cmy^{-1}$ % which is remarkably similar to the mean isotope-derived baleen growth rates of $15.5 \pm 2.2cmy^{-1}$ estimated for six recent blue whales from the Californian Pacific \cite{busquets2017estimating}.  
+Therefore we dated the youngest baleen sample as 1st March 1891, 24 days prior to the stranding date, 25th March 1891. 
+%Cross-correlation analysis demonstrated a strong negative covariance between $\delta^{13}$C and $\delta^{15}$N values within behavioural phase two (70cm to 18cm on the baleen plate), but no clear relationship between $\delta^{13}$C and $\delta^{15}$N values during behavioural phase one (the oldest 30cm of the baleen plate, i.e. 100cm - 70cm; Supplemental Figure S2) or the final 500 days of the whale's life (youngest 18cm of the baleen plate; Supplemental Figure S2).
+ 
+
+Relating the isotopic compositions of animal tissues to likely locations is complicated by a lack of knowledge of spatio-temporal variations in the isotopic composition of diet \cite{west2006stable}.
+We develop a new approach to address this problem using temporally dynamic models of $\delta^{13}$C values in the global ocean \cite{magozzi2017using} (Supplemental Figure S3), coupled to an agent-based model of whale movements (see Supplemental Methods; Supplemental Table S1; Supplemental Figure S5).  
+We use our coupled model to simulate time series of $\delta^{13}$C values expected under differing movement behaviours and in different parts of the known geographic range of North Atlantic blue whales. 
+We then compare simulated profiles (Figures \ref{fig2}, \ref{fig3} and Supplemental Figure S4) to the measured isotopic profile of the blue whale's baleen (Figure \ref{fig1}), using z-score transformations to account for uncertainty in baseline variation, to identify the most likely movement history. 
+
+%Many baleen whales, such as humpback whales (\textit{Megaptera novaeangliae}), rely largely on stored lipid reserves to meet metabolic demands in lower latitudes in winter \cite{irvine2017quantifying}. 
+%However, increasing evidence suggests that blue whales engage in opportunistic feeding throughout the year.
+%Whale distributions during winter coincide with the onset and development of phytoplankton blooms and areas of high productivity associated with upwelling \cite{baines2017autumn,silva2013north,visser2011timing,busquets2017estimating}, and satellite tagged individuals express fine scale movement behaviour associated with area restricted foraging in winter and summer \cite{lesage2017foraging,bailey2009behavioural}.
+%We therefore assume opportunistic ingestion of protein throughout the year. 
+
+
+%\subsubsection{Baseline isotope comparisons}
+Isotope-enabled biogeochemical ocean models \cite{magozzi2017using,schmittner2016complementary} were used to characterize the isotopic composition of phytoplankton expected in different potential foraging grounds (Supplemental Figure S3). 
+Annual average $\delta^{15}$N POM (particulate organic matter) values were provided by C.J. Somes (\textit{pers.comm}) based on a 5$^{\circ}$ resolution biogeochemical model (Supplemental Figure S3). 
+$\delta^{13}$C POM values were simulated at 1$^{\circ}$ and monthly resolution using an isotopic extension to the NEMO-MEDUSA ocean biogeochemical model \cite{magozzi2017using,yool2013medusa}. 
+%Simulated $\delta^{15}$N POM values are relatively positive in the northeast Atlantic north of c. 60$^{\circ}$N, and relatively negative in the central and southern North Atlantic. 
+%Annual average $\delta^{13}$C POM values largely vary with latitude, with more negative values in more northerly regions. 
+%In the central North Atlantic, $\delta^{13}$C POM values are relatively positive in the west, reflecting warm gulf stream waters (Supplemental Figure S3). 
+%The isotopic composition of carbon in phytoplankton also varies through seasons as isotopic fractionation of carbon during photosynthesis is strongly influenced by sea surface temperature \cite{magozzi2017using,laws1995dependence}.
+%Thus temporal variations in $\delta^{13}$C POM values were superimposed on latitudinal gradients. 
+%The scale and nature of temporal variation in $\delta^{13}$C POM values also varies with latitude, with higher latitude seas showing greater intra-annual variation in $\delta^{13}$C POM values linked to strongly seasonal phytoplankton growth dynamics. 
+%The model simulations used are forced with decadal climatological data from 2000-2010 \cite{magozzi2017using}. 
+%We do not draw inferences about location from absolute $\delta^{13}$C values and thus the reduction in oceanic $\delta^{13}$C POM values caused by release of fossil carbon into the atmosphere (Suess effect) does not influence inferences about location or movement. 
+Ocean basin scale spatio-temporal differences in $\delta^{13}$C values, largely reflecting relative differences in sea surface temperatures between trophic, temperate and arctic waters, have remained essentially similar over millennial timescales \cite{schmittner2016complementary} therefore we are confident that the Magozzi \textit{et al} \cite{magozzi2017using} model can be applied to interpret historic baleen isotope data.
+
+We used monthly simulated $\delta^{13}$C POM values to simulate the isotopic expression of phytoplankton expected to be encountered by whales exhibiting differing movement behaviours.
+Whales feed on krill, not POM. 
+Assimilation of carbon into krill tissues will dampen the temporal variability seen in POM, effectively producing a temporal average over the timescale of isotopic turnover within krill. 
+We estimate turnover to be complete between four and six months and therefore we resampled the $\delta^{13}$C POM values in each one degree cell to reflect a six month moving average. 
+Carbon isotope values are also likely to be fractionated during transfer from plankton to krill as $^{12}$C  is preferentially lost through respiration. 
+The degree of such trophic fractionation is unclear, however and we do not draw interpretations based on absolute $\delta^{13}$C values, rather on the relative $\delta^{13}$C values across the length of the baleen plate.
+
+\subsubsection{Agent-based whale movement model}
+We simulated the movement of the whale with the likelihood, direction, and extent of movement influenced by behavioural state, sea surface temperature, water depth, and phytoplankton concentration (as a proxy for zooplankton food availability). 
+At each time point and location in the simulations, we extracted time averaged $\delta^{13}$C values from the spatio-temporal model \cite{magozzi2017using} resulting in a range of simulated isotopic profiles for different migration patterns and foraging areas (Figures \ref{fig2}, \ref{fig3}, and Supplemental Figure S4). 
+Movement was coded as a set of probabilistic rules. 
+The parameters for these were taken from the literature on blue whale behaviour (e.g. \cite{handbook}). 
+All terms were expressed as probability distributions, yielding multiple potential movement tracks. 
+ 
+%In the models, the likelihood of movement, direction (north, south, east, west, northeast, northwest, southeast, or southwest) and linear distance of movement are all influenced by the following. 
+%(i) Behavioural state (migrating north, migrating south, or foraging).
+%Northerly migrations were possible only in spring, and southerly migrations in autumn. 
+%Foraging was possible at any time of year, and was triggered when whales encountered high concentrations of plankton.
+%(ii) Sea surface temperature \cite{yool2013medusa} ($^{\circ}$C). 
+%When migrating north, whales were more likely to move towards lower temperatures provided they were above the minimum temperature threshold (3$^{\circ}$C); whereas whales migrating south sought warmer waters. 
+%(iii) Water depth \cite{bathy} (m; extracted via the marmap package in R \cite{marmap}). 
+%Whales were less likely to move into waters less than 400m deep, and increasingly unlikely to move into even shallower waters. 
+%(iv) Phytoplankton concentration ($mmolNm^{-3}$, for combined diatom and non-diatom communities \cite{yool2013medusa}). 
+%This was included as a proxy for zooplankton food availability. 
+%Whales are more likely to move towards (or remain within) areas of high phytoplankton density, particularly during the foraging behavioural state. 
+
+%We simulated the isotopic expression expected for (a) residency in each known hotspot for blue whale sightings or historic hunting grounds in the North Atlantic (Norwegian/Barents Sea, West Ireland, Canaries/Azores and Mid-Atlantic Ridge, and the Cape Verde/Mauritanian upwelling area \cite{mcdonald2006biogeographic,reilly2008balaenoptera,sigurjonsson1995life}; Supplemental Figure S4); (b) seasonal migration between high sub-Arctic latitudes and temperate latitudes around the British Isles and (c) seasonal migration between high latitudes and sub-tropical latitudes. 
+%Measured tracks can only be replicated by combination of residency and seasonal migration with latitudinal migrations limited to the last four years of simulations.
+For a full description of the model and its parameters see Supplemental Methods: Supplemental Figure S5 and Supplemental Table S1. 
+We simulated whale movements 1200 times, then excluded simulations where the virtual whale stranded before reaching the 3019 days of the baleen record, leaving 1049 simulations.
+For each movement simulation we extracted phytoplankton $\delta^{13}$C values at each time point and location from the models described above \cite{magozzi2017using}. 
+We then compared the simulated stable isotope profiles (Figure \ref{fig3}) to the profile of the blue whale (Figure \ref{fig1}).
+ 
+
+ We simulated 1200 individual movement patterns, then excluded simulations where the virtual whale stranded before reaching the 3019 days represented in the baleen.
+We then compared the remaining 1049 simulations and the resulting simulated baleen $\delta^{13}$C records, to the measured records with simple linear regressions. 
+
+\section{Results}
+
+%Blue whales feed mainly on krill (Euphausiacea), small crustaceans that feed on phytoplankton \cite{handbook}.
+%Thus the stable isotope compositions of keratin at a given point in the baleen will reflect the stable isotope compositions of the krill it was feeding on in the weeks prior to keratin growth.
+%We sampled keratin from the blue whale's baleen plate at 1cm intervals perpendicular to the direction of growth, resulting in 97 discrete samples of baleen.
+%We then used continuous-flow isotope ratio mass spectrometry to determine the isotopic compositions of carbon and nitrogen in the keratin.
+%These isotopes are expressed as $\delta^{13}$C and $\delta^{15}$N values, i.e. relative to a standard and as ratios of the rare ($^{13}$C, $^{15}$N) to common ($^{12}$C, $^{14}$N) isotope \cite{west2006stable}.
+%Carbon and nitrogen isotopes are commonly reported together as they provide complementary information; both isotopes provide information on the geographical locations of an individual, but nitrogen isotopes are more strongly fractionated during protein metabolism and thus contain additional trophic and physiological information \cite{west2006stable}.
+
+Throughout the baleen record, $\delta^{15}$N values record regular cyclical fluctuations, with a mean spacing of 13.5cm, assumed to represent annual periodicity (see Supplemental Methods; Supplemental Figures S1 and S2). 
+Therefore, given the date of stranding (25th March 1891), and estimated baleen growth rates of 13.5cm $y^{-1}$, we reconstructed a timeline for $\delta^{13}$C and $\delta^{15}$N fluctuations in the baleen over seven full years of the whale's life (early 1884 - spring 1891). 
+The $\delta^{13}$C and $\delta^{15}$N profiles show two distinct phases in the whale's behaviour. 
+In behavioural phase one (from the start of the record to spring 1886), we find relatively stable, elevated $\delta^{13}$C values, and relatively low $\delta^{15}$N values (Figure \ref{fig1}; Supplemental Figures S1 and S2). 
+In behavioural phase two (summer 1886 to spring 1890) $\delta^{15}$N values are relatively high and $\delta^{13}$C values are relatively low with coincident cyclical fluctuations in both $\delta^{13}$C and $\delta^{15}$N values. 
+In the last year of life the cyclical pattern is disrupted, with constant low $\delta^{13}$C values for approximately six months in the first half of 1890, before a rapid switch to relatively high $\delta^{13}$C values in the second half of 1890. 
+The final three months of the record show a progressive fall in $\delta^{13}$C values (Figure \ref{fig1}; Supplemental Figures S1 and S2).
+
+% figure 1
+\begin{figure}
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-1-raw-dC-dN-data.png}
+  \caption{Variation in stable isotope values in the NHM blue whale, expressed as $\delta^{13}$C (black circles, left y-axis) and $\delta^{15}$N (grey circles, right y-axis). Samples were taken longitudinally through the baleen plate (n = 97 samples from a single baleen plate for both isotopes). There is strong annual periodicity and cross-correlation (Supplemental Figures S1 and S2) in both isotopes. The approximate relationship to years assuming a growth rate of 13.5cm y$^{-1}$ is shown on the upper x-axis, and year boundaries are indicated by vertical dotted grey lines.}
+  \label{fig1}
+\end{figure}
+
+% figure 2
+\begin{figure}
+ \centering
+ \includegraphics[width = \linewidth]{figures/Figure-2-points.png}
+  \caption{Simulated locations of the whale taken from the top 10\% best fitting migratory movement models. 
+  Colours reflect the behavioural phase. 
+  Phase one is early 1884 to spring 1886, phase two is summer 1886 to spring 1890, and phase three is spring 1890 to spring 1891.}
+  \label{fig2}
+\end{figure}
+
+% figure 3
+%\begin{figure}
+ %\centering
+  %\includegraphics[width = \linewidth]{figures/Figure-3-blue-sims.png}
+  %\caption{Correlations among simulated $\delta^{13}$C from the top 10\% best fitting migratory movement models (grey lines, right hand y-axis) and $\delta^{13}$C from baleen (black line, left hand y-axis; see Figure \ref{fig1}). 
+  %Simulated $\delta^{13}$C values are six month moving average values for the time series of simulated plankton $\delta^{13}$C values in that location, reflecting temporal integration of phytoplankton $\delta^{13}$C values within the food chain before ingestion by the whale as krill. 
+  %The end points of the simulations and empirical data have been aligned to coincide.
+%}
+%  \label{fig3}
+%\end{figure}
+ 
+The relatively positive and seasonally-invariant $\delta^{13}$C values seen during behavioural phase one are only found in sub-tropical areas of the North Atlantic.  
+Our simulations identify a range of possible locations for the whale (Figure \ref{fig3}), reflecting a range of possible locations for the whale, although areas around the Mauritanian coast and Cape Verde islands, a known current and historic winter feeding area for blue whales \cite{baines2014upwellings,reeves2004historical}, and potentially to the west of the Azores (Figure \ref{fig2}), most closely match the measured profile. 
+The whale remained in relatively warm waters for at least one full year. 
+Hope was estimated to be at least 15 years old when she died (based on vertebral epiphyseal fusion; R.C. Sabin \textit{pers.comm}), so probably older than 10 years old during this period.
+During behavioural phase two, starting at an approximate age of at least 11 years, the observed low $\delta^{13}$C values imply foraging in colder, more northerly latitudes. 
+The pronounced cyclical variations in $\delta^{13}$C values observed during behavioural phase two could reflect either the isotopic expression of the spring phytoplankton bloom in northern waters \cite{magozzi2017using}, latitudinal migrations, or a combination of both.  
+
+Simulated baleen $\delta^{13}$C profiles produce a good fit to measured profiles, the median $r^2$ value across 1049 simulated profiles was 0.49, and the maximum was 0.71 (Supplemental Figure S6).
+The top 10\% best fitting simulated profiles are shown in Figure \ref{fig2}. 
+Best fitting models predict juvenile residency in the Cape Verde region in behavioural phase one. 
+Behavioural phase two is best simulated by seasonal migrations between summer foraging in northern areas in the Norwegian Sea/Barents Sea/Iceland region, and winter foraging in a broad region between the UK and more southerly, sub-tropical waters. 
+Better fitting models in general were those predicting a greater latitudinal foraging range, and foraging in more northerly waters (Supplemental Figures S7 and S8).
+%Best-fit model distributions are largely consistent with our current understanding of blue whale distributions in the northeast Atlantic \cite{reeves2004historical,baines2014upwellings,baines2017autumn,reeves2004historical}, with perhaps greater importance of winter foraging in temperate regions (Figure \ref{fig4}).
+
+% figure 4
+%\begin{figure}
+ %\centering
+  %\includegraphics[width = \linewidth]{figures/Figure-4-monthly.png}
+  %\caption{Simulated locations by month taken from the top 10\% best fitting migratory movement models for behavioural phase two (summer 1886 to spring 1890) only.}
+  %\label{fig4}
+%\end{figure}
+
+The isotopic record of the last 500 days of the whale's life are difficult to simulate. 
+Beginning in the winter of 1889/1890, the observed $\delta^{13}$C values are relatively low, and remain constant for four to six months, before increasing rapidly in the second half of of 1890. 
+Low $\delta^{13}$C values are found in northern waters, but these regions also show large temporal fluctuations in $\delta^{13}$Cplk values (Supplemental Figure S4), and the observed values cannot be simulated purely from movements within the known geographic range.
+We infer that the $\delta^{13}$C record in the last period of life is associated with pregnancy and calf-rearing. 
+We suggest that the constant, low $\delta^{13}$C values reflect exclusive use of carbon reserves assimilated in northern latitudes (i.e. a period of time with limited opportunistic foraging). 
+After around 4-6 months the whale began ingesting food with relatively high $\delta^{13}$C values, indicating feeding in low latitude waters shortly followed by a final northward migration. 
+Blue whales have a 10-12 month gestation period, with calving occurring in sub-tropical waters, and calves are weaned after 6-7 months \cite{handbook}. 
+We infer a chronology reflecting three years of uninterrupted annual latitudinal migrations leading to pregnancy in the year 1889 and birth of a calf in the winter of 1889/1890, presumably in sub-tropical waters.
+Following birth, we infer a period of around 4-6 months of residency in sub-tropical waters where the whale was sustained largely from stored lipid reserves, which we interpret as reflecting weaning.
+We subsequently propose that the whale had a short period of feeding in sub-tropical waters in the second half of 1890, potentially during a final northward migration during the return to northern feeding grounds in early 1891.
+The inferred reproductive time-line is therefore consistent with the assumed reproductive ecology of blue whales globally \cite{handbook}. 
+
+\section{Discussion}
+Long-term, multi-annual data on the movement patterns and reproductive ecology of individual blue whales are scarce. 
+Although based on a single individual, our results confirm that seasonal differences in population-level distributions inferred from observations of multiple individuals over time and space are indeed expressed in a single individual, with a detailed record proving information on residency, seasonal migrations and reproductive behaviour. 
+
+Whaling was an intense pressure for blue whales during the period we are analysing. 
+Before whaling in the North Atlantic began in 1868 \cite{reilly2008balaenoptera}, there were an estimated 10,000-15,000 blue whales in the region \cite{sigurjonsson1995life}. 
+In the early 20th century, fisheries moved outside the area because stocks were so depleted \cite{reilly2008balaenoptera}; during this period over 12,000 blue whales were landed \cite{sigurjonsson1995life}. 
+The NHM blue whale thus represents an individual from a species at the brink of extirpation, potentially representing  more than 0.1\% of the entire population of blue whales in the northeast Atlantic at that time.
+Inferring spatio-temporal distributions of populations from high density observations of a few individuals (or, in this case one individual) will always be problematic, but the predictive power linking a tracked individual to the population distribution increases when the tracked animal has a strong preference for specific habitats and there is a patchy (clumped) distribution of those habitats \cite{holdo2013inferring}. 
+In the case of blue whales, the primary driver influencing seasonal movements is assumed to be the seasonally variable distribution of food resources between high and low latitudes. 
+As blue whales have a relatively restricted diet that shows highly predictable spatio-temporal differences in abundance at least on ocean basin scales, we argue that the seasonal latitudinal migrations inferred during behavioural phase two are likely to be common movement traits within north Atlantic blue whales. 
+This inference of course requires testing with additional isotopic records from individual whales and/or multi-year satellite tracking records.
+
+Little is known about juvenile behaviour in blue whales in the Atlantic - calves become independent of their mothers at around seven months, and become sexually mature around 8-10 years old. 
+The earliest part of our record may represent residency in subtropical waters prior to the onset of seasonal migrations at sexual maturity, but determining the age of the whale at death is highly uncertain, and unfortunately the baleen record is not long enough to resolve this issue with certainty. 
+Our movement models suggest that the upwelling regions around Mauritania and the Cape Verde Islands may have been important historic calving areas, consistent with modern observations of juvenile blue whales in the northeast Atlantic \cite{handbook}. 
+These areas are now fishing, tourist and shipping hotspots with emerging offshore oil and gas exploration, potentially increasing threats to the recovery of the small population of blue whales in the north east Atlantic. 
+
+Our movement simulation modeling removes a long-standing limitation in stable isotope ecology, and can be applied to stable isotope records from any incrementally-grown tissue to estimate most likely individual movement behaviours over multiple years. 
+Such techniques can also be applied to extinct species behaviours and used to understand how populations were affected by past pressures such as hunting, and present-day pressures such as global change.
+Our results also add to previous research \cite{lister2011natural,ryan2013stable} highlighting museums as critical sources of individual-level spatial ecology information.
+
+\section{Figure and Table captions}
+% 4 total, only 2 can be figures
+
+\section{Acknowledgments}
+%We thank C.J. Somes for $\delta^{15}$N POM data, Bastian Hambach and Megan Spencer at the University of Southampton SEAPORT isotope laboratory for assistance with stable isotope analyses, and Andrew Yool for allowing us to use and share NEMO-MEDUSA outputs.
+We thank C.J. Somes, Bastian Hambach, Megan Spencer and Andrew Yool for assistance with data and stable isotope analyses.
+
+\section{Author Contributions}
+%CT, NC and AJ conceived the project.
+%CT, NC, AJ, RS, and KC collected baleen from the NHM collections. 
+KC and CT extracted and analysed samples.
+CT created the movement model.
+EC, NC, SM and RS helped parameterise the model.
+%AJ and NC created the figures. 
+%CT and NC wrote the paper.
+All authors edited drafts, are accountable for the content, and approved the final version of the manuscript.
+
+\section{Data accessibility}
+Data are available from the NHM Data Portal (https://doi.org/10.5519/0093278). 
+R code is available from GitHub (https://github.com/nhcooper123/blue-whale-bes).
+
+\section{Funding}
+This work was funded by the British Ecological Society (grant: 5771/6815). 
+
+\section{Competing interests}
+We have declare no competing interests.
+
+\section{Ethical statement}
+No ethical issues were applicable to this research.
+
+\bibliographystyle{vancouver}
+\bibliography{blue-whale-abbreviations}
+
+\section{mess}
+%1 Runge CA, Martin TG, Possingham HP, Willis SG, Fuller RA.
+%Conserving mobile species. Front Ecol Environ. 2014;12(7):395–402.
+%2 Robinson RA, Crick HQ, Learmonth JA, Maclean I, Thomas CD,
+%Bairlein F, et al. Travelling through a warming world: climate change
+%and migratory species. Endanger Spec Res. 2009;7(2):87–99.
+3 Holdo RM, Roach RR. Inferring animal population distributions from
+individual tracking data: theoretical insights and potential pitfalls. J Anim Ecol. 2013;82(1):175–181.
+4 Ryan C, McHugh B, Trueman CN, Sabin R, Deaville R, Harrod C, et al.
+Stable isotope analysis of baleen reveals resource partitioning among
+sympatric rorquals and population structure in fin whales. Mar Ecol
+Prog Ser. 2013;479:251–261.
+6 Bailey H, Mate BR, Palacios DM, Irvine L, Bograd SJ, Costa DP, et al. Behavioural estimation of blue whale movements in the Northeast
+Pacific from state-space model analysis of satellite tracks. Endanger Spec Res. 2009;10(93-106):1–1.
+7 Reilly S, Bannister J, Best P, Brown M, Brownell Jr R, Butterworth D, et al. Balaenoptera musculus. In: IUCN Red List of Threatened Species.
+Gland, Switzerland: IUCN;; 2008. .
+8 Pike DG, Vikingsson GA, Gunnlaugsson T, Øien N. A note on the distribution and abundance of blue whales (Balaenoptera musculus) in
+the Central and Northeast North Atlantic. NAMMCO Scientific
+Publications. 2009;7:19–29.
+%9 Borger L. Stuck in motion? Reconnecting questions and tools in
+%movement ecology. J Anim Ecol. 2016;85(1):5–10.
+%10 McDonald MA, Mesnick SL, Hildebrand JA. Biogeographic
+%characterization of blue whale song worldwide: using song to identify
+%populations. J Cet Res Man. 2006;8(1):55–65.
+11 Mate B, Mesecar R, Lagerquist B. The evolution of satellite-monitoredradio tags for large whales: One laboratory’s experience. Deep Sea Research Part II: Topical Studies in Oceanography. 2007;54(3):224–247.
+12 Silva MA, Prieto R, Jonsen I, Baumgartner MF, Santos RS. North
+Atlantic blue and fin whales suspend their spring migration to forage
+in middle latitudes: building up energy reserves for the journey? PLoS ONE. 2013;8(10):e76507.
+13 Best PB, Mate B, Lagerquist B. Tag retention, wound healing, and
+subsequent reproductive history of southern right whales following
+satellite-tagging. Mar Mamm Sci. 2015;31(2):520–539.
+14 Walker KA, Trites AW, Haulena M, Weary DM. A review of the effects
+of different marking and tagging techniques on marine mammals.
+Wildlife Res. 2012;39(1):15–30.
+15 Lesage V, Gavrilchuk K, Andrews RD, Sears R. Foraging areas,
+migratory movements and winter destinations of blue whales from the
+western North Atlantic. Endanger Spec Res. 2017;34:27–43.
+%16 Heide-Jørgensen MP, Kleivane L, ØIen N, Laidre KL, Jensen MV. A
+%new technique for deploying satellite transmitters on baleen whales:
+%tracking a blue whale (Balaenoptera musculus) in the North Atlantic.
+%Marine Mamm Sci. 2001;17(4):949–954.
+%17 Sears R, Burton CLK, V´ıkingsson GA. Review of blue whale
+%430 (Balaenoptera musculus) photo-identification distribution data in the North Atlantic including the first long-range match between Iceland
+%and Mauritania. Available from:
+%https://www.rorqual.com/downloads/review-of-blue-whalebalaenoptera-
+%musculus-photoidentification-distribution-data-in-the435
+%north-atlantic-including-the-first-long-.pdf;
+%2005.
+18 Baines ME, Reichelt M. Upwellings, canyons and whales: An
+important winter habitat for balaenopterid whales off Mauritania,
+northwest Africa. J Cet Res Man. 2014;14:57–67.
+19 Reeves RR, Smith TD, Josephson EA, Clapham PJ, Woolmer G.
+Historical observations of humpback and blue whales in the North
+Atlantic Ocean: Clues to migratory routes and possibly additional
+feeding grounds. Marine Mamm Sci. 2004;20(4):774–786.
+20 Baines M, Reichelt M, Griffin D. An autumn aggregation of fin
+(Balaenoptera physalus) and blue whales (B. musculus) in the Porcupine
+Seabight, southwest of Ireland. Deep Sea Research Part II: Topical
+Studies in Oceanography. 2017;.
+21 Charif RA, Clark CW. Acoustic monitoring of large whales in deep
+waters north and west of the British Isles: 1996-2005. Cornell
+Laboratory of Ornithology Bioacoustics Research Program Technical
+Reports. 2009;p. 08–07.
+22 Visser F, Hartman KL, Pierce GJ, Valavanis VD, Huisman J. Timing of
+migratory baleen whales at the Azores in relation to the North Atlantic
+spring bloom. Marine Ecol Prog Ser. 2011;440:267–279.
+23 West JB, Bowen GJ, Cerling TE, Ehleringer JR. Stable isotopes as one of
+Nature’s ecological recorders. Trends Ecol Evol. 2006;21(7):408–414.
+24 Busquets-Vass G, Newsome SD, Calambokidis J, Serra-Valente G,
+Jacobsen JK, Aguiniga-Garcıa S, et al. Estimating blue whale skin
+isotopic incorporation rates and baleen growth rates: Implications for assessing diet and movement patterns in mysticetes. PLoS ONE.
+2017;12(5):e0177880.
+25 Hobson KA, Wassenaar LI, editors. Tracking Animal Migration with
+Stable Isotopes. Academic Press;; 2008.
+26 Lister AM, Group CCR, et al. Natural history collections as sources of long-term datasets. Trends Ecol Evol. 2011;26(4):153–154.
+29 Eisenmann P, Fry B, Holyoake C, Coughran D, Nicol S, Nash SB.
+Isotopic evidence of a wide spectrum of feeding strategies in southern
+hemisphere humpback whale baleen records. PLoS ONE. 2016;11(5):e0156698.
+30 Best P, Schell D. Stable isotopes in southern right whale (Eubalaena australis) baleen as indicators of seasonal movements, feeding and growth. Mar Biol. 1996;124(4):483–494.
+31 Hobson KA, Schell DM. Stable carbon and nitrogen isotope patterns in baleen from eastern Arctic bowhead whales (Balaena mysticetus). Can J Fish Aq Sci. 1998;55(12):2601–2607.
+32 Trueman CN, Jackson AL, Chadwick KS, Coombs EJ, Magozzi S, Sabin
+RC, et al. In: Dataset: Baleen stable isotope data. Natural History
+Museum Data Portal (data.nhm.ac.uk). https://doi.org/10.5519/0093278; 2018.
+35 Magozzi S, Yool A, Vander Zanden H, Wunder M, Trueman C. Using
+ocean models to predict spatial and temporal variation in marine
+carbon isotopes. Ecosphere. 2017;8(5):e01763.
+37 Schmittner A, Somes CJ. Complementary constraints from carbon
+(13C) and nitrogen (15N) isotopes on the glacial ocean’s soft-tissue
+biological pump. Paleoceanography. 2016;31(6):669–693.
+38 Yool A, Popova E, Anderson T. MEDUSA-2.0: an intermediate
+complexity biogeochemical model of the marine carbon cycle for
+climate change and ocean acidification studies. Geosci Model Devel.
+2013;6(5):1767–1811.
+39 Wilson DE, Mittermeier RA, editors. Handbook of Mammals of the
+World. 4: Sea Mammals. Barcelona, Spain; Lynx Edicions; 2014.
+40 Sigurjonsson J. On the life history and autecology of North Atlanticrorquals. Devel in Mar Biol. 1995;4:425–441.
+
+\end{document}
