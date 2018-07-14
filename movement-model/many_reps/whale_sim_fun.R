@@ -383,6 +383,8 @@ whale_sim_fun <- function(rep_id){
     distance<-rpois(1,2)
     if(distance>max.dist) {distance=max.dist}
     
+    # truncated normal distribution defines length of the 
+    # movement vector.
     distance.km<-rnorm(1, max.dist.km/2, dist.SD)
     distance.km[distance.km<0]<-0
     
