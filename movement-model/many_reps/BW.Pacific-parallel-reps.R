@@ -80,7 +80,10 @@ library(scales)
 library(TTR)
 require(maptools)
 require(raster) 
+
+# AJ added
 library(parallel)
+library(truncnorm)
 
 llCRS = CRS("+proj=longlat +ellps=WGS84")
 
@@ -232,7 +235,6 @@ Forage<-rep(NA, rep.no)
 migYN<-rbinom(rep.no,1,0.5)
 
 
-
 # maximum daily distance and std dev (km by behaviour state)
 max.dist.kmF<-rnorm(rep.no,15,5)
 max.dist.kmMS<-rnorm(rep.no,70,20)
@@ -243,26 +245,39 @@ dist.SDMS<-30
 dist.SDMN<-50
 
 # set up movement direction variation
+# AJ - use truncated random normal distribution
+# AJ - NB its not a good idea to use F as variable name 
+# as it can be confused with F == FALSE... but...
+# its ok as F is not a reserved variable name, whereas
+# FALSE is, but then its important to write out FALSE in full
+# in calls to functions where you intend it.
 F<-matrix(data=NA, nrow=rep.no, ncol=8, byrow=TRUE)
-F[,1]<-rnorm(rep.no,15,5)
-F[,2]<-rnorm(rep.no,15,5)
-F[,3]<-rnorm(rep.no,15,5)
-F[,4]<-rnorm(rep.no,15,5)
-F[,5]<-rnorm(rep.no,15,5)
-F[,6]<-rnorm(rep.no,15,5)
-F[,7]<-rnorm(rep.no,15,5)
-F[,8]<-rnorm(rep.no,15,5)
 
+F[,] <- truncnorm::rtruncnorm(rep.no * 8, 
+                              a = 10^-6, b=Inf, 
+                              mean = 15, sd = 5)
 
+# F[,1]<-rnorm(rep.no,15,5)
+# F[,2]<-rnorm(rep.no,15,5)
+# F[,3]<-rnorm(rep.no,15,5)
+# F[,4]<-rnorm(rep.no,15,5)
+# F[,5]<-rnorm(rep.no,15,5)
+# F[,6]<-rnorm(rep.no,15,5)
+# F[,7]<-rnorm(rep.no,15,5)
+# F[,8]<-rnorm(rep.no,15,5)
+
+# Define the migrate south probabilities again using
+# the truncated normal
 MS<-matrix(data=NA, nrow=rep.no, ncol=8, byrow=TRUE)
-MS[,1]<-rnorm(rep.no,7.5,5)
-MS[,2]<-rnorm(rep.no,7.5,5)
-MS[,3]<-rnorm(rep.no,7.5,5)
-MS[,4]<-rnorm(rep.no,15,5)
-MS[,5]<-rnorm(rep.no,45,20)
-MS[,6]<-rnorm(rep.no,45,20)
-MS[,7]<-rnorm(rep.no,75,40)
-MS[,8]<-rnorm(rep.no,100,40)
+
+MS[,1]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 7.5, 5)
+MS[,2]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 7.5, 5)
+MS[,3]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 7.5, 5)
+MS[,4]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 15, 5)
+MS[,5]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 45, 20)
+MS[,6]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 45, 20)
+MS[,7]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 75, 40)
+MS[,8]<-truncnorm::rtruncnorm(rep.no, a = 10^-6, b = Inf, 100, 40)
 
 
 #create more symmetrical migrations - but increase variance
