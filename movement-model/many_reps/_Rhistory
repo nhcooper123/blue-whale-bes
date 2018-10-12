@@ -1,0 +1,61 @@
+update.packages(ask=F)
+devtool::install_github("andrewljackson/SIBER@v2.0.2")
+devtools::install_github("andrewljackson/SIBER@v2.0.2")
+devtool::install_github("andrewljackson/SIBER@v2.0.2")
+install_github("andrewljackson/SIBER@v2.0.2")
+install.packages('devtool')
+install.packages('devtools')
+devtool::install_github("andrewljackson/SIBER@v2.0.2")
+devtools::install_github("andrewljackson/SIBER@v2.0.2")
+install.packages("RGtk2")
+library(RGtk2)
+library(devtools)
+devtools::install_github("brianstock/MixSIAR",
+dependencies = TRUE,
+build_vignettes = TRUE)
+library(MixSIAR)
+install.packages('MuMIn')
+install.packages('glmmADMB')
+quit()
+install.packages('vegan')
+### Code for analysis of marine plastics dataset
+## Ruth Kelly and Marushka da Costa - 29-08-2017
+setwd("desktop/marushka/stats")
+dir()
+data1 <- read.csv("info")
+## Code for analysis of microoplastics plastics dataset
+##Marushka da Costa 19/9/2017
+setwd("home/desktop/marushka")
+dir()
+data1 <- read.csv("info")
+## Code for analysis of microoplastics plastics dataset
+##Marushka da Costa 19/9/2017
+setwd("desktop/marushka")
+dir()
+data1 <- read.csv("info")
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+install.packages("rgdal")
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+install.packages("rgdal")
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+install.packages("rgdal")
+install.packages("rgdal")
+install.packages("rgdal")
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+install.packages("rgdal")
+update.packages(ask=FALSE)
+?rgdal
+library(rgdal)
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+setwd("~/Documents/for Andrew")
+source('~/Documents/for Andrew/BW.Pacific-AJ.R')
+whale_sim_fun(1)
+whale_sim_fun(1)
+# ******************************************
+# source the whale simulation function
+source("whale_sim_fun.R")
+whale_sim_fun(1)
+whale_sim_fun(2)
+# Now loop over each iteration in parallel using parallel mclapply
+whale_reps <- mclapply(1:rep.no, whale_sim_fun,
+mc.cores = 4)
