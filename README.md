@@ -2,7 +2,7 @@
 
 Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), Andrew L. Jackson and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk)  
 
-This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale now adorning Hintze Hall at the Natural History Museum, London.
+This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale ("Hope") now adorning Hintze Hall at the Natural History Museum, London.
 
 To cite the paper: 
 > XXX
@@ -17,8 +17,8 @@ However, to aid reproducibility we have also included data required to replicate
 If you use the data please cite as follows: 
 > Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
 
-* `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout including Figure 1, Figure 3, Figures S1 & S2.
-* `TroLev4_d13C.grd` and `TroLev4_d13C.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
+* `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_1892.3.1.1) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout.
+* `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
 * `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 2 and Figure S8.
 * `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 3.
 * `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 4.
@@ -26,6 +26,15 @@ If you use the data please cite as follows:
 * `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.Res.TL.csv`, `Ireland.Res.TL.csv`, and `Norway.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
 * `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S6.
 * `max.lat.csv` and `sd.lat.csv` are the extracted maximum latitudes and their standard deviations from the top 10% and of models, required for Figure S7.
+
+We also include for the Pacific blue whale analyses: 
+
+* `pacific-blue-whale-isotope-data.csv` which contains d13C and d15N stable isotope values taken from Pacific blue whales and reported in Busquets-Vass et al. 2017
+* `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level four d13C values required for extracting models in script XX.
+
+To use this data please cite the original paper:
+
+> Busquets-Vass, G., Newsome, S.D., Calambokidis, J., Serra-Valente, G., Jacobsen, J.K., Aguiniga-Garcıa, S., and Gendron, D. (2017). Estimating blue whale skin isotopic incorporation rates and baleen growth rates: Implications for assessing diet and movement patterns in mysticetes. PLoS ONE 12, e0177880.
 
 Note that due to size limitations, the input data for the movement models (bathymetry data and outputs from NEMO MEDUSA models providing d13C, plankton biomass, and sea surface temperature values), and the model simulation outputs themselves are only available from the [NHM Data Portal](https://doi.org/10.5519/0093278).
 
