@@ -18,8 +18,8 @@ p1 <-
   xlab(expression(paste(r^2))) +
   #xlab(expression(paste(r^2, " from models comparing real to simulated ", 
   #                delta^{13}, "C (\u2030)", " values"))) +
-  expand_limits(x = c(0, 1),  y = c(0, 200))
+  expand_limits(x = c(0, 1),  y = c(0, 50))
 
 
-ggsave("manuscript/revision/figures/Figure-S6-r2.png", p1, 
+ggsave("manuscript/figures/Figure-S6-r2.png", p1, 
        device = png(width = 600, height = 400))
