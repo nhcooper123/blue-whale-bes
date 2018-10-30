@@ -32,10 +32,10 @@ TL4 <- stack("data/TL2_raster.grd")
 resTrack <- read_csv("data/model.sims.full.csv")
 
 # Fix day numbers reflecting monthly samples (for loess sampling)
-lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
-mo_no <- lengthS / 30 + 1
-sampleD <- rnorm(mo_no, 30, 1)
-sampledays <- as.integer(cumsum(sampleD))
+#lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
+#mo_no <- lengthS / 30 + 1
+#sampleD <- rnorm(mo_no, 30, 1)
+#sampledays <- as.integer(cumsum(sampleD))
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract model values only for days of sample - 
@@ -44,12 +44,7 @@ test <- ddply(resTrack, "Rep", function(x) {
 	newSeries <- x[x$count2%in%sampledays, ]
 })
 
-### NOT SURE THIS IS NEEDED HERE
-# Remove any simulated values where the day > 3020
-# which is the last day of the real data
-## test2 <- ddply(test, "Rep", function(x) {
-#	newSeries <- x[x$count2 < 3021, ]
-#})
+
 test2 <- test
 
 # Add the different d13C isoscape values only for the sampled tracks
