@@ -2,6 +2,7 @@
 # About: script to extract top 10% and bottom 10% of models from 
 # simulations and extract latitude and longitude info from them
 # Tidied by Natalie Cooper Nov 2017
+# Edits Oct 2018 to use different plankton isotopes
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
@@ -23,7 +24,7 @@ blue$Day.sim <- rev(predict.days)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in d13C of different trophic levels
-TL4 <- stack("data/Trolev4_d13C.grd")
+TL4 <- stack("data/TL2_raster.grd")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
