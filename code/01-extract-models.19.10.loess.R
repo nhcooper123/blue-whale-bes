@@ -2,10 +2,7 @@
 # About: script to extract top 10% and bottom 10% of models from 
 # simulations and extract latitude and longitude info from them
 # Tidied by Natalie Cooper Nov 2017
-
-
-
-setwd("/Users/trueman/Desktop/current project files/whale migration modelling/blue-whale-bes-master")
+# Edits Oct 2018 to use different plankton isotopes
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
@@ -33,16 +30,6 @@ TL2 <- stack("data/TL2_raster.grd")
 # Read in model simulations output
 # Takes a bit of time
 resTrack <- read_csv("data/model.sims.full.csv")
-resTrack <- read_csv("data/model.sims.csv")
-
-# Fix day numbers reflecting monthly samples (for loess sampling)
-#lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
-#mo_no <- (lengthS / 30) + 1
-#sampleD <- rnorm(mo_no, 30, 1)
-#sampledays <- as.integer(cumsum(sampleD))
-
-
-
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract model values only for days of sample - 
@@ -50,14 +37,6 @@ resTrack <- read_csv("data/model.sims.csv")
 test <- ddply(resTrack, "Rep", function(x) {
 	newSeries <- x[x$count2%in%blue$Day.sim, ]
 })
-
-### NOT SURE THIS IS NEEDED HERE
-# Remove any simulated values where the day > 3020
-# which is the last day of the real data
-## test2 <- ddply(test, "Rep", function(x) {
-#	newSeries <- x[x$count2 < 3021, ]
-#})
-# Remove NA d13C values
 
 test2 <- test
 
@@ -69,18 +48,7 @@ for(i in 1:nrow(test2)){
                                   y = test2[i, c("Lon", "Lat")])
 }
 
-#test2[complete.cases(test2[,  19]),]
-#test2[complete.cases(test2[,  10]),]
-
-## run regressions against the measuredwhale data alligned by day sample
-
-
-
-
-
-
-
-test3<-NA
+test3 <- NA
 # Run loess through series and predict for same days as measured
 # for the six month sliding window isoscape
 test3 <- ddply(test2, "Rep", function(x){
@@ -105,7 +73,7 @@ for(run in 1:length(unique(resTrack$Rep))){
 	r2[run] <- summary(lm(test3[, run] ~ test3$Blue))$adj.r.squared
 }
 
-write.csv(file = "data/all.r2_19.10.loess.csv", r2, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/all.r2.csv", r2, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
 # extract top 10% and bottom 10% best fit models for whole series
@@ -135,8 +103,8 @@ bottomY <- ddply(resTrack, "Rep", function(x) {
 })
 
 # Write to file
-write.csv(file = "data/top10percent.19.10.loess.csv", topX, quote = FALSE, row.names = FALSE)
-write.csv(file = "data/bottom10percent.19.10.loess.csv", bottomY, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/top10percent.csv", topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/bottom10percent.csv", bottomY, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Export top 10% of regression predictions for Figure 3
@@ -144,17 +112,8 @@ write.csv(file = "data/bottom10percent.19.10.loess.csv", bottomY, quote = FALSE,
 # Identify the top 10% of r2 values
 toptestX <- order(r2)[length(r2):limit] + 1
 
-
-
-
 # Extract the simulations for best fitting models from test2
 testtopX <- test3[, c(toptestX)]
-
-
-# convert r2 vector of runs into Rep numbers
-#zz<-unique(resTrack$Rep)
-#bestReps<-zz[toptestX]
-#testtopX <- test2[test2$Rep%in%bestReps,]
 
 #Make Days into rownames
 rownames(testtopX) <- test3$Day
@@ -176,7 +135,7 @@ testtopX2 <- testtopX %>%
   mutate(Day = str_replace(Day, "X", ""))
   
 # Write to file
-write.csv(file = "data/top10smooth.19.10.loess.csv", testtopX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/top10smooth.csv", testtopX2, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract latitude and longitudes from top and bottom 10% of models
@@ -213,8 +172,8 @@ max.lat.ds <- rbind(max.lat, max.lat.bot)
 sd.lat.ds <- rbind(sd.lat, sd.lat.bot)
 
 # Write file
-write.csv(file = "data/max.lat.19.10.loess.csv", max.lat.ds, quote = FALSE)
-write.csv(file = "data/sd.lat.19.10.loess.csv", sd.lat.ds, quote = FALSE)
+write.csv(file = "data/max.lat.csv", max.lat.ds, quote = FALSE)
+write.csv(file = "data/sd.lat.csv", sd.lat.ds, quote = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # extract top 10% and bottom 10% best fit models for 
@@ -281,5 +240,5 @@ mid.bottomY <- ddply(mid, "Rep", function(x) {
 })
 
 # Write to file
-write.csv(file = "data/mid.top10percent.19.10.loess.csv", mid.topX, quote = FALSE, row.names = FALSE)
-write.csv(file = "data/mid.bottom10percent.19.10.loess.csv", mid.bottomY, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/mid.top10percent.csv", mid.topX, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/mid.bottom10percent.csv", mid.bottomY, quote = FALSE, row.names = FALSE)
