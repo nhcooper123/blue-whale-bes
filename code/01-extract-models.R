@@ -24,41 +24,35 @@ blue$Day.sim <- rev(predict.days)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in d13C of different trophic levels
-TL4 <- stack("data/TL2_raster.grd")
+TL2 <- stack("data/TL2_raster.grd")
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
 resTrack <- read_csv("data/model.sims.full.csv")
 
-# Fix day numbers reflecting monthly samples (for loess sampling)
-#lengthS <- length(resTrack$d13C[resTrack$Rep == 1])
-#mo_no <- lengthS / 30 + 1
-#sampleD <- rnorm(mo_no, 30, 1)
-#sampledays <- as.integer(cumsum(sampleD))
-
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract model values only for days of sample - 
 # as defined above (could change to an average if wanted)
 test <- ddply(resTrack, "Rep", function(x) {
-	newSeries <- x[x$count2%in%sampledays, ]
+	newSeries <- x[x$count2%in%blue$Day.sim, ]
 })
-
 
 test2 <- test
 
 # Add the different d13C isoscape values only for the sampled tracks
-# for the six month sliding window isoscape
+# for the three month biomass weighted window isoscape
 for(i in 1:nrow(test2)){
   mon.no <- test2$Month[i]
-  test2$TL4[i] <- raster::extract(x = TL4[[mon.no]], 
+  test2$TL2[i] <- raster::extract(x = TL2[[mon.no]], 
                                   y = test2[i, c("Lon", "Lat")])
 }
 
+test3 <- NA
 # Run loess through series and predict for same days as measured
 # for the six month sliding window isoscape
 test3 <- ddply(test2, "Rep", function(x){
-  lo <- predict(loess(x$TL4 ~ x$count2, span = 0.05))[1:97]
+  lo <- predict(loess(x$TL2 ~ x$count2, span = 0.3))[1:97]
 })
 
 # Transpose
@@ -113,15 +107,15 @@ write.csv(file = "data/top10percent.csv", topX, quote = FALSE, row.names = FALSE
 write.csv(file = "data/bottom10percent.csv", bottomY, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Export top 10% of loess predictions for Figure 3
+# Export top 10% of regression predictions for Figure 3
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Identify the top 10% of r2 values
 toptestX <- order(r2)[length(r2):limit] + 1
 
-# Extract these from the loess predictions in test3
-testtopX <- test3[, c(toptestX)] 
+# Extract the simulations for best fitting models from test2
+testtopX <- test3[, c(toptestX)]
 
-# Make Days into rownames
+#Make Days into rownames
 rownames(testtopX) <- test3$Day
 
 # Transpose
