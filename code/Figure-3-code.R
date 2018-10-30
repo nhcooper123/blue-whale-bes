@@ -35,7 +35,7 @@ base_plot <-
 
 top_plot <- 
   ggplot(top100, aes(x = Day, y = d13C_smooth+2, group = Rep)) +
-  geom_line(alpha = 0.1, col = "grey") +
+  geom_line(alpha = 0.2, col = "grey") +
   theme_classic(base_size = 16) + 
   xlab("") + 
   ylab("") +
@@ -72,5 +72,5 @@ gall <- gtable_add_grob(g1, list(g2$grobs[[which(g2$layout$name == "panel")]],
                         name = 1:2)
 plot(gall)
 
-ggsave("manuscript/revision/figures/Figure-3-blue-sims.png", gall, 
+ggsave("manuscript/figures/Figure-3-blue-sims.png", gall, 
        device = png(width = 600, height = 400))
