@@ -2,14 +2,11 @@
 # About: script to extract top 10% and bottom 10% of models from 
 # simulations and extract latitude and longitude info from them
 # Tidied by Natalie Cooper Nov 2017
-# Edits Oct 2018 to use different plankton isotopes
-
+# Changes to fitting Nov 2018
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
 library(plyr)
 # note if using group_by in dplyr later you'll need to detach plyr
-#library(maps)
-#library(mapdata)
 library(tidyverse)
 library(raster)
 
@@ -29,8 +26,8 @@ TL2 <- stack("data/TL2_raster.grd")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
-resTrack <- read_csv("data/model.sims.full.csv")
-
+#resTrack <- read_csv("data/model.sims.full.csv")
+resTrack <- read_csv("data/model.sims.csv")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract model values only for days of sample - 
 # as defined above (could change to an average if wanted)
@@ -48,29 +45,14 @@ for(i in 1:nrow(test2)){
                                   y = test2[i, c("Lon", "Lat")])
 }
 
-test3 <- NA
-# Run loess through series and predict for same days as measured
-# for the six month sliding window isoscape
-test3 <- ddply(test2, "Rep", function(x){
-  lo <- predict(loess(x$TL2 ~ x$count2, span = 0.3))[1:97]
-})
-
-# Transpose
-test3 <- t(test3)
-
-# Add column names
-colnames(test3) <- 1:length(unique(resTrack$Rep)) - 1
-test3 <- as.data.frame(test3[-1, ])
-
-# Link to the measured data to allow regression comparison
-test3$Day <- test2$count2[test2$Rep == 1][1:97]
-test3$Blue <- rev(blue$d13C)
+test3 <- test2
 
 # Run regressions for each model simulation and save r square values
 r2 <- vector()
 
 for(run in 1:length(unique(resTrack$Rep))){
-	r2[run] <- summary(lm(test3[, run] ~ test3$Blue))$adj.r.squared
+	sub <- test3[test3$Rep == unique(resTrack$Rep)[run], ]
+	r2[run] <- summary(lm(sub$TL2[1:96] ~ rev(blue$d13C)[1:96]))$adj.r.squared
 }
 
 write.csv(file = "data/all.r2.csv", r2, quote = FALSE, row.names = FALSE)
@@ -113,29 +95,17 @@ write.csv(file = "data/bottom10percent.csv", bottomY, quote = FALSE, row.names =
 toptestX <- order(r2)[length(r2):limit] + 1
 
 # Extract the simulations for best fitting models from test2
-testtopX <- test3[, c(toptestX)]
+testtopX <- ddply(test2, "Rep", function(x) {
+  newSeries <- x[x$Rep%in%toptestX, ]
+})
 
-#Make Days into rownames
-rownames(testtopX) <- test3$Day
+# convert r2 vector of runs into Rep numbers
+zz<-unique(resTrack$Rep)
+bestReps<-zz[toptestX]
+testtopX <- test2[test2$Rep%in%bestReps,]
 
-# Transpose
-testtopX <- t(testtopX)
-
-# Coerce to a dataframe
-testtopX <- data.frame(testtopX)
-
-# Reshape so data are in the correct format for plotting
-# Add Reps column from rownames
-# Rename the gathered column as "Day"
-# Remove the X at the start
-testtopX2 <- testtopX %>%
-  mutate(Rep = rownames(testtopX)) %>%
-  gather(X30:X2901, d13C_smooth, -Rep) %>%
-  dplyr::rename(Day = `X30:X2901`) %>%
-  mutate(Day = str_replace(Day, "X", ""))
-  
 # Write to file
-write.csv(file = "data/top10smooth.csv", testtopX2, quote = FALSE, row.names = FALSE)
+write.csv(file = "data/top10smooth.csv", testtopX, quote = FALSE, row.names = FALSE)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract latitude and longitudes from top and bottom 10% of models
