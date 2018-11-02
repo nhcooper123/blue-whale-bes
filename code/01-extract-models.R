@@ -26,7 +26,6 @@ TL2 <- stack("data/TL2_raster.grd")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Read in model simulations output
 # Takes a bit of time
-#resTrack <- read_csv("data/model.sims.full.csv")
 resTrack <- read_csv("data/model.sims.csv")
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Extract model values only for days of sample - 
