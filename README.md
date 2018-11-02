@@ -18,10 +18,10 @@ If you use the data please cite as follows:
 > Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
 
 * `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_1892.3.1.1) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout.
-* `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level four d13C values required for extracting models in script 01.
-* `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 2 and Figure S8.
-* `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 3.
-* `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 4.
+* `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level two d13C values required for extracting models in script 01.
+* `bottom10percent.csv` and `top10percent.csv` are the top 10% and bottom 10% of movement simulations, required for Figure 3 and Figure S8.
+* `top10smooth.csv` are the loess smoothed values for the top 10% of movement simulations, required for Figure 4.
+* `mid.bottom10percent.csv` and `mid.top10percent.csv` are the top 10% and bottom 10% of movement simulations but for behavioural phase two only, required for Figure 5.
 * `Atl_Annual_d13C.grd`, `Atl_Annual_d13C.gri`, `Atl_Annual_d15N.grd` and `Atl_Annual_d15N`.gri are rasters of Atlantic Ocean stable isotope values needed for Figure S3.
 * `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.Res.TL.csv`, `Ireland.Res.TL.csv`, and `Norway.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
 * `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S6.
@@ -30,7 +30,6 @@ If you use the data please cite as follows:
 We also include for the Pacific blue whale analyses: 
 
 * `pacific-blue-whale-isotope-data.csv` which contains d13C and d15N stable isotope values taken from Pacific blue whales and reported in Busquets-Vass et al. 2017
-* `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level four d13C values required for extracting models in script XX.
 
 To use this data please cite the original paper:
 
@@ -60,6 +59,8 @@ All code used to run downstream analyses and make figures is included in the `co
 * **Figure-1-code.R** does what it says on the tin - creates Figure 1.
 * **Figure-2-code.R** is code for Figure 2.
 * **Figure-3-code.R** is code for Figure 3.
+* **Figure-4-code.R** is code for Figure 4.
+* **Figure-5-code.R** is code for Figure 5.
 * **Figure-S1-S2-code.R** is code for Figures S1 and S2.
 * **Figure-S3-code.R** is code for Figure S3.
 * **Figure-S4-code.R** is code for Figure S4.
