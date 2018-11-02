@@ -3,7 +3,7 @@
 
 \usepackage[osf]{mathpazo} % palatino
 \usepackage{ms}            % load the template
-\usepackage[round]{natbib} % author-year citations
+%\usepackage[round]{natbib} % author-year citations
 \usepackage[superscript,biblabel]{cite} % for superscript citations
 \usepackage{graphicx}
 \usepackage{parskip} 
@@ -80,31 +80,27 @@ Here we introduce a new approach to infer location from the isotopic composition
 We use our coupled models to simulate time series of carbon stable isotope compositions expected under different movement behaviours. 
 We then compare simulated isotopic profiles with the measured profiles to identify potential movement histories most consistent with the measured isotopic profile.
 
-We apply our method to blue whales (\textit{Balaenoptera musculus}), the
-largest animal to have ever lived. 
+We apply our method to blue whales (\textit{Balaenoptera musculus}), the largest animal to have ever lived. 
 Mysticete whales are characterized by the development of baleen, keratinous structures in the upper jaw used to filter food items from seawater. 
 Baleen is ideal for stable isotope studies because keratin grows continuously through an individual's life, and once laid down it is metabolically inert\cite{best1996stable,hobson1998stable}. 
 Baleen plates therefore offer a continuous isotopic record of behavior typically reflecting multiple years of life of an individual whale. 
 Baleen is worn away at the tips over time, so a baleen plate reflects the most recent years of life, and rarely records an individual's entire lifespan. 
-Among the mysticete whales, blue whales are a particularly attractive target for model-based isotope movement work as they have a consistent, low trophic level diet and feed continuously through the year, likely driven by high energetic costs of maintaining extreme muscle mass %(Goldbogen et al 2015).
+Among the mysticete whales, blue whales are a particularly attractive target for model-based isotope movement work as they have a consistent, low trophic level diet and feed continuously through the year, likely driven by high energetic costs of maintaining extreme muscle mass\cite{goldbogen2015}.
 
-Similar to other large balaenopterid whales, blue whales are generally assumed to conduct annual migrations between high and low latitudes %(Hucke-Gaete et al 2018). 
-As blue whales feed throughout the year to accommodate energetic costs, migration routes and feeding areas for blue whales are thought to be shaped by the year-round location of highly productive regions %(Branch et al 2007). 
+Similar to other large balaenopterid whales, blue whales are generally assumed to conduct annual migrations between high and low latitudes\cite{huckgaete2018}. 
+As blue whales feed throughout the year to accommodate energetic costs, migration routes and feeding areas for blue whales are thought to be shaped by the year-round location of highly productive regions\cite{branch2007}. 
 Recent studies tracking movements of individual blue whales primarily in the northeast Pacific have demonstrated high levels of among-individual variation in movement histories including suspending migration for opportunistic feeding and skipped migration (i.e. year round residency in either summer or winter
 areas) \cite{busquets2017estimating}. 
 The northeast Pacific population of blue whales is perhaps the best studied in terms of individual-level movements with a recent history of deployment of over 177 satellite tags \cite{irvine2017quantifying, mate2007evolution}.
 In the northeast Pacific, satellite tags show individuals occupying most of the exclusive economic zone (EEZ) and into the Gulf of Alaska \cite{irvine2017quantifying} with greatest overlapping areas in the southern half of the EEZ, along the continental slope and shelf region between the California Channel Islands and Cape Mendocino. 
 Winter feeding is less well characterized, but winter feeding grounds are known
-in the Gulf of California and in the eastern tropical Pacific, specifically the Costa Rica Dome where production is maintained by seasonal upwelling (REFS). % Refs???
+in the Gulf of California and in the eastern tropical Pacific, specifically the Costa Rica Dome where production is maintained by seasonal upwelling.
 However, most satellite deployments on blue whales report movement data for periods of time under six months \cite{heide2001new, silva2013north, bailey2009behavioural, lesage2017foraging, irvine2017quantifying}, and are unable to show individual movements between summer and winter feeding or breeding areas. 
 The longest period of continuous monitoring via satellite tagging of an individual blue whale that we are aware of in the northeast Pacific is 504 days \cite{irvine2017quantifying} and in the North Atlantic is 177 days \cite{lesage2017foraging}.
 
 The northeast Atlantic population of blue whales was the first large whale population to be systematically hunted with explosive harpoons, and while the population was probably relatively small before hunting, now around 1000 individuals are estimated to be in the northeast Atlantic in summer, mainly distributed around Iceland \cite{pike2009note}. 
 The small population size and oceanic habit makes blue whale movements extremely hard to study. 
-A combination of historic whaling data, observations, satellite tracks and acoustic monitoring suggests that blue whales in the northeast Atlantic also
-track regions of high production throughout the year, at least some
-whales wintering in the upwelling systems between Mauritania and the
-Cape Verde Islands \cite{baines2014upwellings}. 
+A combination of historic whaling data, observations, satellite tracks and acoustic monitoring suggests that blue whales in the northeast Atlantic also track regions of high production throughout the year, at least some whales wintering in the upwelling systems between Mauritania and the Cape Verde Islands \cite{baines2014upwellings}. 
 Northward migration in the spring may occur along mid Atlantic corridors with peak sightings in the Azores around April-May \cite{silva2013north}. 
 Summer feeding appears to occur in northerly latitudes around Iceland, and historically in the Norwegian and Barents Seas \cite{pike2009note}. 
 Blue whales are frequently detected in waters to the west of the UK, with peak acoustic detections occurring between November and December, in southerly migrating animals \cite{reeves2004historical,baines2017autumn,charif2009acoustic,visser2011timing}.
@@ -193,12 +189,9 @@ The pronounced cyclical variations in \(\delta^{13}\)C values observed during be
   \label{fig3}
 \end{figure}
 
-%We simulated 1200 individual movement patterns, then excluded simulations where the virtual whale stranded before reaching the 3019 days represented in the baleen.
-%We then compared the remaining 1049 simulations and the resulting simulated baleen $\delta^{13}$C records, to the measured records with simple linear regressions. 
-% CHECK THIS!!!!
-We simulated 1000 individual movement patterns and compared the resulting simulated baleen \(\delta^{13}\)C records to the measured records with simple linear regressions. 
-%the median $r^2$ value across 1049 simulated profiles was 0.49, and the maximum was 0.71 (Supplemental Fig. S6).
-Simulated baleen \(\delta^{13}\)C profiles produce a good fit to measured profiles, the median \(r^{2}\) value across 1000 simulated profiles was 0.49, and the maximum was 0.74 (Fig. S6, distribution of \(r^{2}\) values). 
+We simulated 1200 individual movement patterns, then excluded simulations where the virtual whale stranded before reaching the 3019 days represented in the baleen.
+We then compared the remaining 1049 simulations and the resulting simulated baleen $\delta^{13}$C records, to the measured records with simple linear regressions. 
+Simulated baleen \(\delta^{13}\)C profiles produce a good fit to measured profiles, the median \(r^{2}\) value across 1049 simulated profiles was 0.31, and the maximum was 0.65 (Fig. S6). 
 The top 10\% best fitting simulated profiles are shown in Fig. \ref{fig2}. 
 Best fitting models predict residency in the Cape Verde region in behavioral phase one. 
 Behavioral phase two is best simulated by seasonal migrations between summer foraging in northern areas (e.g. Norwegian Sea/Barents Sea/Iceland region), and winter foraging in a broad region between the UK and more southerly, subtropical waters. 
@@ -265,7 +258,6 @@ Seasonal migrations across isotopic gradients induce cyclical variations in the 
 Clear periodicity was evident in $\delta^{15}$N values across the entire baleen plate, and in $\delta^{13}$C values in the youngest 70 - 18cm of the plate (behavioural phase two). 
 We calculated isotopic periodicity within the NHM baleen sample using Fourier Transform analysis\cite{cardona2017temporal} (Supplementary Figure S1), revealing a consistent growth rate of 13.5$cmy^{-1}$ which is remarkably similar to the mean isotope-derived baleen growth rates of $15.5 \pm 2.2cmy^{-1}$ estimated by Busquets-Vass \textit{et al.}\cite{busquets2017estimating}.  
 Therefore we dated the youngest baleen sample as 1st March 1891, 24 days prior to the stranding date, 25th March 1891. 
-%Cross-correlation analysis demonstrated a strong negative covariance between $\delta^{13}$C and $\delta^{15}$N values within behavioural phase two (70cm to 18cm on the baleen plate), but no clear relationship between $\delta^{13}$C and $\delta^{15}$N values during behavioural phase one (the oldest 30cm of the baleen plate, i.e. 100cm - 70cm; Supplementary Figure S2) or the final 500 days of the whale's life (youngest 18cm of the baleen plate; Supplementary Figure S2).
 
 \subsection{Baseline isotope
 comparisons}\label{baseline-isotope-comparisons}
@@ -291,8 +283,7 @@ We estimate turnover to be complete between two and four months and therefore we
 Average values were weighted according to the proportional plankton biomass estimated for each month. 
 Carbon isotope values are also likely to be fractionated during transfer from plankton to krill as \textsuperscript{12}C is preferentially lost through respiration. 
 The degree of such trophic fractionation is unclear, however and we do not draw interpretations based on absolute \(\delta^{13}\)C values, rather on the relative \(\delta^{13}\)C values across the length of the baleen plate. 
-We assume opportunistic ingestion of protein throughout the year \cite{baines2017autumn,silva2013north,visser2011timing,busquets2017estimating, lesage2017foraging, bailey2009behavioural}.
-% Branch et al 2007; Hucke-Gaete et al 2017
+We assume opportunistic ingestion of protein throughout the year \cite{baines2017autumn,silva2013north,visser2011timing,busquets2017estimating, lesage2017foraging, bailey2009behavioural, branch2007, huckgaete2018}.
 
 \subsection{Agent-based whale movement
 model}\label{agent-based-whale-movement-model}
@@ -323,8 +314,7 @@ Measured tracks can only be replicated by combination of residency and seasonal 
 years of simulations. 
 For a full description of the model and its parameters see Supplementary Methods: Fig. S5 and Table S1. 
 We simulated seven years of whale movements 1000 times and two years of residency 30 times for each residency hotspot (Fig. S4).
-%We simulated whale movements 1200 times, then excluded simulations where the virtual whale stranded before reaching the 3019 days of the baleen record, leaving 1049 simulations.
-% CHECK THISSSSSSS!!!!
+We simulated whale movements 1200 times, then excluded simulations where the virtual whale stranded before reaching the 3019 days of the baleen record, leaving 1049 simulations.
 
 At each time point and location in the simulations, we extracted time averaged \(\delta^{13}\)C values from the spatio-temporal model\cite{magozzi2017using}resulting in a range of simulated isotopic profiles for different migration patterns and foraging areas (Figs X, \ref{fig2}, and S4). % CHECK FIGS
 We then compared the simulated stable isotope profiles (Figure \ref{fig3}) to the profile of the blue whale (Figure \ref{fig1}).
@@ -336,8 +326,8 @@ R code is available from GitHub (https://github.com/nhcooper123/blue-whale-bes)(
 
 % References
 
-%\bibliographystyle{nature}
-\bibliographystyle{authordate1}
+\bibliographystyle{nature}
+%\bibliographystyle{authordate1}
 \bibliography{blue-whale-abbreviations}
 
 \section{Acknowledgments}\label{acknowledgments}
