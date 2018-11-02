@@ -15,7 +15,7 @@ blue <- filter(whale_isos, whale_ID == "KC7")
 top100 <- read.csv("data/top10smooth.csv")
 
 # Fix day numbers to match in both
-blue$Day.sim <- rev(unique(top100$Day))
+blue$Day.sim <- rev(unique(top100$count2))
 
 # Create three plots, one for blue whale and one for simulations, and 
 # a base plot with axes etc.
@@ -34,7 +34,7 @@ base_plot <-
   theme(panel.background = element_blank())
 
 top_plot <- 
-  ggplot(top100, aes(x = Day, y = d13C_smooth+2, group = Rep)) +
+  ggplot(top100, aes(x = count2, y = d13C+2, group = Rep)) +
   geom_line(alpha = 0.2, col = "grey") +
   theme_classic(base_size = 16) + 
   xlab("") + 
