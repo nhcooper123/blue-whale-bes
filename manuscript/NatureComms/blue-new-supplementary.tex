@@ -1,7 +1,7 @@
 % Preamble
 \documentclass[a4paper,10pt]{article}
-
-%\usepackage[osf]{mathpazo} % palatino
+\usepackage[margin = 2cm]{geometry}
+\usepackage[osf]{mathpazo} % palatino
 %\usepackage{ms1}            % load the template
 %\usepackage[round]{natbib} % author-year citations
 \usepackage[superscript,biblabel]{cite} % for superscript citations
@@ -11,13 +11,9 @@
 \usepackage{amsmath}
 \usepackage{textcomp} % for parts per mille symbol  
 \usepackage{pdflscape} % landscape   
+\usepackage[multidot]{grffile} % deal with weird image issue where it can't cope if names have "." in them
+
 \pagenumbering{arabic}    
-
-% Weird Current Biology rules about times and single line spacing
-\linespread{1}
-\usepackage{times}
-
-
 
 % -------------------------------------------------------------------------------------------------------
 % some custom commands
@@ -242,14 +238,14 @@ Parameters defined for the agent-based model best matching the measured profile 
 \end{landscape}
 
 \newpage
-
 \section*{Supplemental Results: Pacific blue whales from Busquets-Vass et al. 2017}
+
 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top25.moveWhaleA_TL2.eps}
-      \caption{Simulated locations by month taken from the top 25\% best fitting migratory movement model simulations for Pacific blue whale A.}
+      \includegraphics[angle = 90, origin = c, scale = 0.65]{figures/top25.moveWhaleA_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale A. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleA}
   \end{figure}
 \end{landscape}
@@ -257,8 +253,8 @@ Parameters defined for the agent-based model best matching the measured profile 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top25.moveWhaleB_TL2.eps}
-      \caption{Simulated locations by month taken from the top 25\% best fitting migratory movement model simulations for Pacific blue whale B.}
+      \includegraphics[width=\linewidth, scale = 0.55]{figures/top25.moveWhaleB_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale B. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleB}
   \end{figure}
 \end{landscape}
@@ -266,8 +262,8 @@ Parameters defined for the agent-based model best matching the measured profile 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top25.moveWhaleC_TL2.eps}
-      \caption{Simulated locations by month taken from the top 25\% best fitting migratory movement model simulations for Pacific blue whale C.}
+      \includegraphics[angle = 90, origin = c, scale = 0.65]{figures/top25.moveWhaleC_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale C. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleC}
   \end{figure}
 \end{landscape}
@@ -275,8 +271,8 @@ Parameters defined for the agent-based model best matching the measured profile 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top25.moveWhaleD_TL2.eps}
-      \caption{Simulated locations by month taken from the top 25\% best fitting migratory movement model simulations for Pacific blue whale D.}
+      \includegraphics[angle = 90, origin = c, scale = 0.65]{figures/top25.moveWhaleD_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale D. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleD}
   \end{figure}
 \end{landscape}
@@ -284,8 +280,8 @@ Parameters defined for the agent-based model best matching the measured profile 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top10.moveWhaleE_TL2.eps}
-      \caption{Simulated locations by month taken from the top 10\% best fitting migratory movement model simulations for Pacific blue whale E.}
+      \includegraphics[angle = 90, origin = c, scale = 0.65]{figures/top10.moveWhaleE_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale E. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleE}
   \end{figure}
 \end{landscape}
@@ -293,8 +289,8 @@ Parameters defined for the agent-based model best matching the measured profile 
 \begin{landscape}
     \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=\linewidth]{figures/top25.moveWhaleF_TL2.eps}
-      \caption{Simulated locations by month taken from the top 25\% best fitting migratory movement model simulations for Pacific blue whale F.}
+      \includegraphics[angle = 90, origin = c, scale = 0.65]{figures/top25.moveWhaleF_TL2.pdf}
+      \caption{Locations corresponding to the top 25\% best-fitting migratory movement model simulations for Pacific blue whale F. Data from Busquets-Vass et al. 2017.}
       \label{figwhaleF}
   \end{figure}
 \end{landscape}
