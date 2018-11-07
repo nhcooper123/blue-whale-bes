@@ -1,0 +1,236 @@
+---
+title: "Plot-figure-X"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+---
+title: "generates Figure X"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+## Setup 
+
+Load required libraries.
+
+```{r setup}
+
+library(ggplot2)
+library(dplyr)
+
+
+```
+
+
+## Read in the data
+
+This data comes is derived from processing the Pacific whale movement models. These are the best fit simulations in terms of $R^2$ values obtained from linear regression of the normalised model predictions on the normalised empirical data.
+
+```{r import-empirical-data}
+
+# data in local csv file
+pacific_data <- read.csv("pacific-blue-whale-isotope-data.csv", 
+                         header = TRUE, stringsAsFactors = FALSE)
+
+# convert ID to factor
+# pacific_data$whale_ID <- factor(pacific_data$whale_ID)
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# set the day no based on estimated growth rate given in Busquetts-Vass
+GRx<-15.5
+GRA<-13.5
+GRB<-14.8
+GRC<-17.5
+
+# bundle into an ordered vector
+growth_rates <- c(GRA, GRB, GRC, GRx, GRx, GRx)
+
+# create an empty vector in the empirical data.frame to record day number (time)
+pacific_data$day_no <- 0
+pacific_data$day_no_f <- 0 # flipped time vecrot
+
+# loop over each individual and calculate their spefic time vector 
+# based on their growth rates
+for (i in 1:length(growth_rates)){
+  
+  # find indices of focal whale individual
+  idx <- pacific_data$whale_ID == LETTERS[i]
+  
+  # conver their sampled baleen cm to time via growth rate
+  pacific_data$day_no[idx] <- as.integer(pacific_data$sample_cm[idx] * 
+                                           growth_rates[i]) + 1
+  
+  # flip time into day_no_f vector
+  pacific_data$day_no_f[idx] <- -1 * (pacific_data$day_no[idx] - 
+                                        max(pacific_data$day_no[idx]))
+  
+}
+
+# 
+# # baleen$day.no<-baleen$cm*GRx
+# 
+# colz<-colorRampPalette(c("brown", "cadet blue", "pink"))(12)
+# colz<-seq(1:6)
+# A<-baleen[baleen$Baleen_code=="A",]
+# B<-baleen[baleen$Baleen_code =="B",]
+# C<-baleen[baleen$Baleen_code =="C",]
+# D<-baleen[baleen$Baleen_code =="D",]
+# E<-baleen[baleen$Baleen_code =="E",]
+# Fw<-baleen[baleen$Baleen_code =="F",]
+# 
+# A$day.no<-as.integer(A$cm*GRA)+1
+# B$day.no<-as.integer(B$cm*GRB)+1
+# C$day.no<-as.integer(C$cm*GRC)+1
+# D$day.no<-as.integer(D$cm*GRx)+1
+# E$day.no<-as.integer(E$cm*GRx)+1
+# Fw$day.no<-as.integer(Fw$cm*GRx)+1
+# 
+# # fix so that day numbers start at the oldest end (i.e. time moves forwards as in simulated baleen)
+# A$day.no.F<-((A$day.no)-max(A$day.no, na.rm=TRUE))*-1
+# B$day.no.F<-((B$day.no)-max(B$day.no, na.rm=TRUE))*-1
+# C$day.no.F<-((C$day.no)-max(C$day.no, na.rm=TRUE))*-1
+# D$day.no.F<-((D$day.no)-max(D$day.no, na.rm=TRUE))*-1
+# E$day.no.F<-((E$day.no)-max(E$day.no, na.rm=TRUE))*-1
+# Fw$day.no.F<-((Fw$day.no)-max(Fw$day.no, na.rm=TRUE))*-1
+
+
+
+```
+
+## Quick plot of empirical data
+
+```{r quick-plot}
+
+p1 <- ggplot(pacific_data, aes(x = day_no_f, y = d13C)) + 
+  facet_wrap(~whale_ID) + 
+  geom_line(col = "red") + 
+  geom_point(col = "red", size = 1)
+
+print(p1)
+
+```
+
+## Import simulated data
+
+```{r}
+# Read in the corresponding best fit simulated data
+
+best.start.All<-c(7, 1, 6, 7, 1, 5)
+end.All<-c(41, 67, 67, 55, 71, 58)
+best.sim.All<-c(197, 14, 121, 48, 41, 48)
+
+# they are in csv files named test2A, test2B etc...
+read_in_these <- paste0("test2", LETTERS[1:6], ".csv")
+
+# read in and bind into a single data.frame
+sim_data <- list()
+
+# loop over csv files, import and subset for the "best sim"
+for (i in 1:length(read_in_these)){
+  
+  tmp <- read.csv(read_in_these[i], 
+                                 header = TRUE, 
+                                 stringsAsFactors = FALSE)
+  
+  # add the appropriate whale_ID letter
+  tmp$whale_ID <- LETTERS[i]
+  
+  # subset by the index for the best sim in each case
+  # this is hard-coded from above
+  tmp2 <- subset(tmp, tmp$Rep == best.sim.All[i])
+  
+  # further select a subset window of this time series
+  tmp3 <- tmp2[best.start.All[i]:(end.All[i]+(best.start.All[i]-1)),]
+  
+  # add the time vectors from the empirical data that should match
+  tmp3$day_no <- pacific_data$day_no[pacific_data$whale_ID == LETTERS[i]]
+  tmp3$day_no_f <- pacific_data$day_no_f[pacific_data$whale_ID == LETTERS[i]]
+  
+  print(unique(tmp3$whale_ID))
+  
+  # write this subset of data into the list sim_data and for ad hoc reasons
+  # remove the NAs from the end
+  sim_data[[i]] <- tmp3[!is.na(tmp3$whale_ID),]
+  
+  # remove tmp for next iteration of loop
+  rm(tmp, tmp2, tmp3)
+}
+
+# cant use lapply easily owing to the required subsetting
+# sim_data <- dplyr::bind_rows(lapply(read_in_these, 
+#                                     read.csv,
+#                                     header = T,
+#                                     stringsAsFactors = FALSE))
+
+# convert list to single data.frame
+sim_data_df <- bind_rows(sim_data)
+
+# coerce whale_ID to factor
+sim_data_df$whale_ID <- factor(sim_data_df$whale_ID)
+
+# remove no longer required objects
+rm(sim_data)
+
+```
+
+
+## Quick plot simulated data
+
+```{r quick-simulated}
+
+p2 <- ggplot(sim_data_df, aes(x = day_no, y = TL2)) + 
+  facet_wrap(~whale_ID) + 
+  geom_line()
+
+print(p2)
+
+```
+
+
+
+## plot both together
+
+```{r plot-both-together}
+
+# merge them 
+merged_whales <- pacific_data %>% 
+  left_join(sim_data_df, by = c("whale_ID", "day_no", "day_no_f"))
+
+merged_whales <- merged_whales %>% group_by(whale_ID) %>% 
+  mutate(
+  z.d13C.obs = scale(d13C.x),
+  z.d13C.sim = scale(TL2)
+)
+
+p3 <-  ggplot(merged_whales, aes(x = day_no_f, y = scale(d13C.x))) + 
+  facet_wrap(~whale_ID) + 
+  geom_line(col = "red") + 
+  geom_point(col = "red", size = 1) + 
+  geom_line(aes(x = day_no, y = scale(TL2)), col = "black") + 
+  xlab("Day number") + 
+  ylab("z-scored d13C")
+
+print(p3)
+
+# plot the data z-scored by group
+
+p4 <-  ggplot(merged_whales, aes(x = day_no_f, y = z.d13C.obs)) + 
+  facet_wrap(~whale_ID) + 
+  geom_line(col = "red") + 
+  geom_point(col = "red", size = 1) + 
+  geom_line(aes(x = day_no, y = z.d13C.sim), col = "black") + 
+  xlab("Day number") + 
+  ylab("z-scored d13C")
+
+print(p4)
+
+
+ggsave("pacific-fits.pdf", plot = p4)
+```
+
+
+
