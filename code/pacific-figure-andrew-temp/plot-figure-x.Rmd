@@ -220,16 +220,18 @@ print(p3)
 
 p4 <-  ggplot(merged_whales, aes(x = day_no_f, y = z.d13C.obs)) + 
   facet_wrap(~whale_ID) + 
-  geom_line(col = "red") + 
-  geom_point(col = "red", size = 1) + 
-  geom_line(aes(x = day_no, y = z.d13C.sim), col = "black") + 
+  geom_line(col = "black") + 
+  geom_point(col = "black", size = 1) + 
+  geom_line(aes(x = day_no, y = z.d13C.sim), col = "grey60") + 
   xlab("Day number") + 
-  ylab("z-scored d13C")
+  ylab("z-scored d13C") + 
+  theme_classic() + 
+  theme(strip.background = element_blank())
 
 print(p4)
 
 
-ggsave("pacific-fits.pdf", plot = p4)
+ggsave("pacific-fits.eps", plot = p4)
 ```
 
 
