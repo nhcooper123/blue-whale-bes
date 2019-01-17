@@ -2,9 +2,7 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[margin = 2cm]{geometry}
 \usepackage[osf]{mathpazo} % palatino
-%\usepackage{ms1}            % load the template
-%\usepackage[round]{natbib} % author-year citations
-\usepackage[superscript,biblabel]{cite} % for superscript citations
+\usepackage[round]{natbib} % author-year citations
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{parskip} 
@@ -59,7 +57,7 @@ and Natalie Cooper}
 \subsection*{CHARACTERISATION OF THE MEASURED BALEEN}
 The baleen plate yielded 97 discrete samples of baleen. 
 Across the baleen sample, $\delta^{15}$N values show clear cycles with periods of relatively high $\delta^{15}$N values interspersed by relatively short periods where $\delta^{15}$N values are c.1\text{\textperthousand} lower. 
-Fourier analysis (periodogram function in the R package TSA\cite{Chan:2012aa}) revealed a strong periodic repetition with a 13.3cm periodicity. 
+Fourier analysis (periodogram function in the R package TSA \citep{Chan:2012aa}) revealed a strong periodic repetition with a 13.3cm periodicity. 
 The oldest (most distal) 35cm of the baleen plate records relatively positive and constant $\delta^{13}$C values, associated with a weakening of the periodic fluctuation seen in $\delta^{15}$N values, and an overall reduction in $\delta^{15}$N values. 
 $\delta^{13}$C values also show repeated fluctuations in the middle 50cm of the baleen plate (behavioural phase two), with a similar periodicity of 13.5cm (Figure \ref{figs1}). 
 A distinct change in the isotopic pattern along the baleen plate occurs at around 84cm from the distal end in behavioural phase two, with a transition to uniform, relatively low $\delta^{13}$C values followed by an abrupt transition to positive $\delta^{13}$C values and a decline in $\delta^{13}$C values in the most recent (most gingival) 3cm of the record.
@@ -84,9 +82,9 @@ Cross-correlation analysis demonstrates a strong negative covariance between $\d
 \end{figure}
  
 \subsection*{BASELINE ISOTOPE COMPARISONS}
-Isotope-enabled biogeochemical ocean models\cite{magozzi2017using,schmittner2016complementary} were used to characterise the isotopic composition of phytoplankton expected in different potential foraging grounds. 
+Isotope-enabled biogeochemical ocean models \citep{magozzi2017using,schmittner2016complementary} were used to characterise the isotopic composition of phytoplankton expected in different potential foraging grounds. 
 Annual average $\delta^{15}$N POM values were provided by C.J. Somes (\textit{pers.comm}) based on a 5$^{\circ}$ resolution biogeochemical model. 
-$\delta^{13}$C POM values were simulated using an isotopic extension to the NEMO-MEDUSA model\cite{magozzi2017using}.
+$\delta^{13}$C POM values were simulated using an isotopic extension to the NEMO-MEDUSA model \citep{magozzi2017using}.
  
 Simulated $\delta^{15}$N POM values are relatively positive in the northeast Atlantic north of c.60$^{\circ}$N, and relatively negative in the central and southern North Atlantic, associated with high levels of nitrogen fixation (Figure \ref{figs3}). 
 Annual average $\delta^{13}$C POM values largely vary with latitude, with more negative values in more northerly regions. 
@@ -105,11 +103,11 @@ Incorporation of carbon and nitrogen with isotopic ratios consistent with southe
         \centering
         \includegraphics[width=\linewidth]{figures/Figure-S3-plankton-d15N-map.png} 
     \end{subfigure}
-    \caption{Spatial model (isoscape) of model-simulated biomass, using weighted annual average $\delta^{13}$C (left) and $\delta^{15}$N (right) values from particulate organic matter (POM). $\delta^{13}$C values are from Magozzi et al. 2017\cite{magozzi2017using} and $\delta^{15}$N from Schmittner \& Somes 2016\cite{schmittner2016complementary} and C.J. Somes (\textit{pers. comm.}).} 
+    \caption{Spatial model (isoscape) of model-simulated biomass, using weighted annual average $\delta^{13}$C (left) and $\delta^{15}$N (right) values from particulate organic matter (POM). $\delta^{13}$C values are from \cite{magozzi2017using} and $\delta^{15}$N from \cite{schmittner2016complementary} and C.J. Somes (\textit{pers. comm.}).} 
     \label{figs3}
 \end{figure}
 
-The isotopic composition of carbon in phytoplankton also varies through seasons as isotopic fractionation of carbon during photosynthesis is strongly influenced by sea surface temperature\cite{laws1995dependence}. 
+The isotopic composition of carbon in phytoplankton also varies through seasons as isotopic fractionation of carbon during photosynthesis is strongly influenced by sea surface temperature \citep{laws1995dependence}. 
 Thus temporal variations in $\delta^{13}$C POM values are superimposed on latitudinal gradients. 
 The scale and nature of temporal variation in $\delta^{13}$C POM values also varies with latitude, with higher latitude seas showing greater intra-annual variation in $\delta^{13}$C POM values linked to strongly seasonal phytoplankton growth dynamics. 
 We therefore used monthly simulated $\delta^{13}$C POM values to simulate the isotopic expression of phytoplankton expected to be encountered by whales exhibiting differing movement behaviours.
@@ -138,11 +136,11 @@ Adding seasonal north-south migrations within mid-high latitude regions to forag
 
 Accordingly we modeled whale movements allowing three years of residency in warm waters of the Azores or Cape Verde/Mauritania region followed by a further 3.5 years of seasonal north-south migration in the northeast northern Atlantic, followed by residency in sub-tropical waters in 1890 and rapid migration returning to more northerly waters in the spring of 1891. 
 The resulting simulated profiles closely match the measured baleen plate, capturing all major temporal fluctuations (Figure 3). 
-Blue whales have a gestation period of 10-12 months, and calves suckle for approximately 6-7 months \cite{handbook}. 
+Blue whales have a gestation period of 10-12 months, and calves suckle for approximately 6-7 months \citep{handbook}. 
 The proposed timescale of pregnancy around early spring 1889, birth in spring 1890, lactation through summer and autumn 1890 and return to northern feeding grounds in early 1891 is therefore fully consistent with the assumed reproductive ecology of blue whales.
 
 \subsection*{AGENT-BASED WHALE MOVEMENT MODEL}
-We simulated the likely isotopic expression associated with feeding and movement behaviours by building an agent-based model sampling $\delta^{13}$C POM values predicted by the isotopic extension to the NEMO-MEDUSA model\cite{magozzi2017using,yool2013medusa}, where movement behavior is influenced by sea surface temperature and phytoplankton biomass estimates provided by NEMO-MEDUSA\cite{yool2013medusa}, and bathymetry from\cite{bathy} and extracted using the marmap R pakckage\cite{marmap} (Figure \ref{figs5}).
+We simulated the likely isotopic expression associated with feeding and movement behaviours by building an agent-based model sampling $\delta^{13}$C POM values predicted by the isotopic extension to the NEMO-MEDUSA model \citep{magozzi2017using,yool2013medusa}, where movement behavior is influenced by sea surface temperature and phytoplankton biomass estimates provided by NEMO-MEDUSA \citep{yool2013medusa}, and bathymetry from \cite{bathy} and extracted using the marmap R pakckage \citep{marmap} (Figure \ref{figs5}).
  
 The agent-based model developed employs a simple set of movement rules dictated by behavioural state which is itself fixed according to calendar month by the operator. 
 At each daily step, the probability of movement, movement direction and distance traveled are sampled from probability distributions to allow individual variation.
