@@ -217,19 +217,48 @@ p3 <-  ggplot(merged_whales, aes(x = day_no_f, y = scale(d13C.x))) +
 print(p3)
 
 # plot the data z-scored by group
-
 p4 <-  ggplot(merged_whales, aes(x = day_no_f, y = z.d13C.obs)) + 
   facet_wrap(~whale_ID) + 
-  geom_line(col = "red") + 
-  geom_point(col = "red", size = 1) + 
-  geom_line(aes(x = day_no, y = z.d13C.sim), col = "black") + 
+  geom_line(col = "black") + 
+  geom_point(col = "black", size = 1) + 
+  geom_line(aes(x = day_no, y = z.d13C.sim), col = "grey30") + 
   xlab("Day number") + 
-  ylab("z-scored d13C")
+  ylab(expression(paste("z-scored ", delta^{13}, "C"))) + 
+  theme_classic() + 
+  theme(strip.background = element_rect(colour=NA, fill=NA))
 
 print(p4)
 
 
-ggsave("pacific-fits.pdf", plot = p4)
+ggsave("pacific-fits-zscore.eps", plot = p4)
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Also try to plot the raw data but shifted and with 
+# a second y-axis as per Figure-2-code.R
+# AJ - THIS IS MORE DIFFICULT THAN A QUICK BIT OF CODE CAN FIX 
+# AS THE SHIFT NEEDS TO BE APPLIED SEPARATELY TO EACH WHALE AND HENCE
+# FACET. IM GOING TO COMMENT OUT AND STICK WITH THE Z-SCORED OPTION 
+# JUST ABOVE.
+
+# add the d15N data but need to scale it to d13C
+# v_shift <- mean(merged_whales$d13C.x) - mean(merged_whales$TL2)
+# 
+# p5 <-  ggplot(merged_whales, aes(x = day_no_f, y = d13C.x)) + 
+#   facet_wrap(~whale_ID) + 
+#   geom_line(col = "red") + 
+#   geom_point(col = "red", size = 1) + 
+#   geom_line(aes(x = day_no, y = TL2), col = "black") + 
+#   xlab("Day number") + 
+#   ylab(expression(paste(delta^{13}, "C (\u2030) Observed"))) + 
+#   scale_y_continuous(
+#     sec.axis = sec_axis(~.+v_shift, 
+#                         name = expression(paste(delta^{13}, 
+#                                                 "C (\u2030) Simulated"))))
+# 
+# print(p5)
+# 
+# ggsave("pacific-fits-shifted.eps", plot = p4)
+
 ```
 
 
