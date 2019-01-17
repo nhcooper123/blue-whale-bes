@@ -1,6 +1,6 @@
 # Reconstructing the last known movements of one of Nature's giants
 
-Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), [Andrew L. Jackson](mailto:ajackson@tcd.ie) and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk).
+Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), [Andrew L. Jackson](mailto:a.jackson@tcd.ie) and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk).
 
 This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale ("Hope") now adorning Hintze Hall at the Natural History Museum, London.
 
