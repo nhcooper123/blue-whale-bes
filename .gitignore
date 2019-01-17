@@ -1,3 +1,6 @@
+# Old manuscript versions
+oldversions/*
+
 # Problem datasets that are too large for GitHub
 
 data/model.sims.csv
