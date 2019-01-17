@@ -5,11 +5,10 @@ Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), [Andrew L. Jackso
 This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale ("Hope") now adorning Hintze Hall at the Natural History Museum, London.
 
 To cite the paper: 
-> Trueman, C.N., Jackson, A.L., Chadwick, K.S., Coombs, E.J.,
-  Magozzi, S., Sabin, R.C. and Natalie Cooper. ???. Reconstructing the last known movements of one of Nature's giants. ?????.
+> Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper. ???. Reconstructing the last known movements of one of Nature's giants. ?????.
 
 To cite this repo: 
-> Clive N. Trueman et al. 2019. GitHub: nhcooper123/blue-whale-bes: v1.0. Zenodo. http://doi/10.5281/zenodo.2542777.
+> Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: v1.0. Zenodo. http://doi/10.5281/zenodo.2542777.
 
 [![DOI](https://zenodo.org/badge/86584215.svg)](https://zenodo.org/badge/latestdoi/86584215)
 
@@ -18,7 +17,7 @@ All data are available from the [NHM Data Portal](https://doi.org/10.5519/009327
 However, to aid reproducibility we have also included data required to replicate our analyses/figures in the `data/` folder. 
 
 If you use the data please cite as follows: 
-> Clive N Trueman; Andrew L Jackson; Katharyn S Chadwick; Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
+> Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper (2018). Dataset: Baleen stable isotope data. Natural History Museum Data Portal (data.nhm.ac.uk). [https://doi.org/10.5519/0093278](https://doi.org/10.5519/0093278).
 
 * `raw-whale-isotope-data.csv` contains d13C and d15N stable isotope values taken from *the* blue whale (NHMUK_1892.3.1.1) at the Natural History Museum, London. Plus some other rorquals to be covered in a later paper. These data are used throughout.
 * `TL2_raster.grd` and `TL2_raster.gri`	are rasters of trophic level two d13C values required for extracting models in script 01.
