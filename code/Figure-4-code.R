@@ -72,5 +72,5 @@ gall <- gtable_add_grob(g1, list(g2$grobs[[which(g2$layout$name == "panel")]],
                         name = 1:2)
 plot(gall)
 
-ggsave("manuscript/figures/Figure-3-blue-sims.png", gall, 
+ggsave("manuscript/PeerJ/figures/Figure-3-blue-sims.png", gall, 
        device = png(width = 600, height = 400))

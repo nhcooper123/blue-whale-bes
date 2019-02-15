@@ -39,7 +39,7 @@ p <-
           axis.ticks = element_blank(),
           axis.title = element_blank())
 
-ggsave("manuscript/revision/figures/Figure-S3-plankton-d13C-map.png", p, 
+ggsave("manuscript/PeerJ/figures/Figure-S3-plankton-d13C-map.png", p, 
        device = png(width = 600, height = 400))
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -67,5 +67,5 @@ p2 <-
           axis.ticks = element_blank(),
           axis.title = element_blank())
 
-ggsave("manuscript/revision/figures/Figure-S3-plankton-d15N-map.png", p2, 
+ggsave("manuscript/PeerJ/figures/Figure-S3-plankton-d15N-map.png", p2, 
        device = png(width = 600, height = 400))

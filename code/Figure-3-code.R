@@ -21,7 +21,7 @@ jLon <- jitter(top10$Lon, factor = 1)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Points plot with phases coloured
-png("manuscript/revision/figures/Figure-2-points.png", width = 800, height = 600)
+png("manuscript/PeerJ/figures/Figure-2-points.png", width = 900, height = 900, units = "px")
 
 # Create empty backgrounds
 plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 

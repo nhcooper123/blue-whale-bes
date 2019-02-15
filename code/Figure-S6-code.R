@@ -21,5 +21,5 @@ p1 <-
   expand_limits(x = c(0, 1),  y = c(0, 50))
 
 
-ggsave("manuscript/figures/Figure-S6-r2.png", p1, 
+ggsave("manuscript/PeerJ/figures/Figure-S6-r2.png", p1, 
        device = png(width = 600, height = 400))

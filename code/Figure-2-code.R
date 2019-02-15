@@ -67,5 +67,5 @@ isop <- isop + geom_vline(xintercept = rev(year_breaks),
 
 print(isop)
 
-ggsave("manuscript/revision/figures/Figure-1-raw-dC-dN-data.png", isop, 
+ggsave("manuscript/PeerJ/figures/Figure-1-raw-dC-dN-data.png", isop, 
        device = png(width = 600, height = 400))
