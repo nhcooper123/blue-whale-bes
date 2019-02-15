@@ -1,46 +1,76 @@
-# Author: Clive Trueman
-# About: script to plot track for top 10% of models
-# Tidied by Natalie Cooper Nov 2017
-
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Code for Figure 3
+# Adapted from code by Clive Trueman by Natalie Cooper Nov 2017
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Load libraries
-library(maps)
-library(mapdata)
-library(spatstat)
-library(viridis)
+library(tidyverse)
+library(gtable)
+library(grid)
 
-# Read in data
-top10 <- read.csv("data/top10percent.csv")
+# Read in the measured whale data and select blue whale
+whale_isos <- read_csv("data/raw-whale-isotope-data.csv")
+blue <- filter(whale_isos, whale_ID == "KC7")
 
-# Pick colours
-mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
+# Read in top 100 models
+top100 <- read.csv("data/top10smooth.csv")
 
-# Jitter points of lat and long to get smooth density plot
-jLat <- jitter(top10$Lat, factor = 2)
-jLon <- jitter(top10$Lon, factor = 1)
+# Fix day numbers to match in both
+blue$Day.sim <- rev(unique(top100$count2))
 
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# Points plot with phases coloured
-png("manuscript/PeerJ/figures/Figure-2-points.png", width = 900, height = 900, units = "px")
+# Create three plots, one for blue whale and one for simulations, and 
+# a base plot with axes etc.
+base_plot <- 
+  ggplot(blue, aes(x = Day.sim, y = d13C)) +
+  #geom_line(size = 1.5) +
+  theme_classic(base_size = 16) + 
+  xlab("Days") + 
+  ylab(expression(paste(delta^{13}, "C (\u2030)"))) +
+  scale_y_continuous(limits = c(-20, -16.5),
+                     sec.axis = sec_axis(~.+4, 
+                                breaks = c(-16, -15, -14, -13),
+                                labels = c(-30, -25, -20, -15),
+                                name = expression(paste("simulated ", 
+                                                        delta^{13}, "C (\u2030)")))) +
+  theme(panel.background = element_blank())
 
-# Create empty backgrounds
-plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
-     xlab = "", ylab = "", axes = FALSE)
-rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-     col = "grey90")
+top_plot <- 
+  ggplot(top100, aes(x = count2, y = d13C+2, group = Rep)) +
+  geom_line(alpha = 0.2, col = "grey") +
+  theme_classic(base_size = 16) + 
+  xlab("") + 
+  ylab("") +
+  scale_y_continuous(limits = c(-30, -12.5))  +
+  theme(panel.background = element_blank())
 
-# Add points coloured by phase
-points(jLon, jLat, pch = 16, col = mycols[top10$phase], cex = 0.2)
+blue_plot <- 
+  ggplot(blue, aes(x = Day.sim, y = d13C)) +
+  geom_line(size = 1.5) +
+  theme_classic(base_size = 16) + 
+  xlab("Days") + 
+  ylab(expression(paste(delta^{13}, "C (\u2030)"))) +
+  scale_y_continuous(limits = c(-20, -16.5),
+                     sec.axis = sec_axis(~.+4, 
+                                         breaks = c(-16, -15, -14, -13),
+                                         labels = c(-30, -25, -20, -15),
+                                         name = expression(paste("simulated ", 
+                                                                 delta^{13}, "C (\u2030)")))) +
+  theme(panel.background = element_blank())
 
-# Add world map
-map('world', col = "black", fill = TRUE, add = TRUE, lwd = 0.25)
-# If you get this error, 
-# Error in as_mapper(.f, ...) : argument ".f" is missing, with no default
-# You need to detach the package purrr (detach(package:purrr)) and reload
-# the maps library (library(map))
+# Combine plots
+# Create grobs
+g1 <- ggplotGrob(base_plot)
+g2 <- ggplotGrob(top_plot)
+g3 <- ggplotGrob(blue_plot)
 
-legend(x = 42, y = 28, legend = c(1, 2, 3), col = mycols, pch = 16, fill = "white",
-       border = "white", title = "Phase", bg = "white", box.col = "white", xjust = 0.5,
-       pt.cex = 2, cex = 2)
+# Get the locations of the plot panels in g1.
+pp <- c(subset(g1$layout, name == "panel", se = t:r))
 
-dev.off()
+# Overlap panel for second plot on that of the first plot
+gall <- gtable_add_grob(g1, list(g2$grobs[[which(g2$layout$name == "panel")]], 
+                                 g3$grobs[[which(g3$layout$name == "panel")]]), 
+                        t = pp$t, l = pp$l, b = pp$b, r = pp$l,
+                        name = 1:2)
+plot(gall)
+
+ggsave("manuscript/PeerJ/figures/Figure-3-blue-sims.png", gall, 
+       device = png(width = 600, height = 400))
