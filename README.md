@@ -8,7 +8,7 @@ To cite the paper:
 > Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper. ???. Reconstructing the last known movements of one of Nature's giants. ?????.
 
 To cite this repo: 
-> Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: published version. Zenodo. 
+> Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: published version. Zenodo. DOI: 10.5281/zenodo.2566040
 
 [![DOI](https://zenodo.org/badge/86584215.svg)](https://zenodo.org/badge/latestdoi/86584215)
 
