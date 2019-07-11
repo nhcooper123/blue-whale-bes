@@ -48,7 +48,7 @@ periodogramText <- function(p, k){
 # phase 3 = 18 - 1cm
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-png(filename = "manuscript/revision/figures/Figure-S1-periodograms.png", 
+png(filename = "manuscript/PeerJ/figures/Figure-S1-periodograms.png", 
     width = 1000, height = 600)
 
 par(mfrow = c(2, 2))
@@ -77,7 +77,7 @@ dev.off()
 n <- nrow(KC7)
 
 # save to file
-png(filename = "manuscript/revision/figures/Figure-S2-cross-cor.png", 
+png(filename = "manuscript/PeerJ/figures/Figure-S2-cross-cor.png", 
     width = 1000, height = 600)
 
 par(mfrow = c(1, 3))

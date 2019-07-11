@@ -8,7 +8,7 @@ To cite the paper:
 > Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper. ???. Reconstructing the last known movements of one of Nature's giants. ?????.
 
 To cite this repo: 
-> Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: v1.0. Zenodo. http://doi/10.5281/zenodo.2542777.
+> Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: published version. Zenodo. DOI: 10.5281/zenodo.2566040
 
 [![DOI](https://zenodo.org/badge/86584215.svg)](https://zenodo.org/badge/latestdoi/86584215)
 
@@ -28,14 +28,6 @@ If you use the data please cite as follows:
 * `Atl.Res.TL.csv`, `Canaries.Res.TL.csv`, `CV.Res.TL.csv`, `Ireland.Res.TL.csv`, and `Norway.Res.TL.csv` are model simulation outputs for different residency models, required for Figure S4.
 * `all.r2.csv` is the r2 values from the models compared to the real data required for Figure S6.
 * `max.lat.csv` and `sd.lat.csv` are the extracted maximum latitudes and their standard deviations from the top 10% and of models, required for Figure S7.
-
-We also include for the Pacific blue whale analyses: 
-
-* `pacific-blue-whale-isotope-data.csv` which contains d13C and d15N stable isotope values taken from Pacific blue whales and reported in Busquets-Vass et al. 2017
-
-To use this data please cite the original paper:
-
-> Busquets-Vass, G., Newsome, S.D., Calambokidis, J., Serra-Valente, G., Jacobsen, J.K., Aguiniga-Garcıa, S., and Gendron, D. (2017). Estimating blue whale skin isotopic incorporation rates and baleen growth rates: Implications for assessing diet and movement patterns in mysticetes. PLoS ONE 12, e0177880.
 
 Note that due to size limitations, the input data for the movement models (bathymetry data and outputs from NEMO MEDUSA models providing d13C, plankton biomass, and sea surface temperature values), and the model simulation outputs themselves are only available from the [NHM Data Portal](https://doi.org/10.5519/0093278).
 

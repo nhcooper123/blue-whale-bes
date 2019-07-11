@@ -76,11 +76,10 @@ The stable isotope composition of animal tissues reflects the isotopic compositi
 A large literature describes the use of stable isotope markers to link the composition of a tissue to a geographic source at a single point in time \citep{hobson2008tracking}. 
 Relating the isotopic compositions of marine animal tissues to the likely location of tissue growth is complicated by a lack of knowledge of spatial variations in the isotopic composition of diet (the isotopic baseline) \citep{west2006stable,mcmahon2015millennial}. 
 This uncertainty is compounded when multiple samples are taken through time in the same individual, as temporal variation in the isotopic baseline must also be considered explicitly. 
-Consequently, relatively little attention has been given to the potential to infer individual movement histories by reconstructing time series of multiple discrete origins from sequentially sampled incrementally-grown tissues 
-% [trueman st john glew, Tokyo eel, darnaude, brennan?].
+Consequently, relatively little attention has been given to the potential to infer individual movement histories by reconstructing time series of multiple discrete origins from sequentially sampled incrementally-grown tissues \citep{trueman2019, sakomoto2018, darnoude2014}.
 
 Recently, mechanistic models have been developed providing relatively accurate predictions of isotopic variability at high temporal and spatial resolution. 
-These models can be coupled to Lagrangian or agent-based models of animal movement to predict isotopic compositions or trajectories expected to be recorded in animal tissues under differing movement scenarios. 
+These models can be coupled to Lagrangian or agent-based models of animal movement to predict isotopic compositions or trajectories expected to be recorded in animal tissues under differing movement scenarios \citep{carpenter2019}. 
 Here we illustrate the potential of this conceptual approach by assessing the relative likelihood of differing, plausible hypotheses of movement behavior for a single individual blue whale based on carbon isotope compositions sampled across a baleen plate.  
 We draw on newly developed models predicting spatio-temporal variation in phytoplankton stable carbon isotope composition at global and monthly resolution \citep{magozzi2017using} (Figure S3), coupled to an agent-based model of whale movements (see Table S1; Figure S5). 
 We specifically ask whether the isotopic profile observed in baleen can be simulated using agent based movement models informed by current understanding of animal movements and isotopic variability.
@@ -153,9 +152,7 @@ Thus temporal variations in \(\delta^{13}\)C POM values are superimposed on lati
 The scale and nature of temporal variation in \(\delta^{13}\)C POM values also varies with latitude, with higher latitude seas showing greater intra-annual variation in \(\delta^{13}\)C POM values linked to strongly seasonal phytoplankton growth dynamics.
 The model simulations used are forced with decadal climatological data from 2000-2010 \citep{magozzi2017using}. 
 
-The isotopic composition of phytoplankton is influenced by the release of fossil carbon with low \(\delta^{13}\)C values into the atmosphere (Suess effect) and the effect of increased concentrations of dissolved CO2 on isotopic fractionation during phytoplankton growth 
-%(Young et al 2013)
-, potentially complicating the application of a model trained on recent data to historic samples. 
+The isotopic composition of phytoplankton is influenced by the release of fossil carbon with low \(\delta^{13}\)C values into the atmosphere (Suess effect) and the effect of increased concentrations of dissolved CO2 on isotopic fractionation during phytoplankton growth \citep{young2013}, potentially complicating the application of a model trained on recent data to historic samples. 
 Ocean basin scale spatio-temporal differences in \(\delta^{13}\)C values largely reflect relative differences in sea surface temperatures between trophic, temperate and arctic waters and over seasons, and we assume that any regional variation in isotopic effects due to CO\textsubscript{2}-influenced changes in phytoplankton composition and growth rate are minor compared to latitudinal and seasonal variations in \(\delta^{13}\)C POM values. 
 We do not draw inferences about location from absolute \(\delta^{13}\)C values and thus the reduction in oceanic \(\delta^{13}\)C POM values does not directly influence inferences about location or movement.  
 We are therefore confident that the \cite{magozzi2017using} model can be applied to interpret historic baleen isotope data at least at ocean-basin scale spatial resolution.
@@ -172,8 +169,7 @@ We assume that carbon available for synthesis of keratin is drawn from carbon re
 \subsection{Agent-based whale movement model}
 \label{agent-based-whale-movement-model}
 
-We simulated the likely isotopic expression associated with different movement behaviours by building an agent-based movement model within the R coding environment, where movement behavior is influenced by sea surface temperature and phytoplankton biomass estimates provided by NEMO-MEDUSA \citep{yool2013medusa}, and bathymetry from the General Bathymetric Chart of the Oceans (GEBCO) \citep{bathy}, extracted via the marmap package in R \citep{marmap} (Figure S5).
-% check figure S5
+We simulated the likely isotopic expression associated with different movement behaviours by building an agent-based movement model within the R coding environment, where movement behavior is influenced by sea surface temperature and phytoplankton biomass estimates provided by NEMO-MEDUSA \citep{yool2013medusa}, and bathymetry from the General Bathymetric Chart of the Oceans (GEBCO) \citep{bathy}, extracted via the marmap package in R \citep{marmap} (Figure S5; Table S1).
 
 We simulated whale movements with the likelihood, direction, and extent of movement influenced by behavioral state, sea surface temperature, water depth, and phytoplankton concentration (as a proxy for zooplankton food availability).
 Movement was coded as a set of probabilistic rules, informed by the literature on blue whale behavior (e.g. \citep{handbook}).

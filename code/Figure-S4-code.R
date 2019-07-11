@@ -80,6 +80,6 @@ sim_facet <-
           strip.text = element_text(size = NULL)) +
     facet_wrap(~Region, ncol = 2)
 
-ggsave("manuscript/revision/figures/Figure-S4-regions-d13C.png", sim_facet, 
+ggsave("manuscript/PeerJ/figures/Figure-S4-regions-d13C.png", sim_facet, 
        device = png(width = 600, height = 400))
 
