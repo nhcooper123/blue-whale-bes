@@ -85,25 +85,10 @@ and Natalie Cooper}
   \label{tables1}
 \end{table}
 
+
 \newpage
+\begin{landscape}
 % figure s1
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width = \linewidth]{figures/Figure-S1-periodograms.png}
-  \caption{Fourier analysis of $\delta^{15}$N (A, B) and $\delta^{13}$C (C, D) values of the full (A, C) and behavioural phase two only (B, D) components of the baleen plate. Inset values are the highest frequency spectral densities (in cm), excluding the values at the edge of the baleen (i.e. 80cm), and at the sharp increase of $\delta^{13}$C seen at 60cm. Periodic fluctuation with a distance of 13.5cm along the baleen plate is consistently recovered, but is weaker or absent in behavioural phase two.} 
-  \label{figs1}
-\end{figure}
- 
-% figure s2
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width = \linewidth]{figures/Figure-S2-cross-cor.png}
-  \caption{Cross correlation between $\delta^{13}$C and $\delta^{15}$N values for the three behavioural phases, showing limited covariation in behavioural phases one and three, but strong negative covariance in behavioural phase two with a periodicity of around 13cm.
-  }
-  \label{figs2}
-\end{figure}
- 
-% figure s3
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
@@ -116,19 +101,20 @@ and Natalie Cooper}
         \includegraphics[width=\linewidth]{figures/Figure-S3-plankton-d15N-map.png} 
     \end{subfigure}
     \caption{Spatial model (isoscape) of model-simulated biomass, using weighted annual average $\delta^{13}$C (left) and $\delta^{15}$N (right) values from particulate organic matter (POM). $\delta^{13}$C values are from \cite{magozzi2017using} and $\delta^{15}$N from \cite{schmittner2016complementary} and C.J. Somes (\textit{pers. comm.}).} 
-    \label{figs3}
+    \label{figs1}
+\end{figure}
+\end{landscape}
+\newpage
+
+% figure s2
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-S1-periodograms.png}
+  \caption{Fourier analysis of $\delta^{15}$N (A, B) and $\delta^{13}$C (C, D) values of the full (A, C) and behavioural phase two only (B, D) components of the baleen plate. Inset values are the highest frequency spectral densities (in cm), excluding the values at the edge of the baleen (i.e. 80cm), and at the sharp increase of $\delta^{13}$C seen at 60cm. Periodic fluctuation with a distance of 13.5cm along the baleen plate is consistently recovered, but is weaker or absent in behavioural phase two.} 
+  \label{figs2}
 \end{figure}
 
-% figure s4 
-  \begin{figure}[!htbp]
-    \centering
-      \includegraphics[width=\linewidth]{figures/Figure-S4-regions-d13C.png}
-      \caption{$\delta^{13}$C values expected in baleen plates for whales simulated with resident foraging models (i.e. restricting movements to broad regions) for west UK/Irish shelf (West Ireland), Norwegian/Barents Sea (Norwegian Sea), Canaries/west Azores (Canaries), Mid-Atlantic ridge (Mid-Atlantic), and the Cape Verde/Mauritanian upwelling area (Cape Verde/Mauritania), over a simulated two year period with daily resolution and 30 replicate simulations for each region. 
-      Simulated $\delta^{13}$C values are six month moving average values for the time series of simulated plankton $\delta^{13}$C values in that location.}
-      \label{figs4}
-  \end{figure}
-
-% figure s5   
+% figure s3   
 \newpage
 
 \begin{landscape}
@@ -142,10 +128,32 @@ and Natalie Cooper}
   \caption{
   Schematic structure of the agent-based model used to generate hypothetical movement tracks. 
   At the start of each simulation, max and min sea surface temperature (SST) and food availability thresholds are fixed for all individuals. Behavioural states are defined \textit{a priori} based on day of the year. Maximum movement distances under each behavioural state are defined for each individual based on a random sample from a Gaussian distribution. The model runs with a daily time step. Current location and day of simulation is noted, and the behavioural state defined. Environmental conditions (SST, food availability and depth) are sensed in the current and eight adjacent 1$^{\circ}$ grid cells. The probability of movement is sampled from a binomial distribution defined according to behavioural state and environmental conditions in the current location. The direction of movement is sampled based on discrete probabilities associated to each of the eight adjacent 1$^{\circ}$ cells, defined according to behavioural state and environmental conditions. Finally the distance moved is sampled from a Poisson distribution conditional on the maximum distance defined for each individual. The new location is then assigned from a linear vector originating at the current location with magnitude defined as the distance moved and direction as 45$^{\circ}$ increments reflecting the relative orientation of each of the eight potential adjacent cells.}
-  \label{figs5}
+  \label{figs3}
 \end{figure}
 
 \end{landscape}
+
+
+% figure s4 
+  \begin{figure}[!htbp]
+    \centering
+      \includegraphics[width=\linewidth]{figures/Figure-S4-regions-d13C.png}
+      \caption{$\delta^{13}$C values expected in baleen plates for whales simulated with resident foraging models (i.e. restricting movements to broad regions) for west UK/Irish shelf (West Ireland), Norwegian/Barents Sea (Norwegian Sea), Canaries/west Azores (Canaries), Mid-Atlantic ridge (Mid-Atlantic), and the Cape Verde/Mauritanian upwelling area (Cape Verde/Mauritania), over a simulated two year period with daily resolution and 30 replicate simulations for each region. 
+      Simulated $\delta^{13}$C values are six month moving average values for the time series of simulated plankton $\delta^{13}$C values in that location.}
+      \label{figs4}
+  \end{figure}
+
+\newpage
+
+% figure s5
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width = \linewidth]{figures/Figure-S2-cross-cor.png}
+  \caption{Cross correlation between $\delta^{13}$C and $\delta^{15}$N values for the three behavioural phases, showing limited covariation in behavioural phases one and three, but strong negative covariance in behavioural phase two with a periodicity of around 13cm.
+  }
+  \label{figs5}
+\end{figure}
+
 
 \newpage
 
@@ -157,6 +165,8 @@ and Natalie Cooper}
       \label{figs6}
   \end{figure}
 
+  \newpage
+
 % figure s7
     \begin{figure}[!htbp]
     \centering
@@ -164,6 +174,8 @@ and Natalie Cooper}
       \caption{Boxplots showing the maximum and standard devation of latitudinal positions of simulated whales taken from the top 10\%, and bottom 10\%, of movement model simulations.} 
       \label{figs7}
   \end{figure}
+
+\newpage
 
 % figure s8
 \begin{landscape}
