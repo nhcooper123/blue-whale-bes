@@ -56,11 +56,11 @@ par(mfrow = c(1, 3))
 p1 <- periodogram(KC7$d15N, main = "A - Full d15N")
 periodogramText(p1, k = 2)
 
-p2 <- periodogram(KC7$d15N[18:70], main = "B - Phase 2 d15N")
-periodogramText(p2, k = 1)
-
-p3 <- periodogram(KC7$d15N[70:n], main = "B - Phase 3 d15N")
+p3 <- periodogram(KC7$d15N[1:17], main = "B - Phase 1 d15N")
 periodogramText(p3, k = 1)
+
+p2 <- periodogram(KC7$d15N[18:70], main = "C - Phase 2 d15N")
+periodogramText(p2, k = 1)
 
 dev.off()
 
