@@ -51,15 +51,12 @@ periodogramText <- function(p, k){
 png(filename = "manuscript/PeerJ/figures/Figure-S1-periodograms.png", 
     width = 1000, height = 600)
 
-par(mfrow = c(1, 3))
+par(mfrow = c(1, 2))
 
-p1 <- periodogram(KC7$d15N, main = "A - Full d15N")
+p1 <- periodogram(KC7$d15N, main = "Full profile")
 periodogramText(p1, k = 2)
 
-p3 <- periodogram(KC7$d15N[1:17], main = "B - Phase 1 d15N")
-periodogramText(p3, k = 1)
-
-p2 <- periodogram(KC7$d15N[18:70], main = "C - Phase 2 d15N")
+p2 <- periodogram(KC7$d15N[18:70], main = "Phase 2 only")
 periodogramText(p2, k = 1)
 
 dev.off()
