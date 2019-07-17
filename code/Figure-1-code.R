@@ -6,6 +6,7 @@
 # Load libraries
 library(tidyverse)
 library(lubridate)
+library(ggrepel)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Figure 1 - raw whale isotope data with two y-axes
@@ -64,6 +65,19 @@ isop <- isop +
 
 isop <- isop + geom_vline(xintercept = rev(year_breaks),
                           color = "grey", lty = 2)
+
+# Add lines for phases
+isop <-
+isop +
+  annotate("rect", xmin = 0, xmax = 30, ymin = -16.8, ymax = -16.6,
+         alpha = 0.2) +
+  annotate("text", x = 15, y = -16.7, label = "phase 1") +
+  annotate("rect", xmin = 30, xmax = 83, ymin = -16.7, ymax = -16.5,
+           alpha = 0.2) +
+  annotate("text", x = 54, y = -16.6, label = "phase 2")  +
+annotate("rect", xmin = 83, xmax = 100, ymin = -16.8, ymax = -16.6,
+         alpha = 0.2) +
+  annotate("text", x = 91.5, y = -16.7, label = "phase 3")  
 
 print(isop)
 
