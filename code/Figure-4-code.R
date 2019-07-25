@@ -18,7 +18,7 @@ mycols <- c(viridis_pal()(10)[1], viridis_pal()(10)[5], viridis_pal()(10)[9])
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Points plot with phases coloured
-png("manuscript/PeerJ/figures/Figure-4-monthly.png", width = 900, height = 900)
+png("manuscript/PeerJ/figures/Figure4.png", width = 1000, height = 1000)
 
 # Make 12 plots
 par(mfrow = c(3, 4))
@@ -29,7 +29,7 @@ for (Mn in 1:12) {
   
   # Make background of plots
   plot(x = NA, y = NA, xlim = c(-80, 50), ylim = c(0, 80), 
-       xlab = "", ylab = "", axes = FALSE, main = month.abb[Mn], cex.main = 2)
+       xlab = "", ylab = "", axes = FALSE, main = paste0(LETTERS[Mn], ". ", month.abb[Mn]), cex.main = 2)
   rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
        col = "grey90")
   
