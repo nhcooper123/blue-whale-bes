@@ -5,7 +5,7 @@ Author(s): [Clive N. Trueman](mailto:trueman@noc.soton.ac.uk), [Andrew L. Jackso
 This repository contains all the code and data used in the [link to paper will appear here](). This paper came from a BES small project grant (5771/6815) and focuses on *the* blue whale ("Hope") now adorning Hintze Hall at the Natural History Museum, London.
 
 To cite the paper: 
-> Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper. ???. Reconstructing the last known movements of one of Nature's giants. ?????.
+> Clive N Trueman, Andrew L Jackson, Katharyn S Chadwick, Ellen J Coombs, Sarah Magozzi, Richard C Sabin and Natalie Cooper. 2019. Reconstructing the last known movements of one of Nature's giants. in press. PeerJ.
 
 To cite this repo: 
 > Clive N. Trueman, Andrew L Jackson and Natalie Cooper. 2019. GitHub: nhcooper123/blue-whale-bes: published version. Zenodo. DOI: 10.5281/zenodo.2566040
